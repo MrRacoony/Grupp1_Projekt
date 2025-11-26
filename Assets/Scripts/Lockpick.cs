@@ -3,7 +3,6 @@ using UnityEngine;
 public class Lockpick : MonoBehaviour
 {
 
-    [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform verticalCast;
 
     private Rigidbody2D rgbd;
@@ -31,18 +30,16 @@ public class Lockpick : MonoBehaviour
             CheckLock();
         }
         
-        CheckLock();
-        
     }
 
     private void CheckLock() {
         RaycastHit2D upHit = Physics2D.Raycast(verticalCast.position, Vector2.up, verticalRay);
 
-        Vector2 origin = transform.position;
-        Debug.DrawRay(origin, Vector2.right * 10f, Color.red);
+        Vector2 origin = verticalCast.position;
+        Debug.DrawRay(origin, Vector2.up * verticalRay, Color.red);
 
         if(upHit.collider != null && upHit.collider.CompareTag("Lock")) {
-            Debug.Log("Hit");
+            
         }
     }
 
