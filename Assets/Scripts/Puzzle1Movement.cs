@@ -4,7 +4,11 @@ using UnityEngine.EventSystems;
 public class Puzzle1Movement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [SerializeField] private GameObject lockMechanism;
+
     private Rigidbody2D rb;
+    
     public float speed = 1.0f;
     void Start()
     {
@@ -52,4 +56,9 @@ public class Puzzle1Movement : MonoBehaviour
 
         rb.linearVelocity *= speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        lockMechanism.GetComponent<Vaultlock>().NextLock();
+    }
+
 }
