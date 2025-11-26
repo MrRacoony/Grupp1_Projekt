@@ -13,4 +13,8 @@ public class SceneLoadScript : MonoBehaviour
     {
         
     }
+    public void LoadScene(string scene)
+    {
+        LoadScene(scene);
+    }
 }
