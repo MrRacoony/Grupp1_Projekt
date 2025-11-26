@@ -17,9 +17,14 @@ public class MonsterScript : MonoBehaviour
         attackTrigger -= Time.deltaTime;
         if (attackTrigger <= 0)
         {
-            Debug.Log("Monster Spawned");
-            attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
+            MonsterAttack();
         }
 
+    }
+
+    void MonsterAttack()
+    {
+        Debug.Log("Monster Spawned");
+        attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
     }
 }
