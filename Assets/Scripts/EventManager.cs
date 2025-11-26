@@ -6,16 +6,26 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
+<<<<<<< Updated upstream
     [Tooltip("The colliding object that we want to trigger these events with needs to use a tag of the same name as typed in this variable")]
+=======
+    [Tooltip("Variable that defines the tag that the trigger2D Collides with")]
+>>>>>>> Stashed changes
     public string tagToActivate = "Player";
 
     public UnityEvent onTriggerEnter, onTriggerExit;
 
     private void Awake()
     {
+<<<<<<< Updated upstream
         if ((GetComponent<Collider>() == null) && (GetComponent<Collider2D>() == null))
         {
             Debug.Log($"{gameObject} is missing a collider");
+=======
+        if (GetComponent<Collider2D>() == null)
+        {
+            Debug.Log($"{gameObject} is missing a Collider2D");
+>>>>>>> Stashed changes
         }
 
     }
@@ -25,7 +35,10 @@ public class EventManager : MonoBehaviour
         if (other.CompareTag(tagToActivate))
         {
             onTriggerEnter.Invoke();
+<<<<<<< Updated upstream
             Debug.Log("Unity Event Trigger (enter) activated on " + gameObject);
+=======
+>>>>>>> Stashed changes
         }
     }
 
@@ -34,6 +47,7 @@ public class EventManager : MonoBehaviour
         if (other.CompareTag(tagToActivate))
         {
             onTriggerExit.Invoke();
+<<<<<<< Updated upstream
             Debug.Log("Unity Event Trigger (exit) activated on " + gameObject);
         }
     }
@@ -53,6 +67,8 @@ public class EventManager : MonoBehaviour
         {
             onTriggerExit.Invoke();
             Debug.Log("Unity Event Trigger (exit) activated on " + gameObject);
+=======
+>>>>>>> Stashed changes
         }
     }
 }
