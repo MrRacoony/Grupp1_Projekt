@@ -4,6 +4,7 @@ public class SafeDialRotator : MonoBehaviour
 {
 
     [SerializeField] private Transform tilemapTransform;
+    [SerializeField] private Rigidbody2D keyRgbd;
 
     public float degreesPerSec = 90f;
     private float rotAmount, curRot;
@@ -26,10 +27,13 @@ public class SafeDialRotator : MonoBehaviour
     {
         transform.localRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, rotAmount)), Time.deltaTime * 5);
         tilemapTransform.localRotation = Quaternion.Slerp(tilemapTransform.rotation, Quaternion.Euler(new Vector3(0, 0, rotAmount)), Time.deltaTime * 5);
-    }
+    }   
 
     public void Rotate(float degrees) {
-        float rotateTo = Mathf.RoundToInt(transform.localRotation.eulerAngles.z/90) * 90;
-        rotAmount = rotateTo + degrees;
+        if(keyRgbd.linearVelocity == Vector2.zero) {
+            float rotateTo = Mathf.RoundToInt(transform.localRotation.eulerAngles.z/90) * 90;
+            rotAmount = rotateTo + degrees;
+        }
+        
     }
 }

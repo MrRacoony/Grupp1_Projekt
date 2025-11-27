@@ -6,22 +6,21 @@ public class Puzzle1Movement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private GameObject lockMechanism;
+    [SerializeField] private Transform tilemapTransform;
 
     private Rigidbody2D rb;
     
     public float speed = 1.0f;
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();   
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!keepMoving())
-        {
-            MoveDir();
-        }
+        
+        MoveDir();
         
     }
     protected bool keepMoving()
@@ -35,26 +34,13 @@ public class Puzzle1Movement : MonoBehaviour
 
     protected void MoveDir()
     {
-
-        //temporary movement
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.linearVelocity = new Vector2(0,1);
+        if (Mathf.RoundToInt(tilemapTransform.localRotation.eulerAngles.z/90) * 90 == Mathf.RoundToInt(tilemapTransform.localRotation.eulerAngles.z)) {
+            rb.gravityScale = 1;
         }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            rb.linearVelocity = new Vector2(-1, 0);
+        else {
+            rb.gravityScale = 0;
         }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rb.linearVelocity = new Vector2(0, -1);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rb.linearVelocity = new Vector2(1, 0);
-        }
-
-        rb.linearVelocity *= speed;
+    
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
