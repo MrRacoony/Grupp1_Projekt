@@ -13,6 +13,8 @@ public static class AudioManager
         GameObject soundGO = new GameObject("Sound");
         AudioSource audioSource = soundGO.AddComponent<AudioSource>(); 
         audioSource.PlayOneShot(GetAudioClip(sound));
+
+        // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
     }
 
     private static AudioClip GetAudioClip(Sound sound)
