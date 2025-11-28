@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-    [SerializeField] private int order;
-    [SerializeField] private bool locked;
 
-
+    public bool isUnlocked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        locked = true;
+        isUnlocked = false;
     }
 
     // Update is called once per frame
@@ -19,4 +17,9 @@ public class Lock : MonoBehaviour
     {
         
     }
+
+    public void SetUnlocked(bool input) {
+        isUnlocked = input;
+    }
+
 }

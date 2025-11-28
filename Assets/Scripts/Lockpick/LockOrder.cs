@@ -7,14 +7,14 @@ using UnityEngine;
 public class LockOrder : MonoBehaviour
 {
     [SerializeField] private List<GameObject> unusedLocks;
-    [SerializeField] private List<GameObject> lockOrder;
+    [SerializeField] public List<GameObject> lockOrder;
     System.Random rnd = new System.Random();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         for (int i = 0; i < this.transform.childCount; i++)
         {
-         unusedLocks.Add(this.transform.GetChild(i).gameObject);
+            unusedLocks.Add(this.transform.GetChild(i).gameObject);
         }
         
         for (int i = 0; i < unusedLocks.Count; i++)
@@ -35,4 +35,12 @@ public class LockOrder : MonoBehaviour
     {
         
     }
+
+    public void SetLocked() {
+        for(int i=0; i<lockOrder.Count; i++) {
+            lockOrder[i].transform.position = new Vector2(lockOrder[i].transform.position.x, 0.5f);
+            lockOrder[i].GetComponent<Lock>().SetUnlocked(false);
+        }
+    }
+
 }
