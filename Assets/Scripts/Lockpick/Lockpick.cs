@@ -28,7 +28,7 @@ public class Lockpick : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseXPos, mousePos.y, Camera.main.nearClipPlane));
 
         Vector2 origin = verticalCast.position;
-        Debug.DrawRay(origin, Vector2.up * verticalRay, Color.red);
+        //Debug.DrawRay(origin, Vector2.up * verticalRay, Color.red);
 
         transform.position = new Vector2(worldPos.x, transform.position.y);
 
