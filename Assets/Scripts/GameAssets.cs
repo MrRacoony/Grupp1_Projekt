@@ -7,17 +7,21 @@ public class GameAssets : MonoBehaviour
     {
         get 
         {
-            if (_instance == null) _instance = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
+            if (_instance == null)
+            {
+                GameObject prefab = Resources.Load<GameObject>("Prefabs/GameAssets");
+                _instance = Instantiate(prefab).GetComponent<GameAssets>();
+            }
             return _instance;
         }
     }
 
-    public SoundAudioClip[] soundsArray;
+    public SoundAudioClip[] soundAudioClipArray;
 
     [System.Serializable]
     public class SoundAudioClip
     {
-        public AudioManager.Sound sound;
+        public SoundManager.Sound sound;
         public AudioClip audioClip;
         public bool looping;
     }
