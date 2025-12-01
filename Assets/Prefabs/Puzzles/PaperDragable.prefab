@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2889703329323763131}
   - component: {fileID: 3880627110004714582}
   m_Layer: 0
-  m_Name: Square
+  m_Name: PaperDragable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
