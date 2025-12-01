@@ -7,6 +7,8 @@ public static class MinigameController
 
     public static void OpenMinigame(string minigame)
     {
+        Scene scene = SceneManager.GetSceneByName(minigame);
+
         var mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         var miniCam = GameObject.Find("Minigame Camera").GetComponent<Camera>();
 
@@ -14,13 +16,28 @@ public static class MinigameController
         miniCam.enabled = true;
 
         CameraService.SetActiveCamera(miniCam);
+        if (scene.isLoaded)
+        {
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                root.SetActive(true);
+            }
 
-        SceneManager.LoadScene(minigame, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadScene(minigame, LoadSceneMode.Additive);
+        }
+        
     }
 
     public static void CloseMinigame(string minigame)
     {
-        SceneManager.UnloadSceneAsync(minigame);
+        Scene scene = SceneManager.GetSceneByName(minigame);
+        foreach (GameObject root in scene.GetRootGameObjects())
+        {
+            root.SetActive(false); // hide everything
+        }
 
         var mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         var miniCam = GameObject.Find("Minigame Camera").GetComponent<Camera>();
@@ -30,5 +47,6 @@ public static class MinigameController
 
         CameraService.SetActiveCamera(mainCam);
     }
+
 
 }
