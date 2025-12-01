@@ -1,51 +1,33 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class Interactable : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private GameObject uiChild;
     private SpriteRenderer render;
+    private GameObject parentObject;
+    public string sceneName;
 
 
     void Start()
     {
         render = GetComponent<SpriteRenderer>();
-        if (transform.childCount == 1)
-        {
-            uiChild = transform.GetChild(0).gameObject;
-        }
-        else
-        {
-            Debug.LogError(this + " is required to have 1 children, you have " + transform.childCount);
-        }
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (Input.GetMouseButtonDown(0))
+        GameObject minigameCamera = GameObject.Find("Minigame Camera");
+        if (minigameCamera != null && minigameCamera.activeInHierarchy)
         {
-            RaycastHit raycastHit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 100f))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (raycastHit.transform != null)
-                {
-                    if (raycastHit.transform == this.transform)
-                    {
-                        //OpenChildren
-                    }
-                    //Our custom method. 
-                    //CurrentClickedGameObject(raycastHit.transform.gameObject);
-                }
+                MinigameController.CloseMinigame(sceneName);
             }
-            
+
         }
 
     }
@@ -56,9 +38,8 @@ public class Interactable : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        MinigameController.OpenMinigame(sceneName);
         render.color = new Color(255, 255, 255);
-        render.enabled = false;
-        uiChild.SetActive(true);
     }
     private void OnMouseExit()
     {
