@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        render = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -34,15 +34,15 @@ public class Interactable : MonoBehaviour
 
     private void OnMouseOver()
     {
-        render.color = new Color(0, 255, 255);
+        transform.localScale = Vector3.one * 1.1f;
     }
     private void OnMouseDown()
     {
         MinigameController.OpenMinigame(sceneName);
-        render.color = new Color(255, 255, 255);
+        transform.localScale = Vector3.one;
     }
     private void OnMouseExit()
     {
-        render.color = new Color(255, 255, 255);
+        transform.localScale = Vector3.one;
     }
 }
