@@ -6,8 +6,6 @@ public static class SoundManager
     public enum Sound
     {
         MenuTheme,
-        Baba,
-
     }
     public static void PlaySound(Sound sound)
     {
