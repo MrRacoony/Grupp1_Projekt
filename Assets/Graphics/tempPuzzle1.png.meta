@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76b6cc813eae11d4db9b8570402804fb
+guid: 542702a74b63731478f87737d60ef74b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8336446409916160499
-    second: tempPuzzle1_0
+      213: -2510476293373519475
+    second: New Piskel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tempPuzzle1_0
+      name: TempPuzzle1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -108,21 +108,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d06edd7982efe4c80800000000000000
-      internalID: -8336446409916160499
+      spriteID: 5da107065ebdd6141b1aaa0d4ab76cb0
+      internalID: 730834357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempPuzzle1_1
+      name: TempPuzzle1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -130,21 +130,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa3fa4b97ac939744873ecad44467491
-      internalID: -1826000908
+      spriteID: 2d3e60e9b9b39344da629502efda4c44
+      internalID: 91423214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempPuzzle1_2
+      name: TempPuzzle1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -152,15 +152,37 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6a1cf1d5c57f374e8ba1c4c3a662772
-      internalID: -1094591457
+      spriteID: 624c9224ed268ba4b8d831d785c00367
+      internalID: 75937895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempPuzzle1_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7511c341f601047428941837c6c1ff38
+      internalID: -1582945838
       vertices: []
       indices: 
       edges: []
@@ -169,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6ba4671a14021c049ba5fd00fe83959c
+    spriteID: 2d7035788ef535444a8b95625ec0d9a8
     internalID: 0
     vertices: []
     indices: 
@@ -179,9 +201,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tempPuzzle1_0: -8336446409916160499
-      tempPuzzle1_1: -1826000908
-      tempPuzzle1_2: -1094591457
+      TempPuzzle1_0: 730834357
+      TempPuzzle1_1: 91423214
+      TempPuzzle1_2: 75937895
+      TempPuzzle1_3: -1582945838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
