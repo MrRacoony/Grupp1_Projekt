@@ -7,11 +7,14 @@ using UnityEngine;
 public class Padlock : MonoBehaviour
 {
 
-    private List<GameObject> padlocks;
+    [SerializeField] private List<GameObject> padlocks;
+
+    private bool isUnlocked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isUnlocked = false;
         for (int i = 0; i < this.transform.childCount; i++)
         {
             padlocks.Add(this.transform.GetChild(i).gameObject);
@@ -22,12 +25,13 @@ public class Padlock : MonoBehaviour
     void Update()
     {
         if(padlocks[0].GetComponent<PadlockNumber>().GetIsCorrect() && padlocks[1].GetComponent<PadlockNumber>().GetIsCorrect()
-        && padlocks[2].GetComponent<PadlockNumber>().GetIsCorrect()) {
+        && padlocks[2].GetComponent<PadlockNumber>().GetIsCorrect() && isUnlocked == false) {
             Unlock();
         }
     }
     
     private void Unlock() {
+        isUnlocked = true;
         Debug.Log("Unlocked");
     }
 }
