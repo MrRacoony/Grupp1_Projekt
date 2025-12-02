@@ -9,20 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Bedroom.unity
+    path: Assets/Scenes/Bedroom/Bedroom.unity
     guid: 4924247e3e9f63543a57aea9fae5fd52
   - enabled: 1
-    path: Assets/Scenes/PuzzleTesting/LockpickTest.unity
-    guid: 29bae78ca6b6c224baee6f017cedef88
-  - enabled: 1
-    path: Assets/Scenes/PuzzleTesting/PadlockChest.unity
+    path: Assets/Scenes/Bedroom/PadlockChest.unity
     guid: 0c3d9b96c8f84704e86ab85879aaf307
   - enabled: 1
-    path: Assets/Scenes/PuzzleTesting/PaperMinigame.unity
+    path: Assets/Scenes/Bedroom/PaperMinigame.unity
     guid: 838e11c1446f4d947b2d4504abdae3d2
+  - enabled: 1
+    path: Assets/Scenes/Bedroom/BedHiding.unity
+    guid: f281b2c76e2704340811f385eb324a67
   - enabled: 1
     path: Assets/Scenes/PuzzleTesting/VaultcrackingTest.unity
     guid: 8835ef1c08c20f24a9d2adddd81dc224
+  - enabled: 1
+    path: Assets/Scenes/PuzzleTesting/LockpickTest.unity
+    guid: 29bae78ca6b6c224baee6f017cedef88
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
