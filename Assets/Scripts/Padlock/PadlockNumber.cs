@@ -9,9 +9,13 @@ public class PadlockNumber : MonoBehaviour
     
     private bool isCorrect;
 
+    private Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         currentNum = 0;
         if(currentNum == correctNum) {
             isCorrect = true;
@@ -26,6 +30,7 @@ public class PadlockNumber : MonoBehaviour
     }
 
     public void SetNum(int num) {
+        SoundManager.PlaySound(SoundManager.Sound.PadlockInteract); 
         currentNum += num;
         if(currentNum == 10) {
             currentNum = 0;
@@ -33,6 +38,9 @@ public class PadlockNumber : MonoBehaviour
         if(currentNum == -1) {
             currentNum = 9;
         }
+
+        anim.SetInteger("currentNum", currentNum);
+
         if(currentNum == correctNum) {
             isCorrect = true;
             Debug.Log("Unlocked padlock!");
