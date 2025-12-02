@@ -10,12 +10,11 @@ public class SceneController : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(newScene);
         if (scene.isLoaded)
         {
-            GameObject GOscene = GameObject.Find(newScene);
-            GOscene.SetActive(true);
-            //foreach (GameObject root in scene.GetRootGameObjects())
-            //{
-            //    root.SetActive(true);
-            //}
+
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                root.SetActive(true);
+            }
 
         }
         else
