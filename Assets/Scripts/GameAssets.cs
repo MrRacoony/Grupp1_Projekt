@@ -1,4 +1,6 @@
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameAssets : MonoBehaviour
 {
@@ -24,5 +26,6 @@ public class GameAssets : MonoBehaviour
         public SoundManager.Sound sound;
         public AudioClip audioClip;
         public bool looping;
+        public float pitch;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static GameAssets;
 
 public static class SoundManager
 {
@@ -14,6 +15,7 @@ public static class SoundManager
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.loop = LoopingSound(sound);
+        audioSource.pitch = pitchSound(sound);
         audioSource.PlayOneShot(GetAudioClip(sound));
 
         // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
@@ -42,9 +44,27 @@ public static class SoundManager
     {
         foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
         {
-            return audioAsset.looping;
+            if (audioAsset.sound == sound)
+            {
+                return audioAsset.looping;
+            }
+                
         }
 
         return false;
+    }
+
+    private static float pitchSound(Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            if (audioAsset.sound == sound)
+            {
+                return audioAsset.pitch;
+            }
+            
+        }
+
+        return 0;
     }
 }
