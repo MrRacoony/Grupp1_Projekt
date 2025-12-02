@@ -16,6 +16,10 @@ public static class SoundManager
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.loop = LoopingSound(sound);
         audioSource.pitch = pitchSound(sound);
+        if (!audioSource.loop)
+        {
+            soundGameObject.AddComponent<AudioRemoval>();
+        }
         audioSource.PlayOneShot(GetAudioClip(sound));
 
         // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");

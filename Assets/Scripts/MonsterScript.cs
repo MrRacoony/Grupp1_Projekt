@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class MonsterScript : MonoBehaviour
 {
+    [SerializeField] SoundManager.Sound monsterSound;
     public float maxSpawnTime = 90;
     public float minSpawnTime = 30;
+
+    public float startAttackTimer = 10;
+    private bool startAttack = false;
     [SerializeField] private float attackTrigger;
 
     private bool isHiding;
@@ -18,6 +22,11 @@ public class MonsterScript : MonoBehaviour
     void Update()
     {
         attackTrigger -= Time.deltaTime;
+        if (attackTrigger <= startAttackTimer && startAttack == false)
+        {
+            startAttack = true;
+            StartAttacking();
+        }
         if (attackTrigger <= 0)
         {
             MonsterAttack();
@@ -38,4 +47,8 @@ public class MonsterScript : MonoBehaviour
         isHiding = input;
     }
 
+    private void StartAttacking()
+    {
+        SoundManager.PlaySound(monsterSound);
+    }
 }
