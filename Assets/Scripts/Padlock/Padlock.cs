@@ -8,17 +8,12 @@ public class Padlock : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> padlocks;
-    [SerializeField] private AudioClip unlockSound;
 
     private bool isUnlocked;
-
-    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         isUnlocked = false;
         for (int i = 0; i < this.transform.childCount; i++)
         {
@@ -37,7 +32,7 @@ public class Padlock : MonoBehaviour
     
     private void Unlock() {
         isUnlocked = true;
-        audioSource.PlayOneShot(unlockSound, 2f);
+        SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
         Debug.Log("Unlocked");
     }
 }
