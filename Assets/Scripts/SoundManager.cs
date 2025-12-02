@@ -60,11 +60,15 @@ public static class SoundManager
         {
             if (audioAsset.sound == sound)
             {
-                return audioAsset.pitch;
+                if(audioAsset.pitch != 0)
+                {
+                    return audioAsset.pitch;
+                }
+                
             }
             
         }
 
-        return 0;
+        return 1;
     }
 }
