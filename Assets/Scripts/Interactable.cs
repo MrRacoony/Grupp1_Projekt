@@ -2,33 +2,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Interactable : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private SpriteRenderer render;
     private GameObject parentObject;
-    public string sceneName;
+    public string nextScene;
+    private string currentScene;
 
 
     void Start()
     {
-
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject minigameCamera = GameObject.Find("Minigame Camera");
-        if (minigameCamera != null && minigameCamera.activeInHierarchy)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                MinigameController.CloseMinigame(sceneName);
-            }
-
-        }
 
     }
 
@@ -38,8 +29,9 @@ public class Interactable : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        MinigameController.OpenMinigame(sceneName);
+        SceneController.OpenSceneAddition(nextScene);
         transform.localScale = Vector3.one;
+        SceneController.CloseSceneTemporary(currentScene);
     }
     private void OnMouseExit()
     {

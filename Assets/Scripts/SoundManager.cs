@@ -14,7 +14,7 @@ public static class SoundManager
         audioSource.loop = LoopingSound(sound);
         audioSource.PlayOneShot(GetAudioClip(sound));
 
-        // How to play sound : AudioManager.PlaySound(AudioManager.Sound."Name Of Sound");
+        // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
     }
 
     public static void StopSound(Sound sound)
