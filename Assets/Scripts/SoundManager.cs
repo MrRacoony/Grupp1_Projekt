@@ -6,6 +6,8 @@ public static class SoundManager
     public enum Sound
     {
         MenuTheme,
+        PadlockInteract,
+        PadlockUnlocked,
     }
     public static void PlaySound(Sound sound)
     {

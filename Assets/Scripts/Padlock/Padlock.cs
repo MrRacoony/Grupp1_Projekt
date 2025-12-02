@@ -32,6 +32,7 @@ public class Padlock : MonoBehaviour
     
     private void Unlock() {
         isUnlocked = true;
+        SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
         Debug.Log("Unlocked");
     }
 }
