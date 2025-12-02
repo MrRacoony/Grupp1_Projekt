@@ -4,20 +4,17 @@ public class PadlockNumber : MonoBehaviour
 {
 
     [SerializeField] private int correctNum;
-    [SerializeField] private AudioClip scrollSound;
 
     private int currentNum;
     
     private bool isCorrect;
 
     private Animator anim;
-    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
 
         currentNum = 0;
         if(currentNum == correctNum) {
@@ -33,7 +30,7 @@ public class PadlockNumber : MonoBehaviour
     }
 
     public void SetNum(int num) {
-        audioSource.PlayOneShot(scrollSound, 1f);
+        SoundManager.PlaySound(SoundManager.Sound.PadlockInteract); 
         currentNum += num;
         if(currentNum == 10) {
             currentNum = 0;
