@@ -21,4 +21,18 @@ public class DragableObject : MonoBehaviour
         transform.position = curPosition;
 
     }
+
+    private void Update()
+    {
+            // Convert world position to viewport space (0..1 range)
+            Vector2 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+
+            // Clamp inside the viewport
+            viewportPos.x = Mathf.Clamp(viewportPos.x, 0f, 1f);
+            viewportPos.y = Mathf.Clamp(viewportPos.y, 0f, 1f);
+
+        Vector2 targetPos = Camera.main.ViewportToWorldPoint(viewportPos);
+        // Convert back to world space
+        transform.position = new Vector2(targetPos.x, targetPos.y);
+    }
 }
