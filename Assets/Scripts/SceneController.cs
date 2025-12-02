@@ -10,10 +10,12 @@ public class SceneController : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(newScene);
         if (scene.isLoaded)
         {
-            foreach (GameObject root in scene.GetRootGameObjects())
-            {
-                root.SetActive(true);
-            }
+            GameObject GOscene = GameObject.Find(newScene);
+            GOscene.SetActive(true);
+            //foreach (GameObject root in scene.GetRootGameObjects())
+            //{
+            //    root.SetActive(true);
+            //}
 
         }
         else
@@ -25,11 +27,13 @@ public class SceneController : MonoBehaviour
 
     public static void CloseSceneTemporary(string OldScene)
     {
-        Scene scene = SceneManager.GetSceneByName(OldScene);
-        foreach (GameObject root in scene.GetRootGameObjects())
-        {
-            root.SetActive(false); // hide everything
-        }
+        GameObject scene = GameObject.Find(OldScene);
+        scene.SetActive(false);
+        //Scene scene = SceneManager.GetSceneByName(OldScene);
+        //foreach (GameObject root in scene.GetRootGameObjects())
+        //{
+        //    root.SetActive(false); // hide everything
+        //}
 
         //var mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         //var miniCam = GameObject.Find("Minigame Camera").GetComponent<Camera>();
