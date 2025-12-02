@@ -5,6 +5,8 @@ public class PadlockNumber : MonoBehaviour
 
     [SerializeField] private int correctNum;
 
+    private Animator anim;
+
     private int currentNum;
     
     private bool isCorrect;
@@ -12,6 +14,9 @@ public class PadlockNumber : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        anim = GetComponent<Animator>();
+
         currentNum = 0;
         if(currentNum == correctNum) {
             isCorrect = true;
@@ -33,6 +38,9 @@ public class PadlockNumber : MonoBehaviour
         if(currentNum == -1) {
             currentNum = 9;
         }
+
+        anim.SetInteger("currentNum", currentNum);
+
         if(currentNum == correctNum) {
             isCorrect = true;
             Debug.Log("Unlocked padlock!");
