@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 344071621}
   m_Layer: 0
   m_Name: PaperBunch
-  m_TagString: Untagged
+  m_TagString: TutorialObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taggedObjects: []
   monsterSound: 0
-  tutorialAudio: {fileID: 0}
   leaveButton: {fileID: 0}
   maxSpawnTime: 90
   minSpawnTime: 30
@@ -1003,7 +1002,7 @@ GameObject:
   - component: {fileID: 1233763750}
   m_Layer: 0
   m_Name: PadlockChest
-  m_TagString: Untagged
+  m_TagString: TutorialObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

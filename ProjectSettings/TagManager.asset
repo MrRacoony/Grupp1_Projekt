@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Lock
+  - TutorialObject
   layers:
   - Default
   - TransparentFX
