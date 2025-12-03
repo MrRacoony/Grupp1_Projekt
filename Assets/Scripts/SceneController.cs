@@ -29,21 +29,18 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.sceneLoaded += (loadedScene, mode) =>
             {
-                if (loadedScene.name == newScene)
+                foreach (GameObject root in loadedScene.GetRootGameObjects())
                 {
-                    foreach (GameObject root in loadedScene.GetRootGameObjects())
+                    foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                     {
-                        Transform leaveTransform = root.transform.FindDeepChild("Leave");
-                        if (leaveTransform != null)
+                        if (child.name == "Leave" && child.GetComponent<Button>())
                         {
-                            GameObject leaveButton = leaveTransform.gameObject;
-                            monsterScript.SetLeaveButton(leaveButton);
+                            monsterScript.SetLeaveButton(child.gameObject);
                         }
 
-
-                        if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
+                        if (child.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(child.gameObject))
                         {
-                            monsterScript.taggedObjects.Add(root);
+                            monsterScript.taggedObjects.Add(child.gameObject);
                         }
                     }
                 }
