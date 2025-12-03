@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   padlocks: []
-  unlockSound: {fileID: 8300000, guid: 6ab52981748adc345bbe469258996f07, type: 3}
 --- !u!1001 &814712710044422284
 PrefabInstance:
   m_ObjectHideFlags: 0

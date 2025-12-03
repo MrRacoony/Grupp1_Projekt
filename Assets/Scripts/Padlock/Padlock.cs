@@ -20,19 +20,13 @@ public class Padlock : MonoBehaviour
             padlocks.Add(this.transform.GetChild(i).gameObject);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+    
+    public void TryUnlock() {
         if(padlocks[0].GetComponent<PadlockNumber>().GetIsCorrect() && padlocks[1].GetComponent<PadlockNumber>().GetIsCorrect()
         && padlocks[2].GetComponent<PadlockNumber>().GetIsCorrect() && isUnlocked == false) {
-            Unlock();
+            isUnlocked = true;
+            SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
+            Debug.Log("Unlocked");
         }
-    }
-    
-    private void Unlock() {
-        isUnlocked = true;
-        SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
-        Debug.Log("Unlocked");
     }
 }
