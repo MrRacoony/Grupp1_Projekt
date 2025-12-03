@@ -1048,12 +1048,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taggedObjects: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   hidingSpots: []
   leaveButton: {fileID: 0}
   activeSceneName: 
   maxSpawnTime: 90
   minSpawnTime: 30
   startAttackTimer: 10
+=======
+  hidingSpots:
+  - BedHiding
+  leaveButton: {fileID: 0}
+  activeSceneName: 
+  maxSpawnTime: 10
+  minSpawnTime: 5
+>>>>>>> Stashed changes
 =======
   hidingSpots:
   - BedHiding

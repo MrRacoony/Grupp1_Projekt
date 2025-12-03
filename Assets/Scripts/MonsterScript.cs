@@ -17,6 +17,7 @@ public class MonsterScript : MonoBehaviour
     [SerializeField] private bool tutorialAttack = true;
 
     [SerializeField] private bool isHiding;
+    [SerializeField] private bool attacking = false;
 
     // Volume settings
     [SerializeField] private float normalMaxVolume = 0.5f;
@@ -47,15 +48,13 @@ public class MonsterScript : MonoBehaviour
         if (!tutorialAttack)
         {
             
-            if (attackTrigger < 0)
+            if (attackTrigger < 0 && !attacking)
             {
+                attacking = true;
                 attackTrigger = 0;
                 StartCoroutine(StartAttack());
             }
-            else if (attackTrigger > 0)
-            {
-                
-            }
+            else
             {
                 attackTrigger -= Time.deltaTime;
             }
@@ -220,6 +219,7 @@ public class MonsterScript : MonoBehaviour
         // Step 3: Reduce volume back down to 0
 
         attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
+        attacking = false;
         SoundManager.StopSound(SoundManager.Sound.Monster);
     }
     public void OnLeaveButtonPressed()
