@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BedroomHidingSpot : MonoBehaviour
 {
 
-    [SerializeField] private GameObject exitButton;
+    //[SerializeField] private GameObject exitButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,5 +16,15 @@ public class BedroomHidingSpot : MonoBehaviour
     void Update()
     {
         
+        if (SceneManager.GetActiveScene().name == "BedHiding")
+        {
+            Debug.Log(GameObject.Find("Monster"));
+            GameObject monster = GameObject.Find("Monster");
+            monster.GetComponent<MonsterScript>().SetIsHiding(true);
+        }
+        else
+        {            
+            
+        }
     }
 }

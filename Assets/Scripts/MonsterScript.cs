@@ -16,7 +16,7 @@ public class MonsterScript : MonoBehaviour
     [SerializeField] private float attackTrigger;
     [SerializeField] private bool tutorialAttack = true;
 
-    private bool isHiding;
+    [SerializeField] private bool isHiding;
 
     // Volume settings
     [SerializeField] private float normalMaxVolume = 0.5f;
@@ -105,10 +105,6 @@ public class MonsterScript : MonoBehaviour
         }
 
         // Step 2: If hiding, allow volume to max
-        if (isHiding)
-        {
-            
-        }
         while (isHiding && SoundManager.GetVolume(SoundManager.Sound.Monster) < hidingMaxVolume)
         {
             Debug.Log("sneaky sneaky");

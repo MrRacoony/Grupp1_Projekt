@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
     public static void OpenSceneAddition(string newScene)
     {
+        SceneController sceneController;
         MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
         if (scene.isLoaded)
@@ -87,5 +87,14 @@ public class SceneController : MonoBehaviour
     public static void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+
+    public string GetScene()
+    {
+        return currentScene;
+    }
+    public void SetScene(string newScene)
+    {
+        currentScene = newScene;
     }
 }
