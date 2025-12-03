@@ -25,6 +25,10 @@ public class PadlockNumber : MonoBehaviour
         }
     }
 
+    void Update() {
+        anim.SetInteger("currentNum", currentNum);
+    }
+
     public bool GetIsCorrect() {
         return isCorrect;
     }
@@ -38,8 +42,6 @@ public class PadlockNumber : MonoBehaviour
         if(currentNum == -1) {
             currentNum = 9;
         }
-
-        anim.SetInteger("currentNum", currentNum);
 
         if(currentNum == correctNum) {
             isCorrect = true;
