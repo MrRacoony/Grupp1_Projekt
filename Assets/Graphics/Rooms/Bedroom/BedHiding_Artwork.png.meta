@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe3ef98726e7fb64cb9025182aef396c
+guid: 3e4b32487c535674a917c88ca9771fb5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1850718179892060001
-    second: In_World_chest__0
+      213: -6120228927204038147
+    second: BedHiding_Artwork_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: In_World_chest__0
+      name: BedHiding_Artwork_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 7
-        width: 89
-        height: 73
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f902d24fe9de056e0800000000000000
-      internalID: -1850718179892060001
+      spriteID: df9eee19734901ba0800000000000000
+      internalID: -6120228927204038147
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      In_World_chest__0: -1850718179892060001
+      BedHiding_Artwork_0: -6120228927204038147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
