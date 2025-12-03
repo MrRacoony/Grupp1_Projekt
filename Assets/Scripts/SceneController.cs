@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
         SceneController sceneController;
         MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
+        monsterScript.MonsterScene(newScene);
         if (scene.isLoaded)
         {
             foreach (GameObject root in scene.GetRootGameObjects())
@@ -60,6 +61,7 @@ public class SceneController : MonoBehaviour
                 }
             };
 
+            
             SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
 
         }

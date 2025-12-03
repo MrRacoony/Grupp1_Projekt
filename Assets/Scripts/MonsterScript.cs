@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class MonsterScript : MonoBehaviour
 {
     public List<GameObject> taggedObjects = new List<GameObject>();
-    [SerializeField] private GameObject leaveButton;    // assign in Inspector
+    public List<string> hidingSpots = new List<string>();
+    [SerializeField] private GameObject leaveButton;
+    [SerializeField] private string activeSceneName;
 
     public float maxSpawnTime = 90;
     public float minSpawnTime = 30;
@@ -38,6 +40,7 @@ public class MonsterScript : MonoBehaviour
 
     void Update()
     {
+        AmIHiding();
         if (taggedObjects.Count == 0)
         {
             SceneController.OpenSceneAddition(SceneManager.GetActiveScene().name);
@@ -61,15 +64,31 @@ public class MonsterScript : MonoBehaviour
     {
         Debug.Log("Monster Spawned");
         attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
-        if (!isHiding)
+        if (!AmIHiding())
         {
             SceneController.LoadScene("Menu"); // fail state
         }
     }
 
-    public void SetIsHiding(bool input)
+    public bool AmIHiding()
     {
-        isHiding = input;
+        foreach(string scene in hidingSpots)
+        {
+            if (activeSceneName == scene)
+            {
+                isHiding = true;
+                return isHiding;
+            }
+            
+        }
+
+        isHiding = false;
+        return isHiding;
+    }
+
+    public void MonsterScene(string currentScene)
+    {
+        activeSceneName = currentScene;
     }
 
     public void SetLeaveButton(GameObject button)
@@ -97,7 +116,7 @@ public class MonsterScript : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.Monster);
 
         // Step 1: Increase volume until normal cap
-        while (SoundManager.GetVolume(SoundManager.Sound.Monster) < normalMaxVolume && !isHiding)
+        while (SoundManager.GetVolume(SoundManager.Sound.Monster) < normalMaxVolume && !AmIHiding())
         {
             Debug.Log("Im at " + SoundManager.GetVolume(SoundManager.Sound.Monster));
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
@@ -105,7 +124,7 @@ public class MonsterScript : MonoBehaviour
         }
 
         // Step 2: If hiding, allow volume to max
-        while (isHiding && SoundManager.GetVolume(SoundManager.Sound.Monster) < hidingMaxVolume)
+        while (AmIHiding() && SoundManager.GetVolume(SoundManager.Sound.Monster) < hidingMaxVolume)
         {
             Debug.Log("sneaky sneaky");
             if (leaveButton == null)
@@ -141,7 +160,7 @@ public class MonsterScript : MonoBehaviour
     public void OnLeaveButtonPressed()
     {
         // Fail if leaving too early or not hiding
-        if (!isHiding || SoundManager.GetVolume(SoundManager.Sound.Monster) > 0.2f)
+        if (!AmIHiding() || SoundManager.GetVolume(SoundManager.Sound.Monster) > 0.2f)
         {
             SceneController.LoadScene("Menu"); // fail scene
         }

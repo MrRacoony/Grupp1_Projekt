@@ -15,16 +15,5 @@ public class BedroomHidingSpot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (SceneManager.GetActiveScene().name == "BedHiding")
-        {
-            Debug.Log(GameObject.Find("Monster"));
-            GameObject monster = GameObject.Find("Monster");
-            monster.GetComponent<MonsterScript>().SetIsHiding(true);
-        }
-        else
-        {            
-            
-        }
     }
 }
