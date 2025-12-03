@@ -14,16 +14,29 @@ public class SceneController : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(newScene);
         if (scene.isLoaded)
         {
-
             foreach (GameObject root in scene.GetRootGameObjects())
             {
-
-                root.SetActive(true);
-                if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
+                foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                 {
-                    monsterScript.taggedObjects.Add(root);
+                    if (child.name == "Leave" && child.GetComponent<Button>())
+                    {
+                        monsterScript.SetLeaveButton(child.gameObject);
+                    }
+                    if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
+                    {
+                        monsterScript.taggedObjects.Add(child.gameObject);
+                    }
                 }
             }
+            //foreach (GameObject root in scene.GetRootGameObjects())
+            //{
+
+            //    root.SetActive(true);
+            //    if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
+            //    {
+            //        monsterScript.taggedObjects.Add(root);
+            //    }
+            //}
         }
         else
         {
@@ -38,7 +51,7 @@ public class SceneController : MonoBehaviour
                             monsterScript.SetLeaveButton(child.gameObject);
                         }
 
-                        if (child.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(child.gameObject))
+                        if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
                         {
                             monsterScript.taggedObjects.Add(child.gameObject);
                         }
