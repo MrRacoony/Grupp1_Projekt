@@ -19,22 +19,25 @@ public static class SoundManager
 
     public static void PlaySound(Sound sound)
     {
-        GameObject soundGameObject = new GameObject("Sound_" + sound.ToString());
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        // If we already have an AudioSource for this sound, just replay it
+        if (activeSources.ContainsKey(sound))
+        {
+            activeSources[sound].Play();
+            return;
+        }
 
+        // Otherwise create it once
+        GameObject soundGameObject = new GameObject("Sound_" + sound.ToString());
+        Object.DontDestroyOnLoad(soundGameObject);
+
+        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.loop = LoopingSound(sound);
         audioSource.pitch = PitchSound(sound);
         audioSource.volume = GetVolume(sound);
-
-        if (!audioSource.loop)
-        {
-            soundGameObject.AddComponent<AudioRemoval>();
-        }
-
         audioSource.clip = GetAudioClip(sound);
+
         audioSource.Play();
 
-        // Store reference
         activeSources[sound] = audioSource;
     }
 
@@ -43,10 +46,10 @@ public static class SoundManager
         if (activeSources.ContainsKey(sound))
         {
             activeSources[sound].Stop();
-            activeSources.Remove(sound);
-            Object.Destroy(activeSources[sound].gameObject);
+            // Do NOT destroy the GameObject — keep it alive for replay
         }
     }
+
 
     public static void SetVolume(Sound sound, float newVolume)
     {
