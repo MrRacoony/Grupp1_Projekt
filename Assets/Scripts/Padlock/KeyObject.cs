@@ -9,9 +9,8 @@ public class KeyObject : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnMouseDown() {
+        Destroy(this.gameObject);
     }
+
 }

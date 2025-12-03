@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe3ef98726e7fb64cb9025182aef396c
+guid: 07b5d5ad6716bba4a92508a5694b041e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1850718179892060001
-    second: In_World_chest__0
+      213: -8703807600811215855
+    second: chest_closed_inworld_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: In_World_chest__0
+      name: chest_closed_inworld_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 9
-        width: 73
-        height: 71
+        x: 73
+        y: 71
+        width: 82
+        height: 88
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f902d24fe9de056e0800000000000000
-      internalID: -1850718179892060001
+      spriteID: 1147d401a1dd53780800000000000000
+      internalID: -8703807600811215855
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      In_World_chest__0: -1850718179892060001
+      chest_closed_inworld_0: -8703807600811215855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

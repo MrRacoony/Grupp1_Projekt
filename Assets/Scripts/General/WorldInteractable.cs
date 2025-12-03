@@ -1,9 +1,14 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WorldInteractable : MonoBehaviour
 {
 
-    [SerializeField] private GameObject layer;
+    [SerializeField] private List<GameObject> layersToOpen;
+    [SerializeField] private List<GameObject> layersToClose;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,13 +33,21 @@ public class WorldInteractable : MonoBehaviour
     }
 
     private void OnMouseDown() {
-
-        layer.SetActive(true);
-
+        for(int i=0; i<layersToOpen.Count; i++) {
+            layersToOpen[i].SetActive(true);
+        }
+        for(int i=0; i<layersToClose.Count; i++) {
+            layersToClose[i].SetActive(false);
+        }
     }
     
     public void CloseLayer() {
-        layer.SetActive(false);
+        for(int i=0; i<layersToOpen.Count; i++) {
+            layersToOpen[i].SetActive(false);
+        }
+        for(int i=0; i<layersToClose.Count; i++) {
+            layersToClose[i].SetActive(true);
+        }
     }
 
 }

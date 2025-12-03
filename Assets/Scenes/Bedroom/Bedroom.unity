@@ -865,6 +865,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710607879}
   m_CullTransparentMesh: 1
+--- !u!1 &742727670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 205652946728678715, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
+  m_PrefabInstance: {fileID: 1365590972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &773738391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +1894,8 @@ GameObject:
   - component: {fileID: 1233763747}
   - component: {fileID: 1233763750}
   - component: {fileID: 1233763751}
+  - component: {fileID: 1233763752}
+  - component: {fileID: 1233763753}
   m_Layer: 0
   m_Name: PadlockChest
   m_TagString: TutorialObject
@@ -1940,12 +1947,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe3ef98726e7fb64cb9025182aef396c, type: 3}
+  m_Sprite: {fileID: -1850718179892060001, guid: fe3ef98726e7fb64cb9025182aef396c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.9375, y: 1.609375}
+  m_Size: {x: 1.46, y: 1.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1960,7 +1967,7 @@ Transform:
   m_GameObject: {fileID: 1233763746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.183, y: 0.728, z: 0}
+  m_LocalPosition: {x: -6.17, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2004,8 +2011,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.48, y: 2.06}
-    newSize: {x: 1.9375, y: 1.609375}
+    oldSize: {x: 1.46, y: 1.42}
+    newSize: {x: 1.46, y: 1.42}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2024,7 +2031,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457586ab18b868e418d47b4acb4f36f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: {fileID: 1920300059}
+  layersToOpen:
+  - {fileID: 1920300059}
+  layersToClose:
+  - {fileID: 374668362}
+  - {fileID: 344071618}
+  - {fileID: 962786047}
+--- !u!114 &1233763752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233763746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a05332a8129c1f4db6f84ad7338b3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padlock: {fileID: 742727670}
+  chestAnimator: {fileID: 1920300061}
+--- !u!95 &1233763753
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233763746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4db5ba49dab4c94faf049c638936b4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1301141697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,9 +2185,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773738391}
     - target: {fileID: 5339281082354250766, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
+      propertyPath: lockObject
+      value: 
+      objectReference: {fileID: 997471728}
+    - target: {fileID: 5339281082354250766, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
       propertyPath: chestAnimator
       value: 
       objectReference: {fileID: 1920300061}
+    - target: {fileID: 5339281082354250766, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
+      propertyPath: worldChestAnimator
+      value: 
+      objectReference: {fileID: 1233763753}
     - target: {fileID: 8076889751725513874, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2194,7 +2250,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5339281082354250766, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
   m_PrefabInstance: {fileID: 1365590972}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 742727670}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa7d340980ee13e47b8156d5e1ab8a7e, type: 3}

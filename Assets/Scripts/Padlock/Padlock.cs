@@ -8,14 +8,18 @@ public class Padlock : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> padlocks;
-    [SerializeField] private Animator chestAnimator;
-    [SerializeField] private GameObject keyObject;
+    [SerializeField] private Animator worldChestAnimator;
+    [SerializeField] private GameObject keyObject, lockObject;
 
     private bool isUnlocked;
+
+    private Animator chestAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        chestAnimator = lockObject.transform.parent.GetComponent<Animator>();
+
         isUnlocked = false;
         for (int i = 0; i < this.transform.childCount; i++)
         {
@@ -31,6 +35,8 @@ public class Padlock : MonoBehaviour
             Debug.Log("Unlocked");
             chestAnimator.SetBool("isOpen", true);
             keyObject.SetActive(true);
+            lockObject.SetActive(false);
+            worldChestAnimator.SetBool("isOpen", true);
         }
     }
 
