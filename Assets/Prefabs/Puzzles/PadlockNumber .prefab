@@ -340,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctNum: 0
-  scrollSound: {fileID: 8300000, guid: e03ceaccb7d523a4c837bc3941cda88b, type: 3}
 --- !u!95 &4296102264834834206
 Animator:
   serializedVersion: 7
