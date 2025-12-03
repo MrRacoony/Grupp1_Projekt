@@ -27,5 +27,6 @@ public class GameAssets : MonoBehaviour
         public AudioClip audioClip;
         public bool looping;
         public float pitch;
+        public float volume;
     }
 }

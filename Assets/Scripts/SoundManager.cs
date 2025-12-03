@@ -16,12 +16,12 @@ public static class SoundManager
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.loop = LoopingSound(sound);
-        audioSource.pitch = pitchSound(sound);
+        audioSource.pitch = PitchSound(sound);
         if (!audioSource.loop)
         {
             soundGameObject.AddComponent<AudioRemoval>();
         }
-        audioSource.PlayOneShot(GetAudioClip(sound));
+        audioSource.PlayOneShot(GetAudioClip(sound), GetVolume(sound));
 
         // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
     }
@@ -59,7 +59,7 @@ public static class SoundManager
         return false;
     }
 
-    private static float pitchSound(Sound sound)
+    private static float PitchSound(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
         {
@@ -76,4 +76,30 @@ public static class SoundManager
 
         return 1;
     }
+
+    public static float GetVolume(Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            if (audioAsset.sound == sound)
+            {
+                return audioAsset.volume;
+            }
+        }
+        return 1f; // default
+    }
+
+    public static void SetVolume(Sound sound, float newVolume)
+    {
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            if (audioAsset.sound == sound)
+            {
+                audioAsset.volume = Mathf.Clamp01(newVolume); // keep between 0–1
+                return;
+            }
+        }
+        Debug.LogWarning("Sound " + sound + " not found!");
+    }
+
 }

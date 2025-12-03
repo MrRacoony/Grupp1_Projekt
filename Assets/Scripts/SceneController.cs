@@ -1,12 +1,14 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    
     public static void OpenSceneAddition(string newScene)
     {
+        MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
         if (scene.isLoaded)
         {
@@ -14,14 +16,22 @@ public class SceneController : MonoBehaviour
             foreach (GameObject root in scene.GetRootGameObjects())
             {
                 root.SetActive(true);
+                if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
+                {
+                    monsterScript.taggedObjects.Add(root);
+                }
             }
-
         }
         else
         {
             SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
+            if (GameObject.Find("Leave"))
+            {
+                monsterScript.SetLeaveButton(GameObject.Find(""));
+            }
+            
         }
-        
+
     }
 
     public static void CloseSceneTemporary(string OldScene)
