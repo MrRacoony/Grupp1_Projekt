@@ -1,6 +1,8 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class SceneController : MonoBehaviour
 
             foreach (GameObject root in scene.GetRootGameObjects())
             {
+
                 root.SetActive(true);
                 if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
                 {
@@ -24,12 +27,30 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
-            if (GameObject.Find("Leave"))
+            SceneManager.sceneLoaded += (loadedScene, mode) =>
             {
-                monsterScript.SetLeaveButton(GameObject.Find(""));
-            }
-            
+                if (loadedScene.name == newScene)
+                {
+                    foreach (GameObject root in loadedScene.GetRootGameObjects())
+                    {
+                        Transform leaveTransform = root.transform.FindDeepChild("Leave");
+                        if (leaveTransform != null)
+                        {
+                            GameObject leaveButton = leaveTransform.gameObject;
+                            monsterScript.SetLeaveButton(leaveButton);
+                        }
+
+
+                        if (root.CompareTag("TutorialObject") && !monsterScript.taggedObjects.Contains(root))
+                        {
+                            monsterScript.taggedObjects.Add(root);
+                        }
+                    }
+                }
+            };
+
+            SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
+
         }
 
     }
@@ -56,6 +77,4 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-
-
 }
