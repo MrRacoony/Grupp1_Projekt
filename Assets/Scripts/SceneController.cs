@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
         {
             foreach (GameObject root in scene.GetRootGameObjects())
             {
+                root.SetActive(true);
                 foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                 {
                     if (child.name == "Leave" && child.GetComponent<Button>())

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using static GameAssets;
 
 public static class SoundManager
@@ -10,6 +11,7 @@ public static class SoundManager
         PadlockInteract,
         PadlockUnlocked,
         Paperslide,
+        Monster,
     }
     public static void PlaySound(Sound sound)
     {
@@ -17,11 +19,12 @@ public static class SoundManager
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.loop = LoopingSound(sound);
         audioSource.pitch = PitchSound(sound);
+        audioSource.volume = GetVolume(sound);
         if (!audioSource.loop)
         {
             soundGameObject.AddComponent<AudioRemoval>();
         }
-        audioSource.PlayOneShot(GetAudioClip(sound), GetVolume(sound));
+        audioSource.PlayOneShot(GetAudioClip(sound));
 
         // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
     }
@@ -101,5 +104,7 @@ public static class SoundManager
         }
         Debug.LogWarning("Sound " + sound + " not found!");
     }
+
+   
 
 }
