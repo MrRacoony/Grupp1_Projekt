@@ -9,6 +9,7 @@ public class Padlock : MonoBehaviour
 
     [SerializeField] private List<GameObject> padlocks;
     [SerializeField] private Animator chestAnimator;
+    [SerializeField] private GameObject keyObject;
 
     private bool isUnlocked;
 
@@ -29,6 +30,11 @@ public class Padlock : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
             Debug.Log("Unlocked");
             chestAnimator.SetBool("isOpen", true);
+            keyObject.SetActive(true);
         }
+    }
+
+    public bool GetIsUnlocked() {
+        return isUnlocked;
     }
 }
