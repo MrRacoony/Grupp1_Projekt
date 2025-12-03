@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FogShader
-  m_Shader: {fileID: -6465566751694194690, guid: 600ee0c0837ee644f8b3f45579956551, type: 3}
+  m_Name: MenuEffectProp
+  m_Shader: {fileID: -6465566751694194690, guid: 249568080d21ec944b3a81ab9d88d604, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -18,8 +18,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
+  disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -42,24 +41,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FogSize: 3
-    - _QueueControl: 0
-    - _QueueOffset: 0
+    - _AlphaClip: 0.5
+    - _ColorMask: 15
+    - _Fade: 0.7
+    - _NoiseOutlineThickness: 0.03
+    - _Scale: 40
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     m_Colors:
-    - _FogColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0.1176471}
-    - _FogSpeed: {r: 0.2, g: 0, b: 0, a: 0}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.4770826, g: 0.6628453, b: 0.6698113, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1073808626225376678
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10

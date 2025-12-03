@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Intensity: 0.45
+    - _Intensity: 0.52
     - _POWER: 4.92
     - _VoronoiSpeed: 2.56
     - _VoronoidDensity: 11.5
