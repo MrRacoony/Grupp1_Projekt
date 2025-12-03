@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using static GameAssets;
+using System.Collections.Generic;
 
 public static class SoundManager
 {
-
     public enum Sound
     {
         MenuTheme,
@@ -13,27 +13,77 @@ public static class SoundManager
         Paperslide,
         Monster,
     }
+
+    // Keep references to active AudioSources
+    private static Dictionary<Sound, AudioSource> activeSources = new Dictionary<Sound, AudioSource>();
+
     public static void PlaySound(Sound sound)
     {
-        GameObject soundGameObject = new GameObject("Sound");
+        GameObject soundGameObject = new GameObject("Sound_" + sound.ToString());
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+
         audioSource.loop = LoopingSound(sound);
         audioSource.pitch = PitchSound(sound);
         audioSource.volume = GetVolume(sound);
+
         if (!audioSource.loop)
         {
             soundGameObject.AddComponent<AudioRemoval>();
         }
-        audioSource.PlayOneShot(GetAudioClip(sound));
 
-        // How to play sound : SoundManager.PlaySound(SoundManager.Sound."Name Of Sound");
+        audioSource.clip = GetAudioClip(sound);
+        audioSource.Play();
+
+        // Store reference
+        activeSources[sound] = audioSource;
     }
 
     public static void StopSound(Sound sound)
     {
-        GameObject soundGameObject = GameObject.Find("Sound");
-        AudioSource audioSource = soundGameObject.GetComponent<AudioSource>();
-        audioSource.Stop();
+        if (activeSources.ContainsKey(sound))
+        {
+            activeSources[sound].Stop();
+            Object.Destroy(activeSources[sound].gameObject);
+            activeSources.Remove(sound);
+        }
+    }
+
+    public static void SetVolume(Sound sound, float newVolume)
+    {
+        newVolume = Mathf.Clamp01(newVolume);
+
+        // Update stored value
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            if (audioAsset.sound == sound)
+            {
+                audioAsset.volume = newVolume;
+                break;
+            }
+        }
+
+        // Update active AudioSource
+        if (activeSources.ContainsKey(sound))
+        {
+            activeSources[sound].volume = newVolume;
+        }
+    }
+
+    public static float GetVolume(Sound sound)
+    {
+        if (activeSources.ContainsKey(sound))
+        {
+            return activeSources[sound].volume;
+        }
+
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            if (audioAsset.sound == sound)
+            {
+                return audioAsset.volume;
+            }
+        }
+        return 1f; // default
     }
 
     private static AudioClip GetAudioClip(Sound sound)
@@ -48,6 +98,7 @@ public static class SoundManager
         Debug.LogError("Sound " + sound + " not found!");
         return null;
     }
+
     private static bool LoopingSound(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
@@ -56,9 +107,7 @@ public static class SoundManager
             {
                 return audioAsset.looping;
             }
-                
         }
-
         return false;
     }
 
@@ -66,45 +115,11 @@ public static class SoundManager
     {
         foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
         {
-            if (audioAsset.sound == sound)
+            if (audioAsset.sound == sound && audioAsset.pitch != 0)
             {
-                if(audioAsset.pitch != 0)
-                {
-                    return audioAsset.pitch;
-                }
-                
+                return audioAsset.pitch;
             }
-            
         }
-
         return 1;
     }
-
-    public static float GetVolume(Sound sound)
-    {
-        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
-        {
-            if (audioAsset.sound == sound)
-            {
-                return audioAsset.volume;
-            }
-        }
-        return 1f; // default
-    }
-
-    public static void SetVolume(Sound sound, float newVolume)
-    {
-        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
-        {
-            if (audioAsset.sound == sound)
-            {
-                audioAsset.volume = Mathf.Clamp01(newVolume); // keep between 0–1
-                return;
-            }
-        }
-        Debug.LogWarning("Sound " + sound + " not found!");
-    }
-
-   
-
 }

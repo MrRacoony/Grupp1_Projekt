@@ -601,7 +601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taggedObjects: []
-  monsterSound: 4
   leaveButton: {fileID: 0}
   maxSpawnTime: 90
   minSpawnTime: 30
@@ -610,7 +609,7 @@ MonoBehaviour:
   tutorialAttack: 1
   normalMaxVolume: 0.5
   hidingMaxVolume: 1
-  volumeChangeSpeed: 0.5
+  volumeChangeSpeed: 0.05
 --- !u!4 &940472815
 Transform:
   m_ObjectHideFlags: 0
@@ -1064,9 +1063,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b88864c2f39751f45bb6da6603580abb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 80b0a775a17f63a41b35de08a947c34a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.101
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
