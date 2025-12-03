@@ -13,6 +13,8 @@ public class MonsterScript : MonoBehaviour
     public float maxSpawnTime = 90;
     public float minSpawnTime = 30;
 
+    public float startAttackTimer = 10;
+    private bool startAttack = false;
     [SerializeField] private float attackTrigger;
     [SerializeField] private bool tutorialAttack = true;
 
@@ -38,7 +40,6 @@ public class MonsterScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100);
         AmIHiding();
         if (taggedObjects.Count == 0)
         {
@@ -46,24 +47,22 @@ public class MonsterScript : MonoBehaviour
         }
         if (!tutorialAttack)
         {
-            
-            if (attackTrigger < 0)
+            attackTrigger -= Time.deltaTime;
+            if (attackTrigger <= startAttackTimer && !startAttack)
             {
-                attackTrigger = 0;
-                StartCoroutine(StartAttack());
+                startAttack = true;
+                StartAttacking();
             }
-            else if (attackTrigger > 0)
+            if (attackTrigger <= 0)
             {
-                
-            }
-            {
-                attackTrigger -= Time.deltaTime;
+                MonsterAttack();
             }
         }
     }
 
     void MonsterAttack()
     {
+        Debug.Log("Monster Spawned");
         attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
         if (!AmIHiding())
         {
@@ -97,8 +96,14 @@ public class MonsterScript : MonoBehaviour
         leaveButton = button;
     }
 
+    private void StartAttacking()
+    {
+        SoundManager.PlaySound(SoundManager.Sound.Monster);
+    }
+
     public IEnumerator TutorialAttack()
     {
+        Debug.Log("Attacking!");
         // Disable colliders on tagged objects
         foreach (GameObject obj in taggedObjects)
         {
@@ -111,121 +116,51 @@ public class MonsterScript : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.Monster);
 
         // Step 1: Increase volume until normal cap
-        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < normalMaxVolume || !AmIHiding())
+        while (SoundManager.GetVolume(SoundManager.Sound.Monster) < normalMaxVolume && !AmIHiding())
         {
-            Debug.Log("step 1");
+            Debug.Log("Im at " + SoundManager.GetVolume(SoundManager.Sound.Monster));
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
-            if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) >= normalMaxVolume)
-            {
-                Debug.Log(Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 10) / 10);
-                SoundManager.SetVolume(SoundManager.Sound.Monster, normalMaxVolume);
-                
-            }
             yield return null;
         }
 
         // Step 2: If hiding, allow volume to max
-        while (AmIHiding() && (Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < hidingMaxVolume)
+        while (AmIHiding() && SoundManager.GetVolume(SoundManager.Sound.Monster) < hidingMaxVolume)
         {
-            Debug.Log("step 2");
+            Debug.Log("sneaky sneaky");
             if (leaveButton == null)
             {
                 SetLeaveButton(GameObject.Find("Leave"));
             }
-            else if (leaveButton.activeSelf == true)
+            if (leaveButton.activeSelf == true)
             {
                 Debug.Log(leaveButton);
                 leaveButton.SetActive(false);
             }
-
-
+                
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
             yield return null;
         }
 
         // Step 3: Reduce volume back down to 0
-        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
+        while (SoundManager.GetVolume(SoundManager.Sound.Monster) > 0f)
         {
-            Debug.Log("step 3");
-            SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) - volumeChangeSpeed * Time.deltaTime);
+            SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
             yield return null;
 
             // Show leave button once volume is low enough
-            if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) <= 0.2f && leaveButton != null)
+            if (SoundManager.GetVolume(SoundManager.Sound.Monster) <= 0.2f && leaveButton != null)
             {
                 leaveButton.SetActive(true);
             }
-            foreach (GameObject obj in taggedObjects)
-            {
-                Collider2D col = obj.GetComponent<Collider2D>();
-                if (col != null) col.enabled = true;
-            }
         }
 
         SoundManager.StopSound(SoundManager.Sound.Monster);
-        tutorialAttack = false;
-        Debug.Log("tutorial done");
     }
 
-    public IEnumerator StartAttack()
-    {
-
-        //Sound here
-        SoundManager.SetVolume(SoundManager.Sound.Monster, 0);
-        SoundManager.PlaySound(SoundManager.Sound.Monster);
-
-        // Step 2: If hiding, allow volume to max
-        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < hidingMaxVolume)
-        {
-            Debug.Log("step 2");
-            if (leaveButton == null)
-            {
-                SetLeaveButton(GameObject.Find("Leave"));
-            }
-            else if (leaveButton.activeSelf == true)
-            {
-                Debug.Log(leaveButton);
-                leaveButton.SetActive(false);
-            }
-
-
-            SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
-            yield return null;
-        }
-        if (AmIHiding())
-        {
-            while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
-            {
-                Debug.Log("step 3");
-                SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) - volumeChangeSpeed * Time.deltaTime);
-                yield return null;
-
-                // Show leave button once volume is low enough
-                if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) <= 0.2f && leaveButton != null)
-                {
-                    leaveButton.SetActive(true);
-                }
-                foreach (GameObject obj in taggedObjects)
-                {
-                    Collider2D col = obj.GetComponent<Collider2D>();
-                    if (col != null) col.enabled = true;
-                }
-            }
-        }
-        else
-        {
-            SceneManager.LoadScene("Menu");
-        }
-
-        // Step 3: Reduce volume back down to 0
-
-        attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
-        SoundManager.StopSound(SoundManager.Sound.Monster);
-    }
     public void OnLeaveButtonPressed()
     {
         // Fail if leaving too early or not hiding
-        if (!AmIHiding() || (Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0.2f)
+        if (!AmIHiding() || SoundManager.GetVolume(SoundManager.Sound.Monster) > 0.2f)
         {
             SceneController.LoadScene("Menu"); // fail scene
         }
