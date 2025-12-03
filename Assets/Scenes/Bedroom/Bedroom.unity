@@ -890,6 +890,7 @@ MonoBehaviour:
   startAttackTimer: 10
   attackTrigger: 0
   tutorialAttack: 1
+  isHiding: 0
   normalMaxVolume: 0.5
   hidingMaxVolume: 1
   volumeChangeSpeed: 0.05
