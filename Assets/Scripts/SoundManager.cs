@@ -43,8 +43,8 @@ public static class SoundManager
         if (activeSources.ContainsKey(sound))
         {
             activeSources[sound].Stop();
-            Object.Destroy(activeSources[sound].gameObject);
             activeSources.Remove(sound);
+            Object.Destroy(activeSources[sound].gameObject);
         }
     }
 

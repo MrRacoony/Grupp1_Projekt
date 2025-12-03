@@ -1,9 +1,11 @@
 using UnityEngine;
+using static SoundManager;
 
 public class AudioRemoval : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     AudioSource m_AudioSource;
+    GameAssets.SoundAudioClip SoundAudioClip;
     void Start()
     {
         m_AudioSource = this.gameObject.GetComponent<AudioSource>();
@@ -14,7 +16,13 @@ public class AudioRemoval : MonoBehaviour
     {
         if (!m_AudioSource.isPlaying)
         {
-            Destroy(this.gameObject);
+            foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+            {
+                if (audioAsset.audioClip == m_AudioSource.clip)
+                {
+                    StopSound(audioAsset.sound);
+                }
+            }
         }
     }
 }

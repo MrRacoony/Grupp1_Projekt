@@ -91,10 +91,11 @@ public class SceneController : MonoBehaviour
 
     public string GetScene()
     {
-        return currentScene;
+        return string.Empty;
+        //return currentScene;
     }
     public void SetScene(string newScene)
     {
-        currentScene = newScene;
+        //currentScene = newScene;
     }
 }
