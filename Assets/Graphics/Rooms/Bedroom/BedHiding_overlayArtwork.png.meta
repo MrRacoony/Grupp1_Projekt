@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e4b32487c535674a917c88ca9771fb5
+guid: 2aed5758a45c8d544b20fa6b08bddaba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6120228927204038147
-    second: BedHiding_Artwork_0
+      213: 4697177709447677172
+    second: BedHiding_overlayArtwork_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BedHiding_Artwork_0
+      name: BedHiding_overlayArtwork_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df9eee19734901ba0800000000000000
-      internalID: -6120228927204038147
+      spriteID: 4f403827d3abf2140800000000000000
+      internalID: 4697177709447677172
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BedHiding_Artwork_0: -6120228927204038147
+      BedHiding_overlayArtwork_0: 4697177709447677172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
