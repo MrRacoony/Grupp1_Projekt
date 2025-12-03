@@ -1,16 +1,27 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class DragableObject : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private Vector3 screenPoint;
     private Vector3 offset;
+
+
     void OnMouseDown()
     {
         
+        
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
+        SoundManager.PlaySound(SoundManager.Sound.Paperslide); 
+
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        
     }
     private void OnMouseDrag()
     {
@@ -33,6 +44,6 @@ public class DragableObject : MonoBehaviour
 
         Vector2 targetPos = Camera.main.ViewportToWorldPoint(viewportPos);
         // Convert back to world space
-        transform.position = new Vector2(targetPos.x, targetPos.y);
+        transform.position = new Vector3(targetPos.x, targetPos.y, transform.position.z);
     }
 }

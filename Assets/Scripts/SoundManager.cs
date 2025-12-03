@@ -9,6 +9,7 @@ public static class SoundManager
         MenuTheme,
         PadlockInteract,
         PadlockUnlocked,
+        Paperslide,
     }
     public static void PlaySound(Sound sound)
     {
