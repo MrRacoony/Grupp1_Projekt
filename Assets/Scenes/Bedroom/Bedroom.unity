@@ -2196,6 +2196,10 @@ PrefabInstance:
       propertyPath: worldChestAnimator
       value: 
       objectReference: {fileID: 1233763753}
+    - target: {fileID: 5503967148139135356, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076889751725513874, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

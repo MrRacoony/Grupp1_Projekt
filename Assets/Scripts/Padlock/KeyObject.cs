@@ -11,6 +11,7 @@ public class KeyObject : MonoBehaviour
 
     private void OnMouseDown() {
         Destroy(this.gameObject);
+        SoundManager.PlaySound(SoundManager.Sound.ItemPickup);
     }
 
 }
