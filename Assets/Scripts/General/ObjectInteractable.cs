@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WorldInteractable : MonoBehaviour
+public class ObjectInteractable : MonoBehaviour
 {
 
     [SerializeField] private GameObject layer;
@@ -17,22 +17,13 @@ public class WorldInteractable : MonoBehaviour
         
     }
     
-    private void OnMouseOver()
-    {
-        transform.localScale = Vector3.one * 1.1f;
-    }
-
-    private void OnMouseExit()
-    {
-        transform.localScale = Vector3.one;
-    }
 
     private void OnMouseDown() {
 
         layer.SetActive(true);
 
     }
-    
+
     public void CloseLayer() {
         layer.SetActive(false);
     }
