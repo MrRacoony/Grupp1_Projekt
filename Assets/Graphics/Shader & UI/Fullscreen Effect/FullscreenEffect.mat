@@ -37,9 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Intensity: 0.41
-    - _POWER: 2.07
-    - _VoronoiSpeed: 1
+    - _Intensity: 0.98
+    - _POWER: 4.92
+    - _VoronoiSpeed: 2.56
+    - _VoronoidDensity: 11.5
+    - _VoronoidPower: 1
     m_Colors:
     - _FullscreenColor: {r: 0.3018868, g: 0.0032951725, b: 0, a: 1}
   m_BuildTextureStacks: []
