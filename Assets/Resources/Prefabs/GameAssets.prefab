@@ -70,3 +70,13 @@ MonoBehaviour:
     looping: 1
     pitch: 1
     volume: 1
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: cb2c72d2e389fca4f87357b47e6adcb8, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 538fe2771e52a9e42b520b10aa74ff0d, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1

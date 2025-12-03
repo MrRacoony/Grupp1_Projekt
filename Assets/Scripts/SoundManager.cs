@@ -12,6 +12,8 @@ public static class SoundManager
         PadlockUnlocked,
         Paperslide,
         Monster,
+        ChestOpen,
+        ItemPickup,
     }
 
     // Keep references to active AudioSources
@@ -46,7 +48,7 @@ public static class SoundManager
         if (activeSources.ContainsKey(sound))
         {
             activeSources[sound].Stop();
-            // Do NOT destroy the GameObject — keep it alive for replay
+            // Do NOT destroy the GameObject ï¿½ keep it alive for replay
         }
     }
 
