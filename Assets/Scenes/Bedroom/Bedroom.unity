@@ -1047,16 +1047,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taggedObjects: []
-  hidingSpots: []
+  hidingSpots:
+  - BedHiding
   leaveButton: {fileID: 0}
   activeSceneName: 
   maxSpawnTime: 90
   minSpawnTime: 30
-  startAttackTimer: 10
   attackTrigger: 0
   tutorialAttack: 1
   isHiding: 0
-  normalMaxVolume: 0.75
+  attacking: 0
+  normalMaxVolume: 0.7
   hidingMaxVolume: 1
   volumeChangeSpeed: 0.1
 --- !u!4 &940472815
@@ -2196,6 +2197,10 @@ PrefabInstance:
       propertyPath: worldChestAnimator
       value: 
       objectReference: {fileID: 1233763753}
+    - target: {fileID: 5503967148139135356, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076889751725513874, guid: 9f33377587b0fe14ca75d9d3187cc868, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

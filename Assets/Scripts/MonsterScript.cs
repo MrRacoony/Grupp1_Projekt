@@ -54,7 +54,7 @@ public class MonsterScript : MonoBehaviour
                 attackTrigger = 0;
                 StartCoroutine(StartAttack());
             }
-            else
+            else if (!attacking)
             {
                 attackTrigger -= Time.deltaTime;
             }
@@ -110,7 +110,7 @@ public class MonsterScript : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.Monster);
 
         // Step 1: Increase volume until normal cap
-        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < normalMaxVolume || !AmIHiding())
+        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < normalMaxVolume && !AmIHiding())
         {
             Debug.Log("step 1");
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
