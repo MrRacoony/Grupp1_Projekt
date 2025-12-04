@@ -604,7 +604,6 @@ Transform:
   m_Children:
   - {fileID: 1355717767}
   - {fileID: 508209950}
-  - {fileID: 1496034148}
   - {fileID: 111835226}
   - {fileID: 250323572}
   m_Father: {fileID: 0}
@@ -620,6 +619,8 @@ GameObject:
   - component: {fileID: 1355717767}
   - component: {fileID: 1355717769}
   - component: {fileID: 1355717768}
+  - component: {fileID: 1355717770}
+  - component: {fileID: 1355717771}
   m_Layer: 0
   m_Name: DoorBackground
   m_TagString: Untagged
@@ -719,46 +720,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1496034147
-GameObject:
+--- !u!114 &1355717770
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1496034148}
-  - component: {fileID: 1496034149}
-  - component: {fileID: 1496034150}
-  m_Layer: 0
-  m_Name: DoorObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1496034148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1496034147}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: -2.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1047289914}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1496034149
+  m_GameObject: {fileID: 1355717766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fb4cf717614e04d84678398af524bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 5106076771768299155, guid: d016787f1801c7b4cb502a51249aeada, type: 3}
+--- !u!61 &1355717771
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1496034147}
+  m_GameObject: {fileID: 1355717766}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -786,31 +767,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.15517414, y: -0.20467353}
+  m_Offset: {x: 0.90658903, y: -0.13145185}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 10.8}
+    newSize: {x: 19.2, y: 10.8}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.793124, y: 7.832087}
+  m_Size: {x: 4.1158895, y: 8.145245}
   m_EdgeRadius: 0
---- !u!114 &1496034150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1496034147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fb4cf717614e04d84678398af524bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 5106076771768299155, guid: d016787f1801c7b4cb502a51249aeada, type: 3}
 --- !u!1 &1569816572
 GameObject:
   m_ObjectHideFlags: 0

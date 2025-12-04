@@ -20,6 +20,9 @@ public class DoorObject : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
             isOpen = true;
         }
+        else {
+            SoundManager.PlaySound(SoundManager.Sound.PadlockInteract);
+        }
     }
 
 }
