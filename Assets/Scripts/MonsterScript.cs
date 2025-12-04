@@ -179,33 +179,29 @@ public class MonsterScript : MonoBehaviour
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
             yield return null;
         }
-        if (AmIHiding())
-        {
-            while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
-            {
-                Debug.Log("");
-                SoundManager.SetVolume(SoundManager.Sound.Monster, Mathf.Pow(SoundManager.GetVolume(SoundManager.Sound.Monster), 1 - SoundManager.GetVolume(SoundManager.Sound.Monster)) - volumeChangeSpeed * Time.deltaTime);
-                yield return null;
-
-                // Show leave button once volume is low enough
-                if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) <= 0.2f && leaveButton != null)
-                {
-                    leaveButton.SetActive(true);
-                }
-                foreach (GameObject obj in taggedObjects)
-                {
-                    Collider2D col = obj.GetComponent<Collider2D>();
-                    if (col != null) col.enabled = true;
-                }
-            }
-        }
-        else
+        if (!AmIHiding())
         {
             SoundManager.PlaySound(SoundManager.Sound.MonsterScream);
             tutorialAttack = true;
             SceneManager.LoadScene("Menu");
         }
+        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
+        {
+            Debug.Log("");
+            SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster)- volumeChangeSpeed * Time.deltaTime);
+            yield return null;
 
+            // Show leave button once volume is low enough
+            if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) <= 0.2f && leaveButton != null)
+            {
+                leaveButton.SetActive(true);
+            }
+            foreach (GameObject obj in taggedObjects)
+            {
+                Collider2D col = obj.GetComponent<Collider2D>();
+                if (col != null) col.enabled = true;
+            }
+        }
         // Step 3: Reduce volume back down to 0
 
         attackTrigger = Random.Range(minSpawnTime, maxSpawnTime);
