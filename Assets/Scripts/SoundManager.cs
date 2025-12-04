@@ -14,7 +14,12 @@ public static class SoundManager
         Monster,
         ChestOpen,
         ItemPickup,
+<<<<<<< Updated upstream
         MonsterScream,
+=======
+        DoorOpening,
+        UIClick,
+>>>>>>> Stashed changes
     }
 
     // Keep references to active AudioSources

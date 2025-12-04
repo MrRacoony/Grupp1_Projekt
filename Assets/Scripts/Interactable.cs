@@ -29,6 +29,7 @@ public class Interactable : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
         transform.localScale = Vector3.one;
         SceneController.CloseSceneTemporary(currentScene);
