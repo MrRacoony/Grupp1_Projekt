@@ -31,7 +31,8 @@ public class Padlock : MonoBehaviour
         if(padlocks[0].GetComponent<PadlockNumber>().GetIsCorrect() && padlocks[1].GetComponent<PadlockNumber>().GetIsCorrect()
         && padlocks[2].GetComponent<PadlockNumber>().GetIsCorrect() && isUnlocked == false) {
             isUnlocked = true;
-            SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked); 
+            SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked);
+            SoundManager.PlaySound(SoundManager.Sound.ChestOpen);
             Debug.Log("Unlocked");
             chestAnimator.SetBool("isOpen", true);
             keyObject.SetActive(true);

@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   padlocks: []
-  chestAnimator: {fileID: 0}
+  worldChestAnimator: {fileID: 0}
   keyObject: {fileID: 0}
+  lockObject: {fileID: 0}
 --- !u!1 &1337559850501747619
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,8 +665,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1954713637
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 1302723820812287101, guid: a44593e77299b484987d49ee408fb3ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1297,8 +1298,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1954713637
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 1302723820812287101, guid: a44593e77299b484987d49ee408fb3ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1658,8 +1659,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1954713637
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 1302723820812287101, guid: a44593e77299b484987d49ee408fb3ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
