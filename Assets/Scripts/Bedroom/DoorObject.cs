@@ -9,7 +9,7 @@ public class DoorObject : MonoBehaviour
     [SerializeField] private GameObject inventory;
     [SerializeField] private string nextScene;
 
-    private string currentScene;
+    [SerializeField] private string currentScene;
 
     private bool isOpen;
 
@@ -18,7 +18,7 @@ public class DoorObject : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        ;
         anim = GetComponent<Animator>();
         isOpen = false;
     }
@@ -33,8 +33,8 @@ public class DoorObject : MonoBehaviour
         }
         else if(isOpen) {
             //scene change here
-            SceneController.OpenSceneAddition(nextScene);
-            SceneController.CloseSceneTemporary(currentScene);
+            SceneController.LoadScene(nextScene);
+            //SceneController.CloseSceneTemporary(currentScene);
         }
         else {
             SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked);

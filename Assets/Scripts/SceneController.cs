@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
+    private string currentScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static void OpenSceneAddition(string newScene)
     {
@@ -86,11 +87,11 @@ public class SceneController : MonoBehaviour
 
     public string GetScene()
     {
-        return string.Empty;
+        return currentScene;
         //return currentScene;
     }
     public void SetScene(string newScene)
     {
-        //currentScene = newScene;
+        currentScene = newScene;
     }
 }

@@ -112,7 +112,7 @@ public class MonsterScript : MonoBehaviour
         while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < safeMaxVolume || !AmIHiding())
         {
             Debug.Log("step 1");
-            SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
+            SoundManager.SetVolume(SoundManager.Sound.Monster, Mathf.Pow(SoundManager.GetVolume(SoundManager.Sound.Monster), 1 - SoundManager.GetVolume(SoundManager.Sound.Monster)) - volumeChangeSpeed * Time.deltaTime);
             if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) >= safeMaxVolume)
             {
                 Debug.Log(Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 10) / 10);
@@ -184,7 +184,7 @@ public class MonsterScript : MonoBehaviour
             while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
             {
                 Debug.Log("");
-                SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) - volumeChangeSpeed * Time.deltaTime);
+                SoundManager.SetVolume(SoundManager.Sound.Monster, Mathf.Pow(SoundManager.GetVolume(SoundManager.Sound.Monster), 1 - SoundManager.GetVolume(SoundManager.Sound.Monster)) - volumeChangeSpeed * Time.deltaTime);
                 yield return null;
 
                 // Show leave button once volume is low enough
