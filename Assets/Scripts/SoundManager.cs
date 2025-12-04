@@ -14,6 +14,7 @@ public static class SoundManager
         Monster,
         ChestOpen,
         ItemPickup,
+        MonsterScream,
     }
 
     // Keep references to active AudioSources

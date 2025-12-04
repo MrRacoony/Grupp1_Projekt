@@ -20,10 +20,6 @@ public class SceneController : MonoBehaviour
                 root.SetActive(true);
                 foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                 {
-                    if (child.name == "Leave" && child.GetComponent<Button>())
-                    {
-                        monsterScript.SetLeaveButton(child.gameObject);
-                    }
                     if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
                     {
                         monsterScript.taggedObjects.Add(child.gameObject);
@@ -48,10 +44,6 @@ public class SceneController : MonoBehaviour
                 {
                     foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                     {
-                        if (child.name == "Leave" && child.GetComponent<Button>())
-                        {
-                            monsterScript.SetLeaveButton(child.gameObject);
-                        }
 
                         if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
                         {

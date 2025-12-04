@@ -23,7 +23,6 @@ public class MonsterScript : MonoBehaviour
     [SerializeField] private float safeMaxVolume = 0.5f;
     [SerializeField] private float hidingMaxVolume = 1.0f;
     [SerializeField] private float volumeChangeSpeed = 0.5f;
-
     void Awake()
     {
         //DontDestroyOnLoad(gameObject);
@@ -202,6 +201,7 @@ public class MonsterScript : MonoBehaviour
         }
         else
         {
+            SoundManager.PlaySound(SoundManager.Sound.MonsterScream);
             tutorialAttack = true;
             SceneManager.LoadScene("Menu");
         }
