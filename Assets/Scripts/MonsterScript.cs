@@ -182,6 +182,7 @@ public class MonsterScript : MonoBehaviour
         if (!AmIHiding())
         {
             SoundManager.PlaySound(SoundManager.Sound.MonsterScream);
+            SoundManager.StopSound(SoundManager.Sound.Monster);
             tutorialAttack = true;
             SceneManager.LoadScene("Menu");
         }
