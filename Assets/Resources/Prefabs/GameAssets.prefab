@@ -81,12 +81,6 @@ MonoBehaviour:
     pitch: 1
     volume: 1
   - sound: 7
-<<<<<<< Updated upstream
-    audioClip: {fileID: 8300000, guid: f26add6e01c5156438707d7326d20947, type: 3}
-    looping: 0
-    pitch: 2
-    volume: 1
-=======
     audioClip: {fileID: 8300000, guid: 7c1e8dd508200704b846e6de5de2bf61, type: 3}
     looping: 0
     pitch: 1
@@ -96,4 +90,8 @@ MonoBehaviour:
     looping: 0
     pitch: 1
     volume: 0.5
->>>>>>> Stashed changes
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: f26add6e01c5156438707d7326d20947, type: 3}
+    looping: 0
+    pitch: 2
+    volume: 0.25

@@ -42,7 +42,6 @@ public class WorldInteractable : MonoBehaviour
     }
     
     public void CloseLayer() {
-        SoundManager.PlaySound(SoundManager.Sound.UIClick);
         for(int i=0; i<layersToOpen.Count; i++) {
             layersToOpen[i].SetActive(false);
         }

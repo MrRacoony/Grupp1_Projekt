@@ -62,6 +62,7 @@ public class SceneController : MonoBehaviour
 
     public static void CloseSceneTemporary(string OldScene)
     {
+        SoundManager.PlaySound(SoundManager.Sound.UIClick);
         GameObject scene = GameObject.Find(OldScene);
         scene.SetActive(false);
         //Scene scene = SceneManager.GetSceneByName(OldScene);
