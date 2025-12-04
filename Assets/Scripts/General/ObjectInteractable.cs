@@ -19,7 +19,6 @@ public class ObjectInteractable : MonoBehaviour
     
 
     private void OnMouseDown() {
-        SoundManager.PlaySound(SoundManager.Sound.UIClick);
         layer.SetActive(true);
 
     }
