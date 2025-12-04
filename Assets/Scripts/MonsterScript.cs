@@ -20,13 +20,13 @@ public class MonsterScript : MonoBehaviour
     [SerializeField] private bool attacking = false;
 
     // Volume settings
-    [SerializeField] private float normalMaxVolume = 0.5f;
+    [SerializeField] private float safeMaxVolume = 0.5f;
     [SerializeField] private float hidingMaxVolume = 1.0f;
     [SerializeField] private float volumeChangeSpeed = 0.5f;
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
@@ -54,7 +54,7 @@ public class MonsterScript : MonoBehaviour
                 attackTrigger = 0;
                 StartCoroutine(StartAttack());
             }
-            else
+            else if (!attacking)
             {
                 attackTrigger -= Time.deltaTime;
             }
@@ -110,14 +110,14 @@ public class MonsterScript : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.Monster);
 
         // Step 1: Increase volume until normal cap
-        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < normalMaxVolume || !AmIHiding())
+        while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < safeMaxVolume || !AmIHiding())
         {
             Debug.Log("step 1");
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
-            if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) >= normalMaxVolume)
+            if ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) >= safeMaxVolume)
             {
                 Debug.Log(Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 10) / 10);
-                SoundManager.SetVolume(SoundManager.Sound.Monster, normalMaxVolume);
+                SoundManager.SetVolume(SoundManager.Sound.Monster, safeMaxVolume);
                 
             }
             yield return null;
@@ -129,7 +129,7 @@ public class MonsterScript : MonoBehaviour
             Debug.Log("step 2");
             if (leaveButton == null)
             {
-                SetLeaveButton(GameObject.Find("Leave"));
+                SetLeaveButton(GameObject.Find("BackButton"));
             }
             else if (leaveButton.activeSelf == true)
             {
@@ -173,21 +173,10 @@ public class MonsterScript : MonoBehaviour
         SoundManager.SetVolume(SoundManager.Sound.Monster, 0);
         SoundManager.PlaySound(SoundManager.Sound.Monster);
 
-        // Step 2: If hiding, allow volume to max
+        //Build up music
         while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) < hidingMaxVolume)
         {
-            Debug.Log("step 2");
-            if (leaveButton == null)
-            {
-                SetLeaveButton(GameObject.Find("Leave"));
-            }
-            else if (leaveButton.activeSelf == true)
-            {
-                Debug.Log(leaveButton);
-                leaveButton.SetActive(false);
-            }
-
-
+            Debug.Log("Incomming!");
             SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) + volumeChangeSpeed * Time.deltaTime);
             yield return null;
         }
@@ -195,7 +184,7 @@ public class MonsterScript : MonoBehaviour
         {
             while ((Mathf.Round(SoundManager.GetVolume(SoundManager.Sound.Monster) * 100) / 100) > 0f)
             {
-                Debug.Log("step 3");
+                Debug.Log("");
                 SoundManager.SetVolume(SoundManager.Sound.Monster, SoundManager.GetVolume(SoundManager.Sound.Monster) - volumeChangeSpeed * Time.deltaTime);
                 yield return null;
 
@@ -213,6 +202,7 @@ public class MonsterScript : MonoBehaviour
         }
         else
         {
+            tutorialAttack = true;
             SceneManager.LoadScene("Menu");
         }
 
