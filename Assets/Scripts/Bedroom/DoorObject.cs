@@ -13,7 +13,9 @@ public class DoorObject : MonoBehaviour
         isOpen = false;
     }
 
-    private void OnMouseDown() {
+    private void OnMouseDown()
+    {
+        inventory = GameObject.Find("Inventory");
         if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
             SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
             isOpen = true;
