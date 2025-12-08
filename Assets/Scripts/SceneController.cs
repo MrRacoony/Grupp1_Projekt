@@ -14,11 +14,6 @@ public class SceneController : MonoBehaviour
         MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
         GameObject sceneObject = GameObject.Find(newScene);
-<<<<<<< Updated upstream
-        //        monsterScript.MonsterScene(newScene);
-=======
-//        monsterScript.MonsterScene(newScene);
->>>>>>> Stashed changes
         if (scene.isLoaded)
         {
             foreach (GameObject root in scene.GetRootGameObjects())
