@@ -26,10 +26,12 @@ public class DoorObject : MonoBehaviour
     private void OnMouseDown()
     {
         inventory = GameObject.Find("Inventory");
-        if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
-            SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
-            isOpen = true;  
-            anim.SetBool("isOpen", isOpen);
+        if(inventory != null) {
+            if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
+                SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
+                isOpen = true;  
+                anim.SetBool("isOpen", isOpen);
+            }
         }
         else if(isOpen) {
             //scene change here
@@ -37,8 +39,9 @@ public class DoorObject : MonoBehaviour
             //SceneController.CloseSceneTemporary(currentScene);
         }
         else {
-            SoundManager.PlaySound(SoundManager.Sound.PadlockUnlocked);
+            SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
         }
+        
     }
 
     private void OnBecameVisible() {
