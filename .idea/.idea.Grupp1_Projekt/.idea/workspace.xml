@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ba22401-c0f4-4423-8b3f-f182a65b7d7f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Bedroom/Bedroom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Bedroom/Bedroom.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Bedroom/PaperMinigame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Bedroom/PaperMinigame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShaderTest/Fog and Particle/FogShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShaderTest/Fog and Particle/FogShader.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Grupp1_Projekt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Grupp1_Projekt/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +28,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "GraphicsTest-NEW",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,6 +99,7 @@
       <updated>1764762656859</updated>
       <workItem from="1764762658131" duration="2558000" />
       <workItem from="1765187565248" duration="418000" />
+      <workItem from="1765199919904" duration="813000" />
     </task>
     <servers />
   </component>
