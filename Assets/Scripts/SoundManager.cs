@@ -17,6 +17,7 @@ public static class SoundManager
         DoorOpening,
         UIClick,
         MonsterScream,
+        DoorLocked,
     }
 
     // Keep references to active AudioSources

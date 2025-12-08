@@ -6,8 +6,8 @@ public class HidePaper : MonoBehaviour
     void Start()
     {
         Debug.Log("start");
-        MonsterScript monster = FindFirstObjectByType<MonsterScript>();
-        monster.StartCoroutine(monster.TutorialAttack());
+        //MonsterScript monster = FindFirstObjectByType<MonsterScript>();
+        //monster.StartCoroutine(monster.TutorialAttack());
     }
 
     // Update is called once per frame
