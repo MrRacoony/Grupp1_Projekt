@@ -32,11 +32,14 @@ public class DoorObject : MonoBehaviour
                 isOpen = true;  
                 anim.SetBool("isOpen", isOpen);
             }
-        }
-        else if(isOpen) {
+            else if(isOpen) {
             //scene change here
             SceneController.LoadScene(nextScene);
             //SceneController.CloseSceneTemporary(currentScene);
+            }
+            else {
+                SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
+            }
         }
         else {
             SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
