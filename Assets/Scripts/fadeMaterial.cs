@@ -1,6 +1,6 @@
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
@@ -8,10 +8,11 @@ public class fadeMaterial : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Transform child;
-    private float fade;
+    public float fade;
+    [SerializeField] private float fadeTimer;
     void Start()
     {
-        child = transform.GetChild(0);
+        //child = transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -34,8 +35,15 @@ public class fadeMaterial : MonoBehaviour
                 fade = 0;
             }
         }
-        child.GetComponent<Image>().material.SetFloat("_Fade", fade); // Adjust glossiness
+        GetComponent<Image>().material.SetFloat("_Fade", fade); // Adjust glossiness
 
 
+    }
+    public static void FadeIn()
+    {
+
+    }
+    public static void FadeOut()
+    { 
     }
 }

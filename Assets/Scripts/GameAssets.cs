@@ -24,5 +24,7 @@ public class GameAssets : MonoBehaviour
         public SoundManager.Sound sound;
         public AudioClip audioClip;
         public bool looping;
+        public float pitch;
+        public float volume = 1;
     }
 }
