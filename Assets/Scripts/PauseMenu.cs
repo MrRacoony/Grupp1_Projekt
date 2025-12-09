@@ -75,4 +75,12 @@ public class PauseMenu : MonoBehaviour
         gamePaused = true;
         
     }
+    public void Menu()
+    {
+        SceneController.LoadScene("Menu");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
