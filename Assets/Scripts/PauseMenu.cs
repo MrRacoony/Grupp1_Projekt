@@ -34,7 +34,10 @@ public class PauseMenu : MonoBehaviour
         {
             interact.enabled = true;
         }
-        gamePlayCanvas.SetActive(true);
+        if (gamePlayCanvas != null)
+        {
+            gamePlayCanvas.SetActive(true);
+        }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
@@ -46,12 +49,15 @@ public class PauseMenu : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(SceneController.currentScene);
         Debug.Log(SceneController.currentScene);
         interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
-        gamePlayCanvas = GameObject.Find("GamePlayCanvas");
+        if (GameObject.Find("GamePlayCanvas") != null)
+        {
+            gamePlayCanvas = GameObject.Find("GamePlayCanvas");
+            gamePlayCanvas.SetActive(false);
+        }
         foreach (Collider2D interact in interactables)
         {
             interact.enabled = false;
         }
-        gamePlayCanvas.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
