@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0.5
     - _ColorMask: 15
-    - _Fade: 0
+    - _Fade: 0.518
     - _Scale: 0.05
     - _Stencil: 0
     - _StencilComp: 8
@@ -54,6 +54,6 @@ Material:
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.66375935, g: 1.2252303, b: 1.245283, a: 0}
+    - _Color: {r: 0.04009434, g: 0.015697312, b: 0.015697312, a: 0.14901961}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
