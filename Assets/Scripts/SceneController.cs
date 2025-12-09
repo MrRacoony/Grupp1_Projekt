@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    private string currentScene;
+    public static string currentScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+    }
     public static void OpenSceneAddition(string newScene)
     {
-        SceneController sceneController;
         //MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
+        currentScene = scene.name;
         //monsterScript.MonsterScene(newScene);
         if (scene.isLoaded)
         {
