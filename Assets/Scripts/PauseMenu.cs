@@ -6,12 +6,17 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static bool gamePaused = false;
+    private Canvas pauseCanvas;
 
     [SerializeField] private GameObject pauseMenuUI;
 
     [SerializeField] private List<Collider2D> interactables;
-    private GameObject gamePlayCanvas;
+    private List<Canvas> canvases = new List<Canvas>();
     // Update is called once per frame
+    private void Start()
+    {
+        pauseCanvas = pauseMenuUI.GetComponentInParent<Canvas>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -34,9 +39,12 @@ public class PauseMenu : MonoBehaviour
         {
             interact.enabled = true;
         }
-        if (gamePlayCanvas != null)
+        foreach (Canvas c in canvases)
         {
-            gamePlayCanvas.SetActive(true);
+            if (c != pauseCanvas)
+            {
+                c.enabled = true;
+            }
         }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -46,13 +54,17 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         interactables.Clear();
+        canvases.Clear();
         Scene scene = SceneManager.GetSceneByName(SceneController.currentScene);
         Debug.Log(SceneController.currentScene);
         interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
-        if (GameObject.Find("GamePlayCanvas") != null)
+        canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+        foreach (Canvas c in canvases)
         {
-            gamePlayCanvas = GameObject.Find("GamePlayCanvas");
-            gamePlayCanvas.SetActive(false);
+            if (c != pauseCanvas)
+            {
+                c.enabled = false;
+            }
         }
         foreach (Collider2D interact in interactables)
         {
