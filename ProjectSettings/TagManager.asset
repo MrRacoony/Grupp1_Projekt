@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lock
   - TutorialObject
+  - Chesspiece
   layers:
   - Default
   - TransparentFX
