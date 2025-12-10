@@ -19,6 +19,11 @@ public static class SoundManager
         UIClick,
         MonsterScream,
         DoorLocked,
+        RadioStation1,
+        RadioStation2,
+        RadioStation3,
+        RadioStation4,
+        RadioStation5,
     }
 
     // Keep references to active AudioSources
