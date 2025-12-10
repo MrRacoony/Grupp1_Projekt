@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 111835228}
   - component: {fileID: 111835227}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GamePlayCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,6 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   nextScene: DemoFinish
+  currentScene: 
 --- !u!61 &1355717771
 BoxCollider2D:
   m_ObjectHideFlags: 0

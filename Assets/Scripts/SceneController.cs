@@ -6,30 +6,32 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    private string currentScene;
+    public static string currentScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+    }
     public static void OpenSceneAddition(string newScene)
     {
-        SceneController sceneController;
-        MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
+        //MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
-        GameObject sceneObject = GameObject.Find(newScene);
+        currentScene = scene.name;
+        //monsterScript.MonsterScene(newScene);
         if (scene.isLoaded)
         {
             foreach (GameObject root in scene.GetRootGameObjects())
             {
-                if (root.transform.parent != null || root.name == newScene)
-                {
-                    root.SetActive(true);
-                }
+                root.SetActive(true);
 
-                foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
+                /*foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                 {
-                    //         if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
+                    if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
                     {
-                        //        monsterScript.taggedObjects.Add(child.gameObject);
+                        monsterScript.taggedObjects.Add(child.gameObject);
                     }
-                }
+                }*/
+
             }
             //foreach (GameObject root in scene.GetRootGameObjects())
             //{
@@ -47,18 +49,18 @@ public class SceneController : MonoBehaviour
             {
                 foreach (GameObject root in loadedScene.GetRootGameObjects())
                 {
-                    foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
+                    /*foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
                     {
 
-                        //      if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
+                        if (child.tag == "TutorialObject" && !monsterScript.taggedObjects.Contains(child.gameObject))
                         {
-                            //      monsterScript.taggedObjects.Add(child.gameObject);
+                            monsterScript.taggedObjects.Add(child.gameObject);
                         }
-                    }
+                    }*/
                 }
             };
 
-
+            
             SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
 
         }
