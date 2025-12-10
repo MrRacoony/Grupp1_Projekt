@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using static GameAssets;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public static class SoundManager
 {
@@ -41,6 +42,7 @@ public static class SoundManager
         audioSource.pitch = PitchSound(sound);
         audioSource.volume = GetVolume(sound);
         audioSource.clip = GetAudioClip(sound);
+        
 
         audioSource.Play();
 
@@ -130,5 +132,21 @@ public static class SoundManager
             }
         }
         return 1;
+    }
+
+    public static void SetGlobalVolume(float newVolume)
+    {
+        newVolume = Mathf.Clamp01(newVolume);
+
+        foreach (var sources in activeSources)
+        {
+            sources.Value.volume = newVolume;
+        }
+
+        // Also update stored values in GameAssets
+        foreach (GameAssets.SoundAudioClip audioAsset in GameAssets.instance.soundAudioClipArray)
+        {
+            audioAsset.volume = newVolume;
+        }
     }
 }
