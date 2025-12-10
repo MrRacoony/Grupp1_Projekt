@@ -8,24 +8,41 @@ public class CogPlaceable : MonoBehaviour
 {
 
     [SerializeField] private float radius;
+    [SerializeField] private Transform startingSpawnPos;
+
+    private Transform spawnPos;
 
     private Vector3 screenPoint;
     private Vector3 offset;
 
     private bool isDragging;
+    private bool isConnected;
 
     private List<GameObject> cogSlots;
 
     void Start() {
         
-        cogSlots = transform.parent.GetComponent<CogManager>().GetCogSlots();
+        cogSlots = transform.parent.transform.parent.GetComponent<CogManager>().GetCogSlots();
         isDragging = false;
+        isConnected = false;
+        spawnPos = startingSpawnPos;
 
     }
 
     void OnMouseDown()
     {
         isDragging = true;
+        isConnected = false;
+
+        for(int i=0; i<cogSlots.Count; i++) {
+            if(cogSlots[i].GetComponent<CogSlot>().GetIsOccupied()) {
+                if(transform.position.x < cogSlots[i].transform.position.x+radius && transform.position.x > cogSlots[i].transform.position.x-radius
+                && transform.position.y < cogSlots[i].transform.position.y+radius && transform.position.y > cogSlots[i].transform.position.y-radius) {
+                    cogSlots[i].GetComponent<CogSlot>().SetOccupied(false);
+                    break;
+                }
+            }
+        }
 
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
@@ -49,10 +66,19 @@ public class CogPlaceable : MonoBehaviour
     private void OnMouseUp() {
         isDragging = false;
         for(int i=0; i<cogSlots.Count; i++) {
-            if(transform.position.x < cogSlots[i].transform.position.x+radius && transform.position.x > cogSlots[i].transform.position.x-radius
-            && transform.position.y < cogSlots[i].transform.position.y+radius && transform.position.y > cogSlots[i].transform.position.y-radius) {
-                transform.position = cogSlots[i].transform.position;
+            if(!cogSlots[i].GetComponent<CogSlot>().GetIsOccupied()) {
+                if(transform.position.x < cogSlots[i].transform.position.x+radius && transform.position.x > cogSlots[i].transform.position.x-radius
+                && transform.position.y < cogSlots[i].transform.position.y+radius && transform.position.y > cogSlots[i].transform.position.y-radius) {
+                    transform.position = cogSlots[i].transform.position;
+                    cogSlots[i].GetComponent<CogSlot>().SetOccupied(true);
+                    isConnected = true;
+                    break;
+                }
             }
+        }
+
+        if(!isConnected) {
+            transform.position = spawnPos.position;
         }
         
     }
