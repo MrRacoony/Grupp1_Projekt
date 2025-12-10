@@ -101,7 +101,7 @@ MonoBehaviour:
     pitch: 1
     volume: 0.75
   - sound: 11
-    audioClip: {fileID: 8300000, guid: 6a6d281274ae08f45ac7604509a1bd1e, type: 3}
-    looping: 0
+    audioClip: {fileID: 8300000, guid: d637b8f9caa98684e8d0ebb2d520072d, type: 3}
+    looping: 1
     pitch: 1
     volume: 1
