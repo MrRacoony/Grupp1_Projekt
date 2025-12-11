@@ -104,14 +104,14 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: d637b8f9caa98684e8d0ebb2d520072d, type: 3}
     looping: 1
     pitch: 1
-    volume: 1
+    volume: 0.5
   - sound: 12
     audioClip: {fileID: 8300000, guid: 5d117b7090492c24bbc957d367b1d05f, type: 3}
     looping: 1
     pitch: 1
     volume: 0.5
   - sound: 13
-    audioClip: {fileID: 8300000, guid: d637b8f9caa98684e8d0ebb2d520072d, type: 3}
+    audioClip: {fileID: 8300000, guid: 0b613bc724193d84eac45da6aa18106a, type: 3}
     looping: 1
     pitch: 1
     volume: 0.5
