@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 22
 --- !u!212 &187321858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 21
 --- !u!212 &798449136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 18
 --- !u!212 &1298234557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 19
 --- !u!212 &1512545107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 16
 --- !u!212 &1584997654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 20
 --- !u!212 &1701272131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40572958994661f4695992b3117131ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSound: 6
+  thisSound: 17
 --- !u!212 &1874026204
 SpriteRenderer:
   m_ObjectHideFlags: 0
