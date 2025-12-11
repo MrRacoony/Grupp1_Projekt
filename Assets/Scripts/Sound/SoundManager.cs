@@ -23,7 +23,7 @@ public static class SoundManager
         RadioStation2,
         RadioStation3,
         RadioStation4,
-        RadioStation5,
+        RadioDialStatic,
         Piano_A,
         Piano_B,
         Piano_C,
