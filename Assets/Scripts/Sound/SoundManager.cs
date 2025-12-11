@@ -24,6 +24,13 @@ public static class SoundManager
         RadioStation3,
         RadioStation4,
         RadioStation5,
+        Piano_A,
+        Piano_B,
+        Piano_C,
+        Piano_D,
+        Piano_E,
+        Piano_F,
+        Piano_G,
     }
 
     // Keep references to active AudioSources
