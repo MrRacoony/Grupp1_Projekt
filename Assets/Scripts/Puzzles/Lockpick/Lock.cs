@@ -4,6 +4,8 @@ using UnityEngine;
 public class Lock : MonoBehaviour
 {
 
+    [SerializeField] private Animator anim;
+
     public bool isUnlocked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +22,7 @@ public class Lock : MonoBehaviour
 
     public void SetUnlocked(bool input) {
         isUnlocked = input;
+        anim.SetBool("isUnlocked", input);
     }
 
 }
