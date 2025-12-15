@@ -9,12 +9,14 @@ public class Interactable : MonoBehaviour
     private SpriteRenderer render;
     private GameObject parentObject;
     public string nextScene;
-    private string currentScene;
+    [SerializeField] private string currentScene;
 
 
     void Start()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        if(currentScene == null) {
+            currentScene = SceneManager.GetActiveScene().name;
+        }
     }
 
     // Update is called once per frame

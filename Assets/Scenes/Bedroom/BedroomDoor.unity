@@ -733,8 +733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
-  nextScene: DemoFinish
-  currentScene: 
+  nextScene: IntersectionRoom
+  currentScene: BedroomDoor
 --- !u!61 &1355717771
 BoxCollider2D:
   m_ObjectHideFlags: 0
