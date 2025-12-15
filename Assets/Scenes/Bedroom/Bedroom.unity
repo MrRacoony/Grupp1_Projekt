@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: PaperMinigame
+  currentScene: Bedroom
 --- !u!61 &344071621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6570,6 +6571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
+  currentScene: 
 --- !u!60 &962786049
 PolygonCollider2D:
   m_ObjectHideFlags: 0
