@@ -38,6 +38,7 @@ public class Padlock : MonoBehaviour
             keyObject.SetActive(true);
             lockObject.SetActive(false);
             worldChestAnimator.SetBool("isOpen", true);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 

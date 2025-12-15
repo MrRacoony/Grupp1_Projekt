@@ -18,10 +18,12 @@ public class RadioDial : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.RadioStation2);
         SoundManager.PlaySound(SoundManager.Sound.RadioStation3);
         SoundManager.PlaySound(SoundManager.Sound.RadioStation4);
+        SoundManager.PlaySound(SoundManager.Sound.RadioStation5);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
         isDragging = false;
         
     }
@@ -31,26 +33,30 @@ public class RadioDial : MonoBehaviour
         SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
         SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
         SoundManager.PlaySound(SoundManager.Sound.RadioDialStatic);
     }
 
     private void OnMouseUp() {
         SoundManager.StopSound(SoundManager.Sound.RadioDialStatic);
 
-        if(transform.localRotation.eulerAngles.z >= 0 && transform.localRotation.eulerAngles.z < 45) {            
+        if(transform.localRotation.eulerAngles.z >= 0 && transform.localRotation.eulerAngles.z < 36) {            
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
         }
-        else if(transform.localRotation.eulerAngles.z >= 315 && transform.localRotation.eulerAngles.z < 360) {          
+        else if(transform.localRotation.eulerAngles.z >= 324 && transform.localRotation.eulerAngles.z < 360) {          
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
         }
-        else if(transform.localRotation.eulerAngles.z >= 45 && transform.localRotation.eulerAngles.z < 135) {
+        else if(transform.localRotation.eulerAngles.z >= 36 && transform.localRotation.eulerAngles.z < 108) {
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0.5f);
         }
-        else if(transform.localRotation.eulerAngles.z >= 135 && transform.localRotation.eulerAngles.z < 225) {
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 225 && transform.localRotation.eulerAngles.z < 315) {
+        else if(transform.localRotation.eulerAngles.z >= 108 && transform.localRotation.eulerAngles.z < 180) {
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 180 && transform.localRotation.eulerAngles.z < 252) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 252 && transform.localRotation.eulerAngles.z < 324) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0.5f);
         }
     }
 

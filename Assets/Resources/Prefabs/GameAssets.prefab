@@ -120,6 +120,11 @@ MonoBehaviour:
     looping: 1
     pitch: 1
     volume: 0.5
+  - sound: 25
+    audioClip: {fileID: 8300000, guid: 589724a6fab472b4dbbc95e7499b8a5c, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 0.5
   - sound: 15
     audioClip: {fileID: 8300000, guid: 08093f969452bfb4ea22061b266c9d88, type: 3}
     looping: 1

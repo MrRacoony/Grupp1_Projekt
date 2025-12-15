@@ -32,7 +32,8 @@ public static class SoundManager
         Piano_F,
         Piano_G,
         ChesspiecePlace,
-        CogwheelPlace
+        CogwheelPlace,
+        RadioStation5,
     }
 
     // Keep references to active AudioSources
