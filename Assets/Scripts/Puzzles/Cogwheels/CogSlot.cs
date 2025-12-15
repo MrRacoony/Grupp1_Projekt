@@ -24,7 +24,7 @@ public class CogSlot : MonoBehaviour
     {
         for (int i = 0; i < cogSlots.Count; i++)
         {
-            if (EndsWithSameLetter(this.name, collision.name))
+            if (EndsWithSameLetter(this.name, collision.name) && GetIsOccupied())
             {
                 isCorrectSlot = true;
                 break;
