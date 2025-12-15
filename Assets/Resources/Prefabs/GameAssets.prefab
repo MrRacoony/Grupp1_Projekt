@@ -49,7 +49,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 0fad722f64de43b42a403323fe4f0894, type: 3}
     looping: 1
     pitch: 1
-    volume: 1
+    volume: 0.25
   - sound: 1
     audioClip: {fileID: 8300000, guid: e03ceaccb7d523a4c837bc3941cda88b, type: 3}
     looping: 0
@@ -99,9 +99,69 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 98609a800b9e14a47b438bc1ebb80a66, type: 3}
     looping: 0
     pitch: 1
-    volume: 0.75
+    volume: 1
   - sound: 11
-    audioClip: {fileID: 8300000, guid: d637b8f9caa98684e8d0ebb2d520072d, type: 3}
+    audioClip: {fileID: 8300000, guid: 893ddca7355fc5843aae4793d63bf553, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 0.5
+  - sound: 12
+    audioClip: {fileID: 8300000, guid: 5d117b7090492c24bbc957d367b1d05f, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 0.5
+  - sound: 13
+    audioClip: {fileID: 8300000, guid: 0b613bc724193d84eac45da6aa18106a, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 0.5
+  - sound: 14
+    audioClip: {fileID: 8300000, guid: 81549b34ef08d04418cc630796627d3f, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 0.5
+  - sound: 15
+    audioClip: {fileID: 8300000, guid: 08093f969452bfb4ea22061b266c9d88, type: 3}
     looping: 1
     pitch: 1
     volume: 1
+  - sound: 23
+    audioClip: {fileID: 8300000, guid: 4929975b16f099642a72117e54afecbe, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
+  - sound: 16
+    audioClip: {fileID: 8300000, guid: 2e65a66f0df25874991c3f1560db516d, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 17
+    audioClip: {fileID: 8300000, guid: 7c439090fd671294a933279aa6a3ed03, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 18
+    audioClip: {fileID: 8300000, guid: 54eb796645cd5fc47bcb386f1d8635b0, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 19
+    audioClip: {fileID: 8300000, guid: 52c513dfc109f7b44b34f130ba890274, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 20
+    audioClip: {fileID: 8300000, guid: 21b42e1388f0693489aef4a2c2d6f8c4, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 21
+    audioClip: {fileID: 8300000, guid: f8607bcb46781bc4a993312d5be5a1b9, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5
+  - sound: 22
+    audioClip: {fileID: 8300000, guid: ecfa85194114ea04f8e285681b7c7e88, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.5

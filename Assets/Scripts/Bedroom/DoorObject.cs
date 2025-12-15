@@ -18,7 +18,6 @@ public class DoorObject : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        ;
         anim = GetComponent<Animator>();
         isOpen = false;
     }
@@ -34,7 +33,8 @@ public class DoorObject : MonoBehaviour
             }
             else if(isOpen) {
             //scene change here
-            SceneController.LoadScene(nextScene);
+            SceneController.OpenSceneAddition(nextScene);
+            SceneController.CloseSceneTemporary(currentScene);
             //SceneController.CloseSceneTemporary(currentScene);
             }
             else {

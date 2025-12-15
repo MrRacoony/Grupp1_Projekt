@@ -2,19 +2,65 @@ using UnityEngine;
 
 public class RadioDial : MonoBehaviour
 {
+
+    private Vector3 mousePos;
+    private Vector3 objectPos;
+    private float angle;
+
+    private int radioStation;
+
+    private bool isDragging;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SoundManager.PlaySound(SoundManager.Sound.RadioStation1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        SoundManager.PlaySound(SoundManager.Sound.RadioStation2);
+        SoundManager.PlaySound(SoundManager.Sound.RadioStation3);
+        SoundManager.PlaySound(SoundManager.Sound.RadioStation4);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        isDragging = false;
         
     }
 
     private void OnMouseDown() {
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, transform.localRotation.eulerAngles.z+90));
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+        SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        SoundManager.PlaySound(SoundManager.Sound.RadioDialStatic);
+    }
+
+    private void OnMouseUp() {
+        SoundManager.StopSound(SoundManager.Sound.RadioDialStatic);
+
+        if(transform.localRotation.eulerAngles.z >= 0 && transform.localRotation.eulerAngles.z < 45) {            
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 315 && transform.localRotation.eulerAngles.z < 360) {          
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 45 && transform.localRotation.eulerAngles.z < 135) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 135 && transform.localRotation.eulerAngles.z < 225) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0.5f);
+        }
+        else if(transform.localRotation.eulerAngles.z >= 225 && transform.localRotation.eulerAngles.z < 315) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0.5f);
+        }
+    }
+
+    private void OnMouseDrag() {
+        mousePos = Input.mousePosition;
+        mousePos.z = 5.23F; //The distance between the camera and object
+        objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+        angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
 }
