@@ -8,11 +8,15 @@ public class SceneController : MonoBehaviour
 {
     public static string currentScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+
+    private void Awake()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == null)
+        {
+            currentScene = SceneManager.GetActiveScene().name;
+        }
     }
-    public static void OpenSceneAddition(string newScene)
+        public static void OpenSceneAddition(string newScene)
     {
         //MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
@@ -65,7 +69,8 @@ public class SceneController : MonoBehaviour
 
         }
         CloseSceneTemporary(currentScene);
-        currentScene = scene.name;
+        currentScene = newScene;
+        Debug.Log("Current Scene: " + currentScene);
     }
 
     public static void CloseSceneTemporary(string OldScene)
