@@ -120,6 +120,16 @@ MonoBehaviour:
     looping: 1
     pitch: 1
     volume: 0.5
+  - sound: 15
+    audioClip: {fileID: 8300000, guid: 08093f969452bfb4ea22061b266c9d88, type: 3}
+    looping: 1
+    pitch: 1
+    volume: 1
+  - sound: 23
+    audioClip: {fileID: 8300000, guid: 4929975b16f099642a72117e54afecbe, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
   - sound: 16
     audioClip: {fileID: 8300000, guid: 2e65a66f0df25874991c3f1560db516d, type: 3}
     looping: 0
@@ -155,8 +165,3 @@ MonoBehaviour:
     looping: 0
     pitch: 1
     volume: 0.5
-  - sound: 15
-    audioClip: {fileID: 8300000, guid: 08093f969452bfb4ea22061b266c9d88, type: 3}
-    looping: 1
-    pitch: 1
-    volume: 1
