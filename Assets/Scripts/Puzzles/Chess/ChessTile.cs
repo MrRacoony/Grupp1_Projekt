@@ -16,6 +16,7 @@ public class ChessTile : MonoBehaviour
     void OnMouseDown() {
         
         if(transform.parent.transform.parent.GetComponent<ChessManager>().GetHasPiece()) {
+            SoundManager.PlaySound(SoundManager.Sound.ChesspiecePlace);
             transform.parent.transform.parent.GetComponent<ChessManager>().ComparePieces();
             isActivated = true;
             tilePiece = transform.parent.transform.parent.GetComponent<ChessManager>().GetPiece();
@@ -23,7 +24,6 @@ public class ChessTile : MonoBehaviour
             transform.parent.transform.parent.GetComponent<ChessManager>().ResetPiece();
             transform.parent.transform.parent.GetComponent<ChessManager>().SetCorrect(transform.parent.transform.parent.GetComponent<ChessManager>().CheckCorrectTiles());
         }
-        
     }
 
     public bool GetIsActivated() {

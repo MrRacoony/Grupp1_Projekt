@@ -31,6 +31,8 @@ public static class SoundManager
         Piano_E,
         Piano_F,
         Piano_G,
+        ChesspiecePlace,
+        CogwheelPlace
     }
 
     // Keep references to active AudioSources

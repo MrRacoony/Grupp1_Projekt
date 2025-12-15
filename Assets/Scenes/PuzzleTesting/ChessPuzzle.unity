@@ -1089,6 +1089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 32882418}
     m_Modifications:
+    - target: {fileID: 1083751696226947875, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -482995509231877193, guid: 6970742642628684199beaff7f759573, type: 3}
     - target: {fileID: 2911315076807458512, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
       propertyPath: m_Name
       value: ChessPiece1
@@ -4839,6 +4843,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 32882418}
     m_Modifications:
+    - target: {fileID: 1083751696226947875, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4616206152412261810, guid: 6970742642628684199beaff7f759573, type: 3}
     - target: {fileID: 2911315076807458512, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
       propertyPath: m_Name
       value: ChessPiece3
@@ -5358,6 +5366,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 32882418}
     m_Modifications:
+    - target: {fileID: 1083751696226947875, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1991633455505660189, guid: 6970742642628684199beaff7f759573, type: 3}
     - target: {fileID: 2911315076807458512, guid: 71395f2eb1fd46f4387c02418b2101cf, type: 3}
       propertyPath: m_Name
       value: ChessPiece2
