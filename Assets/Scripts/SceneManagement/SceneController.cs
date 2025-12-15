@@ -16,7 +16,7 @@ public class SceneController : MonoBehaviour
     {
         //MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
-        currentScene = scene.name;
+        
         //monsterScript.MonsterScene(newScene);
         if (scene.isLoaded)
         {
@@ -64,7 +64,8 @@ public class SceneController : MonoBehaviour
             SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
 
         }
-
+        CloseSceneTemporary(currentScene);
+        currentScene = scene.name;
     }
 
     public static void CloseSceneTemporary(string OldScene)

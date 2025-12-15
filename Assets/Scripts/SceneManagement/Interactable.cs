@@ -8,22 +8,7 @@ public class Interactable : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private SpriteRenderer render;
     private GameObject parentObject;
-    public string nextScene;
-    [SerializeField] private string currentScene;
-
-
-    void Start()
-    {
-        if(currentScene == null) {
-            currentScene = SceneManager.GetActiveScene().name;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField] private string nextScene;
 
     private void OnMouseOver()
     {
@@ -34,7 +19,6 @@ public class Interactable : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
         transform.localScale = Vector3.one;
-        SceneController.CloseSceneTemporary(currentScene);
     }
     private void OnMouseExit()
     {
