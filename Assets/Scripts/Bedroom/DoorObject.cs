@@ -34,7 +34,6 @@ public class DoorObject : MonoBehaviour
             else if(isOpen) {
             //scene change here
             SceneController.OpenSceneAddition(nextScene);
-            SceneController.CloseSceneTemporary(currentScene);
             //SceneController.CloseSceneTemporary(currentScene);
             }
             else {
