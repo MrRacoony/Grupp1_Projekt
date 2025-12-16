@@ -5,16 +5,18 @@ public class Navigation : MonoBehaviour
 
     [SerializeField] private string nextScene;
     [SerializeField] private GameObject arrowCursor;
+    
+    private GameObject circleCursor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-                
+        circleCursor = GameObject.Find("CircleCursor");
     }
 
     private void OnMouseOver() {
+        circleCursor.SetActive(false);
         Vector3 mousePos = Input.mousePosition;
-        Cursor.visible = false;
         arrowCursor.SetActive(true);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
         arrowCursor.transform.position = new Vector2(worldPos.x, worldPos.y);
@@ -32,12 +34,12 @@ public class Navigation : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
         arrowCursor.SetActive(false);
-        Cursor.visible = true;
+        circleCursor.SetActive(true);
     }
 
     private void OnMouseExit() {
         arrowCursor.SetActive(false);
-        Cursor.visible = true;
+        circleCursor.SetActive(true);
     }
 
 }

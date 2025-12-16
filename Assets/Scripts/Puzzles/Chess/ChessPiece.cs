@@ -3,6 +3,10 @@ using UnityEngine;
 public class ChessPiece : MonoBehaviour
 {
 
+    private void OnMouseOver() {
+        
+    }
+
     void OnMouseDown() {
         
         if(!transform.parent.GetComponent<ChessManager>().GetIsCorrect()) {
