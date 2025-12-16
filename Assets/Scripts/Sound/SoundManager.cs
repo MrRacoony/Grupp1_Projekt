@@ -34,6 +34,8 @@ public static class SoundManager
         ChesspiecePlace,
         CogwheelPlace,
         RadioStation5,
+        ScaryShock,
+        DoorSlam,
     }
 
     // Keep references to active AudioSources
