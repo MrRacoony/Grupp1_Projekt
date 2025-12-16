@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         pauseCanvas = pauseMenuUI.GetComponentInParent<Canvas>();
+        Pause();
+        Resume();
     }
     void Update()
     {

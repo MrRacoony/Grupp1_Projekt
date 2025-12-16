@@ -1,12 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text tmpText;
-    [SerializeField] private DialogueObject testDialogue;
     [SerializeField] private GameObject dialogueBox;
 
     private DialogueEffect dialogueEffect;
@@ -14,12 +14,21 @@ public class DialogueUI : MonoBehaviour
     void Start()
     {
         dialogueEffect = GetComponent<DialogueEffect>();
-        CloseDialogueBox();
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
-        StartCoroutine(StepThroughDialogue(dialogueObject));
+        if (dialogueEffect == null)
+        {
+            dialogueEffect = GetComponent<DialogueEffect>();
+            ShowDialogue(dialogueObject);
+        }
+        else
+        {
+            Debug.Log("Starting Dialogue");
+            StartCoroutine(StepThroughDialogue(dialogueObject));
+        }
+            
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
@@ -32,24 +41,19 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
         CloseDialogueBox();
+
     }
 
     private void CloseDialogueBox()
     {
-        dialogueBox.SetActive(false);
+        dialogueBox.GetComponent<Image>().enabled = false;
         tmpText.text = string.Empty;
     }
     private void OpenDialogueBox()
     {
-        dialogueBox.SetActive(true);
+        Debug.Log("Activating");
+        dialogueBox.GetComponent<Image>().enabled = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ShowDialogue(testDialogue);
-        }
-    }
 }
