@@ -6,6 +6,6 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private DialogueUI dialogueUI;
     public void TriggerDialogue()
     {
-            dialogueUI.ShowDialogue(dialogueObject);
+        dialogueUI.ShowDialogue(dialogueObject);
     }
 }
