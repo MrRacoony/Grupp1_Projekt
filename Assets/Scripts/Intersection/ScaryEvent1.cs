@@ -20,6 +20,10 @@ public class ScaryEvent1 : MonoBehaviour
     }
 
     private void OnMouseOver() {
+        Invoke(nameof(StartEvent), 0.1f);
+    }
+
+    private void StartEvent() {
         SoundManager.PlaySound(SoundManager.Sound.DoorSlam);
         SoundManager.PlaySound(SoundManager.Sound.ScaryShock);
         doorCollider.SetActive(true);

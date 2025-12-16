@@ -36,6 +36,8 @@ public static class SoundManager
         RadioStation5,
         ScaryShock,
         DoorSlam,
+        Ambience1,
+        Ambience2,
     }
 
     // Keep references to active AudioSources

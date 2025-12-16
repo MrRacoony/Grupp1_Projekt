@@ -21,6 +21,14 @@ public class Navigation : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        if(nextScene == "Bedroom") {
+            SoundManager.SetVolume(SoundManager.Sound.Ambience1, 1.0f);
+            SoundManager.SetVolume(SoundManager.Sound.Ambience2, 0f);
+        }
+        else if(nextScene == "IntersectionRoom") {
+            SoundManager.SetVolume(SoundManager.Sound.Ambience2, 1.0f);
+            SoundManager.SetVolume(SoundManager.Sound.Ambience1, 0f);
+        }
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
         arrowCursor.SetActive(false);

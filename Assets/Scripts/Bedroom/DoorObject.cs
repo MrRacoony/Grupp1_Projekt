@@ -38,6 +38,8 @@ public class DoorObject : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         if(inventory != null) {
             if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
+                SoundManager.SetVolume(SoundManager.Sound.Ambience2, 1.0f);
+                SoundManager.SetVolume(SoundManager.Sound.Ambience1, 0f);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
                 isOpen = true;  
                 anim.SetBool("isOpen", isOpen);
