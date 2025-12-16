@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     private Canvas pauseCanvas;
 
     [SerializeField] private GameObject pauseMenuUI;
+    private DialogueUI dialogue;
 
     [SerializeField] private List<Collider2D> interactables;
     private List<Canvas> canvases = new List<Canvas>();
@@ -37,15 +38,19 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        foreach (Collider2D interact in interactables)
+        dialogue = FindAnyObjectByType<DialogueUI>();
+        if (!dialogue.IsInDialogue())
         {
-            interact.enabled = true;
-        }
-        foreach (Canvas c in canvases)
-        {
-            if (c != pauseCanvas)
+            foreach (Collider2D interact in interactables)
             {
-                c.enabled = true;
+                interact.enabled = true;
+            }
+            foreach (Canvas c in canvases)
+            {
+                if (c != pauseCanvas)
+                {
+                    c.enabled = true;
+                }
             }
         }
         pauseMenuUI.SetActive(false);
@@ -55,22 +60,24 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        interactables.Clear();
-        canvases.Clear();
-        Scene scene = SceneManager.GetSceneByName(SceneController.currentScene);
-        Debug.Log(SceneController.currentScene);
-        interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
-        canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
-        foreach (Canvas c in canvases)
+        dialogue = FindAnyObjectByType<DialogueUI>();
+        if (!dialogue.IsInDialogue())
         {
-            if (c != pauseCanvas)
+            interactables.Clear();
+            canvases.Clear();
+            interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
+            canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+            foreach (Canvas c in canvases)
             {
-                c.enabled = false;
+                if (c != pauseCanvas)
+                {
+                    c.enabled = false;
+                }
             }
-        }
-        foreach (Collider2D interact in interactables)
-        {
-            interact.enabled = false;
+            foreach (Collider2D interact in interactables)
+            {
+                interact.enabled = false;
+            }
         }
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
