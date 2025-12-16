@@ -8,6 +8,7 @@ public class DoorObject : MonoBehaviour
 
     [SerializeField] private GameObject inventory;
     [SerializeField] private string nextScene;
+    [SerializeField] private GameObject arrowCursor;
 
     [SerializeField] private string currentScene;
 
@@ -22,6 +23,16 @@ public class DoorObject : MonoBehaviour
         isOpen = false;
     }
 
+    private void OnMouseOver() {
+        if(isOpen) {
+            Vector3 mousePos = Input.mousePosition;
+            Cursor.visible = false;
+            arrowCursor.SetActive(true);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
+            arrowCursor.transform.position = new Vector2(worldPos.x, worldPos.y);
+        }
+    }
+
     private void OnMouseDown()
     {
         inventory = GameObject.Find("Inventory");
@@ -32,9 +43,11 @@ public class DoorObject : MonoBehaviour
                 anim.SetBool("isOpen", isOpen);
             }
             else if(isOpen) {
-            //scene change here
-            SceneController.OpenSceneAddition(nextScene);
-            //SceneController.CloseSceneTemporary(currentScene);
+                //scene change here
+                SceneController.OpenSceneAddition(nextScene);
+                arrowCursor.SetActive(false);
+                Cursor.visible = true;
+                //SceneController.CloseSceneTemporary(currentScene);
             }
             else {
                 SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
@@ -43,7 +56,13 @@ public class DoorObject : MonoBehaviour
         else {
             SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
         }
-        
+    }
+
+    private void OnMouseExit() {
+        if(isOpen) {
+            arrowCursor.SetActive(false);
+            Cursor.visible = true;
+        }
     }
 
     private void OnBecameVisible() {
