@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3cca9f76b952c9448853dfd4dd9f616d
+guid: f51714285706e89478b983596386cdaa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3458805720337588350
-    second: door_artwork_0
+      213: 6461450296219013950
+    second: intersection_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_artwork_0
+      name: intersection_bg_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e70afc32a75200030800000000000000
-      internalID: 3458805720337588350
+      spriteID: e331af76fceaba950800000000000000
+      internalID: 6461450296219013950
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      door_artwork_0: 3458805720337588350
+      intersection_bg_0: 6461450296219013950
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

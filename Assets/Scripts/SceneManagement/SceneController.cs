@@ -16,8 +16,13 @@ public class SceneController : MonoBehaviour
             currentScene = SceneManager.GetActiveScene().name;
         }
     }
-        public static void OpenSceneAddition(string newScene)
-    {
+
+    public static void OpenSceneAddition(string newScene) {
+        if (currentScene == null)
+        {
+            currentScene = SceneManager.GetActiveScene().name;
+        }
+        
         //MonsterScript monsterScript = GameObject.FindAnyObjectByType<MonsterScript>();
         Scene scene = SceneManager.GetSceneByName(newScene);
         
@@ -68,6 +73,7 @@ public class SceneController : MonoBehaviour
             SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
 
         }
+        Debug.Log(currentScene);
         CloseSceneTemporary(currentScene);
         currentScene = newScene;
         Debug.Log("Current Scene: " + currentScene);
