@@ -6870,7 +6870,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1277501904}
-  m_Father: {fileID: 1204593443}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7372,7 +7372,6 @@ Transform:
   - {fileID: 480780314}
   - {fileID: 798639228}
   - {fileID: 1988783593}
-  - {fileID: 1039243728}
   - {fileID: 568111081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8558,7 +8557,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8870,7 +8871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1039243732}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: ButtonPress
         m_Mode: 6
@@ -10416,3 +10417,4 @@ SceneRoots:
   - {fileID: 1204593443}
   - {fileID: 159459662158064584}
   - {fileID: 2144588599}
+  - {fileID: 1039243728}

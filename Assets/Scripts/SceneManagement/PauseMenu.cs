@@ -53,7 +53,17 @@ public class PauseMenu : MonoBehaviour
                 }
             }
         }
-        pauseMenuUI.SetActive(false);
+        else
+        {
+            foreach (Canvas c in canvases)
+            {
+                if (c.GetComponent<DialogueUI>())
+                {
+                    c.enabled = true;
+                }
+            }
+        }
+            pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
     }
@@ -61,12 +71,12 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         dialogue = FindAnyObjectByType<DialogueUI>();
+        interactables.Clear();
+        canvases.Clear();
+        interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
+        canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
         if (!dialogue.IsInDialogue())
         {
-            interactables.Clear();
-            canvases.Clear();
-            interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
-            canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
             foreach (Canvas c in canvases)
             {
                 if (c != pauseCanvas)
@@ -79,7 +89,17 @@ public class PauseMenu : MonoBehaviour
                 interact.enabled = false;
             }
         }
-        pauseMenuUI.SetActive(true);
+        else
+        {
+            foreach (Canvas c in canvases)
+            {
+                if (c.GetComponent<DialogueUI>())
+                {
+                    c.enabled = false;
+                }
+            }
+        }
+            pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
         
