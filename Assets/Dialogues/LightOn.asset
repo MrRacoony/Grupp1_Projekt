@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b96218efce4c9478e9f33b6bade113, type: 3}
   m_Name: LightOn
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - Much Better.
