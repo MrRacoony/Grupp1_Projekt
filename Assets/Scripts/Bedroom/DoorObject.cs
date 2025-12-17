@@ -55,6 +55,11 @@ public class DoorObject : MonoBehaviour
             }
             else {
                 SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
+                if (!triggerDialogue)
+                {
+                    triggerDialogue = true;
+                    GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
             }
         }
         else {

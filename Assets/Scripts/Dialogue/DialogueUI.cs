@@ -10,7 +10,6 @@ public class DialogueUI : MonoBehaviour
 
     [SerializeField] private TMP_Text tmpText;
     [SerializeField] private GameObject dialogueBox;
-    [SerializeField] private GameObject dialogueButton;
 
     private DialogueEffect dialogueEffect;
     private bool nextDialogue;
@@ -75,7 +74,6 @@ public class DialogueUI : MonoBehaviour
             }
         }
         dialogueBox.SetActive(false);
-        dialogueButton.SetActive(false);
         tmpText.text = string.Empty;
     }
 
@@ -105,7 +103,6 @@ public class DialogueUI : MonoBehaviour
         }
         Debug.Log("Activating");
         dialogueBox.SetActive(true);
-        dialogueButton.SetActive(true);
     }
 
     // Update is called once per frame
