@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 72094809}
   - component: {fileID: 72094810}
   - component: {fileID: 72094811}
+  - component: {fileID: 72094812}
   m_Layer: 0
   m_Name: ChessBoard
   m_TagString: Untagged
@@ -492,6 +493,20 @@ PolygonCollider2D:
       - {x: 1.0859375, y: -0.046875}
       - {x: 1.1640625, y: 0.0625}
   m_UseDelaunayMesh: 0
+--- !u!114 &72094812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72094807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a59fb35d3fdb4448b40b3eb1457f3ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chessboard: {fileID: 2108737114}
+  chessAnimator: {fileID: 228557724}
 --- !u!1001 &119327025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1156,6 +1171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 514638928}
   - {fileID: 426588030}
   - {fileID: 673007453}
   m_Father: {fileID: 1347878006}
@@ -2464,7 +2480,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1151616864}
-  m_Father: {fileID: 673007453}
+  m_Father: {fileID: 228557723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2921,8 +2937,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 514638928}
+  m_Children: []
   m_Father: {fileID: 228557723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &673007454
@@ -4152,7 +4167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664023359872512186, guid: fff71a47e8499df4794df97b64aa1dd8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7436,8 +7451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d5ca4ce8ae2c24f80e13cd2990c274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 5
-  maxTime: 10
 --- !u!1 &1991319134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8389,6 +8402,7 @@ MonoBehaviour:
   - {fileID: 712239290}
   - {fileID: 1276291745}
   allTiles: []
+  objCollider: {fileID: 0}
 --- !u!1 &2110185919
 GameObject:
   m_ObjectHideFlags: 0

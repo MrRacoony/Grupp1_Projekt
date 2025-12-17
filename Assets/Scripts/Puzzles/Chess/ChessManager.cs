@@ -9,6 +9,9 @@ public class ChessManager : MonoBehaviour
 
     [SerializeField] private GameObject currentPiece;
     [SerializeField] private List<GameObject> correctTiles, allTiles;
+    [SerializeField] private GameObject objCollider;
+    
+    private GameObject chessOverlay;
 
     private bool hasPiece;
     private bool isCorrect;
@@ -17,6 +20,7 @@ public class ChessManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        chessOverlay = transform.parent.gameObject;
         hasPiece = false;
         isCorrect = false;
         for (int i=0; i<GameObject.Find("ChessTiles").transform.childCount; i++) {
@@ -73,6 +77,14 @@ public class ChessManager : MonoBehaviour
 
     public void SetCorrect(bool input) {
         isCorrect = input;
+        
+        if(isCorrect) {
+            chessOverlay.SetActive(false);
+            if(objCollider != null) {
+                objCollider.SetActive(false);
+            }
+            chessOverlay.transform.parent.gameObject.GetComponent<Animator>().SetBool("isOpen", true);
+        }
     }
 
     public void ComparePieces() {

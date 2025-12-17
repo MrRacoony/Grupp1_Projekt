@@ -3,8 +3,8 @@ using UnityEngine;
 public class ScaryEventManager : MonoBehaviour
 {
 
-    private float minTime = 10.0f;
-    private float maxTime = 15.0f;
+    private float minTime = 45.0f;
+    private float maxTime = 60.0f;
     private float targetTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
