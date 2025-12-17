@@ -20,6 +20,7 @@ public class ScaryEventManager : MonoBehaviour
             targetTime -= Time.deltaTime;
             if(targetTime <= 0f) {
                 transform.GetChild(0).gameObject.SetActive(true);
+                SoundManager.PlaySound(SoundManager.Sound.DoorCreak);
             } 
         }
         
