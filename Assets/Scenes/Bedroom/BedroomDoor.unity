@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 1355717768}
   - component: {fileID: 1355717770}
   - component: {fileID: 1355717771}
+  - component: {fileID: 1355717772}
   m_Layer: 0
   m_Name: DoorBackground
   m_TagString: Untagged
@@ -941,6 +942,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.6965075, y: 11.883386}
   m_EdgeRadius: 0
+--- !u!114 &1355717772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355717766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d33047bf2ace7c42893d76c3a6b9932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: a4cd8bd862ae27542af4b5a3b1167ae2, type: 2}
+  dialogueUI: {fileID: 0}
 --- !u!1 &1569816572
 GameObject:
   m_ObjectHideFlags: 0
