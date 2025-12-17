@@ -25,10 +25,13 @@ public class ChessManager : MonoBehaviour
     }
 
     public void SetCurrentPiece(GameObject piece) {
-        currentPiece = piece;
-        baseColor = currentPiece.GetComponent<SpriteRenderer>().color;
-        currentPiece.GetComponent<SpriteRenderer>().color = Color.cyan;
-        hasPiece = true;
+        if (piece != currentPiece)
+        {
+            currentPiece = piece;
+            baseColor = currentPiece.GetComponent<SpriteRenderer>().color;
+            currentPiece.GetComponent<SpriteRenderer>().color = Color.cyan;
+            hasPiece = true;
+        }
     }
 
     public bool GetHasPiece() {

@@ -59,6 +59,7 @@ public class Flashlight : MonoBehaviour
 
         yield return child.TriggerDialogue();
         isOn = true;
+        SoundManager.PlaySound(SoundManager.Sound.FlashlightClick);
         yield return parent.TriggerDialogue();
     }
 
