@@ -19,6 +19,7 @@ public class RadioButton : MonoBehaviour
 
     void OnMouseDown() {
         transform.parent.GetComponent<RadioManager>().SetChannel(channelButton);
+        SoundManager.PlaySound(SoundManager.Sound.RadioClick);
         transform.GetChild(0).gameObject.SetActive(true);
         Debug.Log("Set channel to " + channelButton);
     }

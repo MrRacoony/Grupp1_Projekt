@@ -38,6 +38,7 @@ public static class SoundManager
         DoorSlam,
         Ambience1,
         Ambience2,
+        RadioClick,
     }
 
     // Keep references to active AudioSources
