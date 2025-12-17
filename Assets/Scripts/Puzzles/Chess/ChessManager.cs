@@ -83,6 +83,7 @@ public class ChessManager : MonoBehaviour
             if(objCollider != null) {
                 objCollider.SetActive(false);
             }
+            SoundManager.PlaySound(SoundManager.Sound.PuzzleComplete);
             chessOverlay.transform.parent.gameObject.GetComponent<Animator>().SetBool("isOpen", true);
         }
     }
