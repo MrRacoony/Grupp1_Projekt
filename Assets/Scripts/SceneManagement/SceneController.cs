@@ -100,6 +100,7 @@ public class SceneController : MonoBehaviour
     }
     public static void LoadScene(string scene)
     {
+        currentScene = scene;
         SceneManager.LoadScene(scene);
     }
 
