@@ -11,11 +11,11 @@ public class RadioManager : MonoBehaviour
 
     private int channel;
 
-    private float freq1 = 45;
-    private float freq2 = 230;
-    private float freq3 = 80;
-    private float freq4 = 300;
-    private float freq5 = 150;
+    private float freq1 = 25;
+    private float freq2 = 260;
+    private float freq3 = 150;
+    private float freq4 = 325;
+    private float freq5 = 70;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

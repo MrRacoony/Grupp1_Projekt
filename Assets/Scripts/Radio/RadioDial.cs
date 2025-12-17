@@ -9,12 +9,6 @@ public class RadioDial : MonoBehaviour
     private float previousAngle, currentAngle;
     private float maxVolume = 0.7f;
     private float staticVolume;
-
-    private float freq1 = 45;
-    private float freq2 = 230;
-    private float freq3 = 80;
-    private float freq4 = 300;
-    private float freq5 = 150;
     private float currentFreq;
 
     [SerializeField] private float volume;
@@ -29,7 +23,7 @@ public class RadioDial : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        
+
     }
 
     private void OnMouseUp() {
@@ -54,10 +48,10 @@ public class RadioDial : MonoBehaviour
         currentFreq = frequency;
 
         if(currentAngle > frequency) {
-            volume = 0.65f + ((frequency-currentAngle)/35);
+            volume = 0.65f + ((frequency-currentAngle)/25);
         }
         else if(currentAngle < frequency) {
-            volume = 0.65f + ((currentAngle-frequency)/35);
+            volume = 0.65f + ((currentAngle-frequency)/25);
         }
 
         if(volume > maxVolume) {
@@ -68,10 +62,10 @@ public class RadioDial : MonoBehaviour
         }
 
         if(currentAngle > frequency) {
-            staticVolume = ((frequency-currentAngle)/25) * -1.0f;
+            staticVolume = ((frequency-currentAngle)/10) * -1.0f;
         }
         else if(currentAngle < frequency) {
-            staticVolume = ((currentAngle-frequency)/25) * -1.0f;
+            staticVolume = ((currentAngle-frequency)/10) * -1.0f;
         }
 
         if(staticVolume > maxVolume) {
