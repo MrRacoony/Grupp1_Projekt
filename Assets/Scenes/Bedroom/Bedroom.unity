@@ -912,7 +912,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 473837662}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1277501905}
+        m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
+        m_MethodName: ButtonPress
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &473837662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7179,7 +7191,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1277501904}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1204593443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7654,6 +7666,7 @@ Transform:
   - {fileID: 798639228}
   - {fileID: 1988783593}
   - {fileID: 568111081}
+  - {fileID: 1039243728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1204593444
@@ -8237,7 +8250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1513073876}
   dialogueBox: {fileID: 491491339}
-  dialogueButton: {fileID: 0}
+  dialogueButton: {fileID: 473837659}
 --- !u!114 &1277501906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10683,4 +10696,3 @@ SceneRoots:
   - {fileID: 159459662158064584}
   - {fileID: 2144588599}
   - {fileID: 670466965}
-  - {fileID: 1039243728}
