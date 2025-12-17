@@ -3,8 +3,8 @@ using UnityEngine;
 public class ScaryEventManager : MonoBehaviour
 {
 
-    private float minTime = 50.0f;
-    private float maxTime = 100.0f;
+    [SerializeField] private float minTime = 5.0f;
+    [SerializeField] private float maxTime = 10.0f;
     private float targetTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,12 +16,12 @@ public class ScaryEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while(targetTime > 0f) {
+        if(targetTime > 0f) {
             targetTime -= Time.deltaTime;
             if(targetTime <= 0f) {
                 transform.GetChild(0).gameObject.SetActive(true);
-            }
-        }        
+            } 
+        }
         
     }
 }
