@@ -14,6 +14,8 @@ public class DoorObject : MonoBehaviour
 
     private bool isOpen;
 
+    private bool triggerDialogue = false;
+
     private Animator anim;
 
     // Update is called once per frame
@@ -57,6 +59,11 @@ public class DoorObject : MonoBehaviour
         }
         else {
             SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
+            if (!triggerDialogue)
+            {
+                triggerDialogue = true;
+                GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
         }
     }
 

@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 344071619}
   - component: {fileID: 344071620}
   - component: {fileID: 344071621}
+  - component: {fileID: 344071622}
   m_Layer: 0
   m_Name: PaperBunch
   m_TagString: TutorialObject
@@ -686,6 +687,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.8060772, y: 2.3226662}
   m_EdgeRadius: 0
+--- !u!114 &344071622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344071618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c09a99e67f0144fa47dbcf391460c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: bcf135ffed89eb743a256987e8f01d55, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &374668362
 GameObject:
   m_ObjectHideFlags: 0
@@ -10360,6 +10376,10 @@ PrefabInstance:
       propertyPath: nextScene
       value: BedroomDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3889934654036580423, guid: 6116b933fca634841b408b81fedd5f6e, type: 3}
+      propertyPath: arrowCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: e5e74ffedc9dce44490996c333914373, type: 3}
     - target: {fileID: 3909196995596319375, guid: 6116b933fca634841b408b81fedd5f6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
