@@ -195,3 +195,13 @@ MonoBehaviour:
     looping: 0
     pitch: 1
     volume: 1
+  - sound: 31
+    audioClip: {fileID: 8300000, guid: c20248083562039409bd96ad1c3a2c38, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
+  - sound: 32
+    audioClip: {fileID: 8300000, guid: 3f81f548fc83f034f99d738095d77d7e, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 0.7

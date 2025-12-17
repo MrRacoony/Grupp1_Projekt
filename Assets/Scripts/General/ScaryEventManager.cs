@@ -3,8 +3,8 @@ using UnityEngine;
 public class ScaryEventManager : MonoBehaviour
 {
 
-    [SerializeField] private float minTime = 45.0f;
-    [SerializeField] private float maxTime = 60.0f;
+    private float minTime = 45.0f;
+    private float maxTime = 60.0f;
     private float targetTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +20,7 @@ public class ScaryEventManager : MonoBehaviour
             targetTime -= Time.deltaTime;
             if(targetTime <= 0f) {
                 transform.GetChild(0).gameObject.SetActive(true);
+                SoundManager.PlaySound(SoundManager.Sound.DoorCreak);
             } 
         }
         
