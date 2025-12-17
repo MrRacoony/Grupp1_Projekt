@@ -39,6 +39,8 @@ public static class SoundManager
         Ambience1,
         Ambience2,
         RadioClick,
+        FlashlightClick,
+        DoorCreak,
     }
 
     // Keep references to active AudioSources
