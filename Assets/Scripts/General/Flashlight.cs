@@ -4,6 +4,8 @@ using System.Collections;
 public class Flashlight : MonoBehaviour
 {
 
+    private bool isOn;
+    
     private float mouseXPos, mouseYPos;
     private float minX, maxX;
     private float minY, maxY;

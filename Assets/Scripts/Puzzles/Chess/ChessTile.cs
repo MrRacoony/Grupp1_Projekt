@@ -20,7 +20,7 @@ public class ChessTile : MonoBehaviour
             transform.parent.transform.parent.GetComponent<ChessManager>().ComparePieces();
             isActivated = true;
             tilePiece = transform.parent.transform.parent.GetComponent<ChessManager>().GetPiece();
-            transform.parent.transform.parent.GetComponent<ChessManager>().GetPiece().transform.position = transform.position;
+            transform.parent.transform.parent.GetComponent<ChessManager>().GetPiece().transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
             transform.parent.transform.parent.GetComponent<ChessManager>().ResetPiece();
             transform.parent.transform.parent.GetComponent<ChessManager>().SetCorrect(transform.parent.transform.parent.GetComponent<ChessManager>().CheckCorrectTiles());
         }

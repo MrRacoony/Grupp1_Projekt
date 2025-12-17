@@ -20,11 +20,14 @@ public class ObjectInteractable : MonoBehaviour
 
     private void OnMouseDown() {
         layer.SetActive(true);
+        gameObject.SetActive(false);
 
     }
 
     public void CloseLayer() {
         layer.SetActive(false);
+        gameObject.SetActive(true);
+
     }
 
 }
