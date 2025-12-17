@@ -27,7 +27,10 @@ public class ChessManager : MonoBehaviour
     public void SetCurrentPiece(GameObject piece) {
         if (piece != currentPiece)
         {
-            currentPiece.GetComponent<SpriteRenderer>().color = baseColor;
+            if (currentPiece != null)
+            {
+                currentPiece.GetComponent<SpriteRenderer>().color = baseColor;
+            }
             currentPiece = piece;
             baseColor = currentPiece.GetComponent<SpriteRenderer>().color;
             currentPiece.GetComponent<SpriteRenderer>().color = Color.cyan;
