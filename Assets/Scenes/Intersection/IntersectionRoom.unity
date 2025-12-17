@@ -5149,6 +5149,10 @@ PrefabInstance:
       propertyPath: nextScene
       value: Bedroom
       objectReference: {fileID: 0}
+    - target: {fileID: 3889934654036580423, guid: 6116b933fca634841b408b81fedd5f6e, type: 3}
+      propertyPath: arrowCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: e5e74ffedc9dce44490996c333914373, type: 3}
     - target: {fileID: 3909196995596319375, guid: 6116b933fca634841b408b81fedd5f6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
