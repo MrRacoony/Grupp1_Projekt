@@ -4142,6 +4142,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4504387156528193536, guid: fff71a47e8499df4794df97b64aa1dd8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6664023359872512186, guid: fff71a47e8499df4794df97b64aa1dd8, type: 3}
       propertyPath: m_Name
       value: FlashlightPrefab
