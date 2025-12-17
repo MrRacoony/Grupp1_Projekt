@@ -70,23 +70,40 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        dialogue = FindAnyObjectByType<DialogueUI>();
+        if (dialogue == null || FindAnyObjectByType<DialogueUI>() != dialogue)
+        {
+            dialogue = FindAnyObjectByType<DialogueUI>();
+        }
         interactables.Clear();
         canvases.Clear();
         interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
         canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
-        if (!dialogue.IsInDialogue())
+        Debug.Log(dialogue);
+        if (dialogue != null)
         {
-            foreach (Canvas c in canvases)
+            if (!dialogue.IsInDialogue())
             {
-                if (c != pauseCanvas)
+                foreach (Canvas c in canvases)
                 {
-                    c.enabled = false;
+                    if (c != pauseCanvas)
+                    {
+                        c.enabled = false;
+                    }
+                }
+                foreach (Collider2D interact in interactables)
+                {
+                    interact.enabled = false;
                 }
             }
-            foreach (Collider2D interact in interactables)
+            else
             {
-                interact.enabled = false;
+                foreach (Canvas c in canvases)
+                {
+                    if (c.GetComponent<DialogueUI>())
+                    {
+                        c.enabled = false;
+                    }
+                }
             }
         }
         else
