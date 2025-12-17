@@ -7400,6 +7400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990595653}
+  - component: {fileID: 1990595654}
   m_Layer: 0
   m_Name: SpookyEventParent
   m_TagString: Untagged
@@ -7423,6 +7424,20 @@ Transform:
   - {fileID: 2007043423}
   m_Father: {fileID: 660993007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1990595654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990595652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d5ca4ce8ae2c24f80e13cd2990c274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTime: 5
+  maxTime: 10
 --- !u!1 &1991319134
 GameObject:
   m_ObjectHideFlags: 0
