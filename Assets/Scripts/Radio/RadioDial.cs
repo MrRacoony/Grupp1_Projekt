@@ -7,7 +7,7 @@ public class RadioDial : MonoBehaviour
     private Vector3 objectPos;
     private float angle;
     private float previousAngle, currentAngle;
-    private float maxVolume = 0.5f;
+    private float maxVolume = 0.7f;
     private float staticVolume;
 
     private float freq1 = 45;
@@ -29,21 +29,7 @@ public class RadioDial : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if(transform.parent.GetComponent<RadioManager>().GetChannel() == 1) {
-            currentFreq = freq1;
-        }
-        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 2) {
-            currentFreq = freq2;
-        }
-        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 3) {
-            currentFreq = freq3;
-        }
-        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 4) {
-            currentFreq = freq4;
-        }
-        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 5) {
-            currentFreq = freq5;
-        }
+        
     }
 
     private void OnMouseUp() {
@@ -65,12 +51,13 @@ public class RadioDial : MonoBehaviour
 
     public void SetChannelVolumes(float frequency) {
         currentAngle = transform.localRotation.eulerAngles.z;
+        currentFreq = frequency;
 
         if(currentAngle > frequency) {
-            volume = 0.5f + ((frequency-currentAngle)/50);
+            volume = 0.65f + ((frequency-currentAngle)/35);
         }
         else if(currentAngle < frequency) {
-            volume = 0.5f + ((currentAngle-frequency)/50);
+            volume = 0.65f + ((currentAngle-frequency)/35);
         }
 
         if(volume > maxVolume) {
