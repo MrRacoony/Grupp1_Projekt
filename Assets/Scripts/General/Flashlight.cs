@@ -21,7 +21,7 @@ public class Flashlight : MonoBehaviour
         maxX = Screen.width;
         minY = 0;
         maxY = Screen.height;
-        Cursor.visible = false;
+        //Cursor.visible = false;
         GetComponent<Light2D>().enabled = false;
 
     }
@@ -31,7 +31,8 @@ public class Flashlight : MonoBehaviour
     {
         if (!started)
         {
-            StartLight();
+            started = true;
+            StartCoroutine(StartLight());
         }
         if (isOn)
         {
@@ -51,12 +52,16 @@ public class Flashlight : MonoBehaviour
         
     }
 
-    private void StartLight()
+    private IEnumerator StartLight()
     {
-        GetComponent<DialogueTrigger>().TriggerDialogue();
+        var child = GetComponent<DialogueTrigger>();
+        var parent = transform.parent.GetComponent<DialogueTrigger>();
+
+        yield return child.TriggerDialogue();
         isOn = true;
-        GetComponentInParent<DialogueTrigger>().TriggerDialogue();
+        yield return parent.TriggerDialogue();
     }
+
 
 
 

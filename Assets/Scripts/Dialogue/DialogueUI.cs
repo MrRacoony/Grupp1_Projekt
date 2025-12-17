@@ -28,7 +28,7 @@ public class DialogueUI : MonoBehaviour
         nextDialogue = input;
     }
 
-    public void ShowDialogue(DialogueObject dialogueObject)
+    public Coroutine ShowDialogue(DialogueObject dialogueObject)
     {
         if (dialogueEffect == null)
             dialogueEffect = GetComponent<DialogueEffect>();
@@ -36,10 +36,10 @@ public class DialogueUI : MonoBehaviour
         if (dialogueEffect == null)
         {
             Debug.LogError("DialogueEffect missing!");
-            return;
+            return null;
         }
 
-        StartCoroutine(StepThroughDialogue(dialogueObject));
+        return StartCoroutine(StepThroughDialogue(dialogueObject));
 
 
     }
