@@ -12,6 +12,7 @@ public class ChessManager : MonoBehaviour
 
     private bool hasPiece;
     private bool isCorrect;
+    private Color baseColor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,8 @@ public class ChessManager : MonoBehaviour
 
     public void SetCurrentPiece(GameObject piece) {
         currentPiece = piece;
+        baseColor = currentPiece.GetComponent<SpriteRenderer>().color;
+        currentPiece.GetComponent<SpriteRenderer>().color = Color.cyan;
         hasPiece = true;
     }
 
@@ -41,6 +44,7 @@ public class ChessManager : MonoBehaviour
     }
 
     public void ResetPiece() {
+        currentPiece.GetComponent<SpriteRenderer>().color = baseColor;
         currentPiece = null;
         hasPiece = false;
     }
@@ -53,6 +57,11 @@ public class ChessManager : MonoBehaviour
         }
         
         return true;
+    }
+
+    public Color GetBaseColor()
+    {
+        return baseColor;
     }
 
     public void SetCorrect(bool input) {
