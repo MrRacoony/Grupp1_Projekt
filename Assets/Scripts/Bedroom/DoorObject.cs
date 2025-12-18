@@ -37,6 +37,7 @@ public class DoorObject : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         if(inventory != null) {
             if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
+                Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
                 isOpen = true;  
                 anim.SetBool("isOpen", isOpen);

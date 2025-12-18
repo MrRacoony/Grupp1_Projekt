@@ -12,11 +12,14 @@ public class lockpickDoor : MonoBehaviour
     [SerializeField] private Vector2 circleCursor = new Vector2(72, 72);
 
     [SerializeField] ChessManager chess;
+    
+    private bool isUnlocked;
 
     // Update is called once per frame
     void Start()
     {
         GetComponent<Collider2D>().enabled = false;
+        isUnlocked = false;
     }
     private void Update()
     {
@@ -33,7 +36,9 @@ public class lockpickDoor : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (isUnlocked) {
             Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
+        }
     }
 
     private void OnMouseDown()
@@ -41,10 +46,10 @@ public class lockpickDoor : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         if (inventory != null)
         {
-            if (inventory.GetComponent<InventorySystem>().HasObject("Lockpick"))
+            if (inventory.GetComponent<InventorySystem>().HasObject("Paperclip"))
             {
+                Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
                 SceneController.OpenSceneAddition(nextScene);
-                Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
             }
             else
             {

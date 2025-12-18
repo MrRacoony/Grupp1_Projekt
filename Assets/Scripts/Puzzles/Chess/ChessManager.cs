@@ -9,7 +9,7 @@ public class ChessManager : MonoBehaviour
 
     [SerializeField] private GameObject currentPiece;
     [SerializeField] private List<GameObject> correctTiles, allTiles;
-    [SerializeField] private GameObject objCollider;
+    [SerializeField] private GameObject objCollider, paperclipObject;
     
     private GameObject chessOverlay;
 
@@ -83,6 +83,7 @@ public class ChessManager : MonoBehaviour
             if(objCollider != null) {
                 objCollider.SetActive(false);
             }
+            paperclipObject.SetActive(true);
             SoundManager.PlaySound(SoundManager.Sound.PuzzleComplete);
             chessOverlay.transform.parent.gameObject.GetComponent<Animator>().SetBool("isOpen", true);
         }

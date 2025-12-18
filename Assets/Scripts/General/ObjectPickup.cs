@@ -7,6 +7,8 @@ public class ObjectPickup : MonoBehaviour
     [SerializeField] private GameObject inventory;
 
     private void OnMouseDown() {
+        inventory = GameObject.Find("Inventory");
+        
         SoundManager.PlaySound(SoundManager.Sound.ItemPickup);
         inventory.GetComponent<InventorySystem>().AddObject(objectName);
         Destroy(this.gameObject);
