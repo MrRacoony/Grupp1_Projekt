@@ -9,6 +9,9 @@ public class LockOrder : MonoBehaviour
     [SerializeField] private List<GameObject> unusedLocks;
     [SerializeField] public List<GameObject> lockOrder;
     System.Random rnd = new System.Random();
+
+    private float lockedYPos;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +31,8 @@ public class LockOrder : MonoBehaviour
             lockOrder.Add(unusedLocks[index]);
         }
         
+        lockedYPos = lockOrder[0].transform.position.y;
+        
     }
 
     // Update is called once per frame
@@ -38,9 +43,13 @@ public class LockOrder : MonoBehaviour
 
     public void SetLocked() {
         for(int i=0; i<lockOrder.Count; i++) {
-            lockOrder[i].transform.position = new Vector2(lockOrder[i].transform.position.x, 0.5f);
+            lockOrder[i].transform.position = new Vector2(lockOrder[i].transform.position.x, lockedYPos);
             lockOrder[i].GetComponent<Lock>().SetUnlocked(false);
         }
+    }
+
+    public int GetLockAmount() {
+        return lockOrder.Count;
     }
 
 }

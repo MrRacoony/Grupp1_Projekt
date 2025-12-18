@@ -42,6 +42,9 @@ public static class SoundManager
         FlashlightClick,
         DoorCreak,
         PuzzleComplete,
+        LockpickHit,
+        LockpickFail,
+        LockpickSuccess,
     }
 
     // Keep references to active AudioSources

@@ -25,4 +25,8 @@ public class Lock : MonoBehaviour
         anim.SetBool("isUnlocked", input);
     }
 
+    public bool GetUnlocked() {
+        return isUnlocked;
+    }
+
 }
