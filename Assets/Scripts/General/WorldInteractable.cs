@@ -24,16 +24,18 @@ public class WorldInteractable : MonoBehaviour
     
     private void OnMouseOver()
     {
-        transform.localScale = Vector3.one * 1.1f;
+        transform.parent.transform.localScale = Vector3.one * 1.1f;
     }
 
     private void OnMouseExit()
     {
-        transform.localScale = Vector3.one;
+        transform.parent.transform.localScale = Vector3.one;
     }
 
     private void OnMouseDown() {
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
+        transform.parent.transform.localScale = Vector3.one;
+        
         for(int i=0; i<layersToOpen.Count; i++) {
             layersToOpen[i].SetActive(true);
         }

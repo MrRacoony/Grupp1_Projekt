@@ -12,16 +12,16 @@ public class Interactable : MonoBehaviour
 
     private void OnMouseOver()
     {
-        transform.localScale = Vector3.one * 1.1f;
+        transform.parent.transform.localScale = Vector3.one * 1.1f;
     }
     private void OnMouseDown()
     {
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
-        transform.localScale = Vector3.one;
+        transform.parent.transform.localScale = Vector3.one;
     }
     private void OnMouseExit()
     {
-        transform.localScale = Vector3.one;
+        transform.parent.transform.localScale = Vector3.one;
     }
 }
