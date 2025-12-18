@@ -9,6 +9,10 @@ public class ObjectPickup : MonoBehaviour
     private void OnMouseDown() {
         inventory = GameObject.Find("Inventory");
         
+        if (GetComponent<DialogueTrigger>() != null)
+        {
+            GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
         SoundManager.PlaySound(SoundManager.Sound.ItemPickup);
         inventory.GetComponent<InventorySystem>().AddObject(objectName);
         Destroy(this.gameObject);

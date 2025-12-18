@@ -6679,6 +6679,7 @@ GameObject:
   - component: {fileID: 1713182417}
   - component: {fileID: 1713182419}
   - component: {fileID: 1713182418}
+  - component: {fileID: 1713182420}
   m_Layer: 0
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -6765,6 +6766,20 @@ PolygonCollider2D:
       - {x: -12.920187, y: -7.666511}
       - {x: -9.286937, y: -5.527698}
   m_UseDelaunayMesh: 0
+--- !u!114 &1713182420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713182416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d33047bf2ace7c42893d76c3a6b9932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: a9b9fe776b256bd4ea61b336b673709a, type: 2}
+  dialogueUI: {fileID: 13328973}
 --- !u!1001 &1748043953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6855,6 +6870,7 @@ GameObject:
   - component: {fileID: 1776312375}
   - component: {fileID: 1776312376}
   - component: {fileID: 1776312377}
+  - component: {fileID: 1776312378}
   m_Layer: 0
   m_Name: PaperclipObject
   m_TagString: Untagged
@@ -6992,6 +7008,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.203125, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &1776312378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776312373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d33047bf2ace7c42893d76c3a6b9932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 3c954ab67a5b6cc4a978820e72a66d57, type: 2}
+  dialogueUI: {fileID: 13328973}
 --- !u!1001 &1777709635
 PrefabInstance:
   m_ObjectHideFlags: 0
