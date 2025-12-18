@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DoorNoLock
   m_EditorClassIdentifier: 
   dialogues:
-  - What the- there's no lock on this door.
+  - What the- it's locked but there's no visible keyhole.
