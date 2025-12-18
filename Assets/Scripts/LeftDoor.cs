@@ -17,6 +17,7 @@ public class LeftDoor : MonoBehaviour
 
     private void OnMouseDown()
     {
+        SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
         if (!dialogueTrigger)
         {
             dialogueTrigger = true;
