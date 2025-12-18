@@ -204,7 +204,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 3f81f548fc83f034f99d738095d77d7e, type: 3}
     looping: 0
     pitch: 1
-    volume: 0.7
+    volume: 1
   - sound: 33
     audioClip: {fileID: 8300000, guid: 4a6a10bf6db244344819d5d0ca9776ec, type: 3}
     looping: 0
