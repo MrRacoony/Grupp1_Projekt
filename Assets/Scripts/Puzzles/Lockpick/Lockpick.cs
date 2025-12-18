@@ -76,6 +76,7 @@ public class Lockpick : MonoBehaviour
                 SoundManager.PlaySound(SoundManager.Sound.LockpickSuccess);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
                 lockpickDoor.GetComponent<LockpickDoor>().SetUnlocked();
+                lockpickDoor.GetComponent<LockpickDoor>().CloseLayer();
             }
 
         }
