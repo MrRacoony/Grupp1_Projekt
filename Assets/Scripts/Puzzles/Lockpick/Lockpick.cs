@@ -63,9 +63,7 @@ public class Lockpick : MonoBehaviour
                     Debug.Log("Has unlocked it");
                 }
                 else {
-                    if(currentLock != 0) {
-                        SoundManager.PlaySound(SoundManager.Sound.LockpickFail);
-                    }
+                    SoundManager.PlaySound(SoundManager.Sound.LockpickFail);
                     upHit.collider.transform.parent.GetComponent<LockOrder>().SetLocked();
                     currentLock = 0;
                     Debug.Log("Has locked all");
