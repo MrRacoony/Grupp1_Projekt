@@ -8,11 +8,14 @@ public class DoorObject : MonoBehaviour
 
     [SerializeField] private GameObject inventory;
     [SerializeField] private string nextScene;
-    [SerializeField] private GameObject arrowCursor;
+    [SerializeField] private Texture2D arrowCursor;
+    [SerializeField] private Vector2 circleCursor = new Vector2(72, 72);
 
     [SerializeField] private string currentScene;
 
     private bool isOpen;
+
+    private bool triggerDialogue = false;
 
     private Animator anim;
 
@@ -23,13 +26,9 @@ public class DoorObject : MonoBehaviour
         isOpen = false;
     }
 
-    private void OnMouseOver() {
+    private void OnMouseEnter() {
         if(isOpen) {
-            Vector3 mousePos = Input.mousePosition;
-            Cursor.visible = false;
-            arrowCursor.SetActive(true);
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
-            arrowCursor.transform.position = new Vector2(worldPos.x, worldPos.y);
+            Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
         }
     }
 
@@ -38,6 +37,7 @@ public class DoorObject : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         if(inventory != null) {
             if(inventory.GetComponent<InventorySystem>().HasObject("BedroomKey") && !isOpen) {
+                Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
                 isOpen = true;  
                 anim.SetBool("isOpen", isOpen);
@@ -47,23 +47,31 @@ public class DoorObject : MonoBehaviour
                 SoundManager.SetVolume(SoundManager.Sound.Ambience2, 1.0f);
                 SoundManager.SetVolume(SoundManager.Sound.Ambience1, 0f);
                 SceneController.OpenSceneAddition(nextScene);
-                arrowCursor.SetActive(false);
-                Cursor.visible = true;
+                Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
                 //SceneController.CloseSceneTemporary(currentScene);
             }
             else {
                 SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
+                if (!triggerDialogue)
+                {
+                    triggerDialogue = true;
+                    GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
             }
         }
         else {
             SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
+            if (!triggerDialogue)
+            {
+                triggerDialogue = true;
+                GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
         }
     }
 
     private void OnMouseExit() {
         if(isOpen) {
-            arrowCursor.SetActive(false);
-            Cursor.visible = true;
+            Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
         }
     }
 

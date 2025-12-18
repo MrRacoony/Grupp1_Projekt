@@ -4,22 +4,17 @@ public class Navigation : MonoBehaviour
 {
 
     [SerializeField] private string nextScene;
-    [SerializeField] private GameObject arrowCursor;
-    
-    private GameObject circleCursor;
+    [SerializeField] private Texture2D arrowCursor;
+    [SerializeField] private Vector2 circleCursor = new Vector2(72, 72);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        circleCursor = GameObject.Find("CircleCursor");
+
     }
 
-    private void OnMouseOver() {
-        circleCursor.SetActive(false);
-        Vector3 mousePos = Input.mousePosition;
-        arrowCursor.SetActive(true);
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
-        arrowCursor.transform.position = new Vector2(worldPos.x, worldPos.y);
+    private void OnMouseEnter() {
+    Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
     }
 
     private void OnMouseDown() {
@@ -33,13 +28,11 @@ public class Navigation : MonoBehaviour
         }
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);
-        arrowCursor.SetActive(false);
-        circleCursor.SetActive(true);
+        Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
     }
 
     private void OnMouseExit() {
-        arrowCursor.SetActive(false);
-        circleCursor.SetActive(true);
+        Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
     }
 
 }

@@ -38,18 +38,34 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        dialogue = FindAnyObjectByType<DialogueUI>();
-        if (!dialogue.IsInDialogue())
+        if (dialogue == null || FindAnyObjectByType<DialogueUI>() != dialogue)
         {
-            foreach (Collider2D interact in interactables)
+            dialogue = FindAnyObjectByType<DialogueUI>();
+        }
+        if (dialogue != null)
+        {
+            if (!dialogue.IsInDialogue())
             {
-                interact.enabled = true;
-            }
-            foreach (Canvas c in canvases)
-            {
-                if (c != pauseCanvas)
+                foreach (Collider2D interact in interactables)
                 {
-                    c.enabled = true;
+                    interact.enabled = true;
+                }
+                foreach (Canvas c in canvases)
+                {
+                    if (c != pauseCanvas)
+                    {
+                        c.enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Canvas c in canvases)
+                {
+                    if (c.GetComponent<DialogueUI>())
+                    {
+                        c.enabled = true;
+                    }
                 }
             }
         }
@@ -58,28 +74,6 @@ public class PauseMenu : MonoBehaviour
             foreach (Canvas c in canvases)
             {
                 if (c.GetComponent<DialogueUI>())
-                {
-                    c.enabled = true;
-                }
-            }
-        }
-            pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gamePaused = false;
-    }
-
-    public void Pause()
-    {
-        dialogue = FindAnyObjectByType<DialogueUI>();
-        interactables.Clear();
-        canvases.Clear();
-        interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
-        canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
-        if (!dialogue.IsInDialogue())
-        {
-            foreach (Canvas c in canvases)
-            {
-                if (c != pauseCanvas)
                 {
                     c.enabled = false;
                 }
@@ -89,6 +83,51 @@ public class PauseMenu : MonoBehaviour
                 interact.enabled = false;
             }
         }
+
+
+            pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gamePaused = false;
+    }
+
+    public void Pause()
+    {
+        if (dialogue == null || FindAnyObjectByType<DialogueUI>() != dialogue)
+        {
+            dialogue = FindAnyObjectByType<DialogueUI>();
+        }
+        interactables.Clear();
+        canvases.Clear();
+        interactables.AddRange(FindObjectsByType<Collider2D>(FindObjectsSortMode.None));
+        canvases.AddRange(FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+        Debug.Log(dialogue);
+        if (dialogue != null)
+        {
+            if (!dialogue.IsInDialogue())
+            {
+                foreach (Canvas c in canvases)
+                {
+                    if (c != pauseCanvas)
+                    {
+                        c.enabled = false;
+                    }
+                }
+                foreach (Collider2D interact in interactables)
+                {
+                    interact.enabled = false;
+                }
+            }
+            else
+            {
+                foreach (Canvas c in canvases)
+                {
+                    if (c.GetComponent<DialogueUI>())
+                    {
+                        c.enabled = false;
+                    }
+                }
+            }
+        }
         else
         {
             foreach (Canvas c in canvases)
@@ -97,6 +136,10 @@ public class PauseMenu : MonoBehaviour
                 {
                     c.enabled = false;
                 }
+            }
+            foreach (Collider2D interact in interactables)
+            {
+                interact.enabled = false;
             }
         }
             pauseMenuUI.SetActive(true);

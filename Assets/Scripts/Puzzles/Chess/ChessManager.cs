@@ -9,13 +9,18 @@ public class ChessManager : MonoBehaviour
 
     [SerializeField] private GameObject currentPiece;
     [SerializeField] private List<GameObject> correctTiles, allTiles;
+    [SerializeField] private GameObject objCollider, paperclipObject;
+    
+    private GameObject chessOverlay;
 
     private bool hasPiece;
     private bool isCorrect;
+    private Color baseColor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        chessOverlay = transform.parent.gameObject;
         hasPiece = false;
         isCorrect = false;
         for (int i=0; i<GameObject.Find("ChessTiles").transform.childCount; i++) {
@@ -24,8 +29,17 @@ public class ChessManager : MonoBehaviour
     }
 
     public void SetCurrentPiece(GameObject piece) {
-        currentPiece = piece;
-        hasPiece = true;
+        if (piece != currentPiece)
+        {
+            if (currentPiece != null)
+            {
+                currentPiece.GetComponent<SpriteRenderer>().color = baseColor;
+            }
+            currentPiece = piece;
+            baseColor = currentPiece.GetComponent<SpriteRenderer>().color;
+            currentPiece.GetComponent<SpriteRenderer>().color = Color.cyan;
+            hasPiece = true;
+        }
     }
 
     public bool GetHasPiece() {
@@ -41,6 +55,7 @@ public class ChessManager : MonoBehaviour
     }
 
     public void ResetPiece() {
+        currentPiece.GetComponent<SpriteRenderer>().color = baseColor;
         currentPiece = null;
         hasPiece = false;
     }
@@ -55,8 +70,24 @@ public class ChessManager : MonoBehaviour
         return true;
     }
 
+    public Color GetBaseColor()
+    {
+        return baseColor;
+    }
+
     public void SetCorrect(bool input) {
         isCorrect = input;
+        
+        if(isCorrect) {
+            chessOverlay.SetActive(false);
+            if(objCollider != null) {
+                objCollider.SetActive(false);
+            }
+            paperclipObject.SetActive(true);
+            SoundManager.PlaySound(SoundManager.Sound.ChessboardOpening);
+            SoundManager.PlaySound(SoundManager.Sound.PuzzleComplete);
+            chessOverlay.transform.parent.gameObject.GetComponent<Animator>().SetBool("isOpen", true);
+        }
     }
 
     public void ComparePieces() {

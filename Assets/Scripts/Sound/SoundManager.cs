@@ -38,6 +38,14 @@ public static class SoundManager
         DoorSlam,
         Ambience1,
         Ambience2,
+        RadioClick,
+        FlashlightClick,
+        DoorCreak,
+        PuzzleComplete,
+        LockpickHit,
+        LockpickFail,
+        LockpickSuccess,
+        ChessboardOpening,
     }
 
     // Keep references to active AudioSources
@@ -74,6 +82,13 @@ public static class SoundManager
         {
             activeSources[sound].Stop();
             // Do NOT destroy the GameObject � keep it alive for replay
+        }
+    }
+    public static void StopAllSound()
+    {
+        foreach (Sound sound in activeSources.Keys)
+        {
+            activeSources[sound].Stop();
         }
     }
 

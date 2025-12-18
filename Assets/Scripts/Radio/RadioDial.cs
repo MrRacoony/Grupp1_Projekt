@@ -6,8 +6,12 @@ public class RadioDial : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 objectPos;
     private float angle;
+    private float previousAngle, currentAngle;
+    private float maxVolume = 0.7f;
+    private float staticVolume;
+    private float currentFreq;
 
-    private int radioStation;
+    [SerializeField] private float volume;
 
     private bool isDragging;
 
@@ -19,35 +23,11 @@ public class RadioDial : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
-        SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
-        SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
-        SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
-        SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
-        SoundManager.PlaySound(SoundManager.Sound.RadioDialStatic);
+
     }
 
     private void OnMouseUp() {
-        SoundManager.StopSound(SoundManager.Sound.RadioDialStatic);
 
-        if(transform.localRotation.eulerAngles.z >= 0 && transform.localRotation.eulerAngles.z < 36) {            
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 324 && transform.localRotation.eulerAngles.z < 360) {          
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 36 && transform.localRotation.eulerAngles.z < 108) {
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 108 && transform.localRotation.eulerAngles.z < 180) {
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 180 && transform.localRotation.eulerAngles.z < 252) {
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0.5f);
-        }
-        else if(transform.localRotation.eulerAngles.z >= 252 && transform.localRotation.eulerAngles.z < 324) {
-            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0.5f);
-        }
     }
 
     private void OnMouseDrag() {
@@ -58,5 +38,89 @@ public class RadioDial : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+
+        SetChannelVolumes(currentFreq);       
+
     }
+
+    public void SetChannelVolumes(float frequency) {
+        currentAngle = transform.localRotation.eulerAngles.z;
+        currentFreq = frequency;
+
+        if(currentAngle > frequency) {
+            volume = 0.65f + ((frequency-currentAngle)/25);
+        }
+        else if(currentAngle < frequency) {
+            volume = 0.65f + ((currentAngle-frequency)/25);
+        }
+
+        if(volume > maxVolume) {
+            volume = maxVolume;
+        }
+        else if(volume < 0) {
+            volume = 0;
+        }
+
+        if(currentAngle > frequency) {
+            staticVolume = ((frequency-currentAngle)/10) * -1.0f;
+        }
+        else if(currentAngle < frequency) {
+            staticVolume = ((currentAngle-frequency)/10) * -1.0f;
+        }
+
+        if(staticVolume > maxVolume) {
+            staticVolume = maxVolume;
+        }
+        else if(staticVolume < 0) {
+            staticVolume = 0;
+        }
+
+        if(transform.parent.GetComponent<RadioManager>().GetChannel() == 1) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, volume);
+
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
+        }
+        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 2) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, volume);
+
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
+        }
+        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 3) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, volume);
+
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
+        }
+        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 4) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, volume);
+
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
+        }
+        else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 5) {
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, volume);
+
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        }
+    
+    }
+
 }
