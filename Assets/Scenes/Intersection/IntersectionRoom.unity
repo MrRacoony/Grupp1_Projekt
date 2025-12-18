@@ -8258,6 +8258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2063950062}
   - component: {fileID: 2063950063}
+  - component: {fileID: 2063950064}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -8332,6 +8333,23 @@ PolygonCollider2D:
       - {x: -2.1217008, y: -4.1890326}
       - {x: 2.182641, y: -4.8362694}
   m_UseDelaunayMesh: 0
+--- !u!114 &2063950064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063950061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4165c97c69c5e84469ae868f2b39cc3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  nextScene: LockpickTest
+  arrowCursor: {fileID: 2800000, guid: 43280431c72b9a34398e83238fe44925, type: 3}
+  circleCursor: {x: 72, y: 72}
+  currentScene: IntersectionRoom
 --- !u!1 &2102603952
 GameObject:
   m_ObjectHideFlags: 0
