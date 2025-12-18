@@ -14,7 +14,7 @@ public class Navigation : MonoBehaviour
     }
 
     private void OnMouseEnter() {
-    Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width, arrowCursor.height), CursorMode.Auto);
+    Cursor.SetCursor(arrowCursor, new Vector2(arrowCursor.width/2, arrowCursor.height/2), CursorMode.Auto);
     }
 
     private void OnMouseDown() {
