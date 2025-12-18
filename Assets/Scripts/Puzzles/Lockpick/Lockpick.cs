@@ -15,7 +15,7 @@ public class Lockpick : MonoBehaviour
     private float mouseXPos;
     public float minX;
     public float maxX;
-    private float verticalRay = 0.5f;
+    private float verticalRay = 1f;
     
     private int currentLock = 0;
     private int lockAmount;
@@ -24,6 +24,9 @@ public class Lockpick : MonoBehaviour
     void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
+        if(lockpickDoor == null) {
+            lockpickDoor = GameObject.Find("DoorRight");
+        }
     }
 
     // Update is called once per frame
@@ -50,12 +53,11 @@ public class Lockpick : MonoBehaviour
         if(upHit.collider != null && upHit.collider.CompareTag("Lock")) {
             
             lockAmount = upHit.collider.transform.parent.GetComponent<LockOrder>().GetLockAmount();
-            lockpickDoor = GameObject.Find("DoorRight");
 
             if(upHit.collider.GetComponent<Lock>().isUnlocked == false) {
                 if(GameObject.ReferenceEquals(upHit.collider.transform.parent.GetComponent<LockOrder>().lockOrder[currentLock], upHit.collider.gameObject)) {
                     currentLock++;
-                    upHit.collider.transform.position = new Vector2(upHit.collider.transform.position.x, upHit.collider.transform.position.y+0.5f   );
+                    upHit.collider.transform.position = new Vector2(upHit.collider.transform.position.x, upHit.collider.transform.position.y+1f   );
                     SoundManager.PlaySound(SoundManager.Sound.LockpickHit);
                     upHit.collider.GetComponent<Lock>().SetUnlocked(true);
                     Debug.Log("Has unlocked it");
@@ -74,10 +76,7 @@ public class Lockpick : MonoBehaviour
                 SoundManager.PlaySound(SoundManager.Sound.LockpickSuccess);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
                 lockpickDoor.GetComponent<LockpickDoor>().SetUnlocked();
-
-                SceneController.OpenSceneAddition("IntersectionRoom");                
             }
-            
 
         }
     }

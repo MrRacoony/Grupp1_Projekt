@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bedroom/BedHiding.unity
     guid: f281b2c76e2704340811f385eb324a67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PuzzleTesting/VaultcrackingTest.unity
     guid: 8835ef1c08c20f24a9d2adddd81dc224
   - enabled: 0
@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Bedroom/PadlockChest.unity
     guid: 0c3d9b96c8f84704e86ab85879aaf307
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Bedroom/DemoFinish.unity
     guid: 56799ebb815ebee4f9dd0c2b6dd4408f
   - enabled: 1
@@ -38,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intersection/Radio.unity
     guid: 51dac910b168d3c4c9420aa936157de9
-  - enabled: 1
-    path: Assets/Scenes/Intersection/Lockpicking.unity
-    guid: 6c5087c108db41546895b97b30835cde
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
