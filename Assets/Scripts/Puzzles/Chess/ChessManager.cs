@@ -84,6 +84,7 @@ public class ChessManager : MonoBehaviour
                 objCollider.SetActive(false);
             }
             paperclipObject.SetActive(true);
+            SoundManager.PlaySound(SoundManager.Sound.ChessboardOpening);
             SoundManager.PlaySound(SoundManager.Sound.PuzzleComplete);
             chessOverlay.transform.parent.gameObject.GetComponent<Animator>().SetBool("isOpen", true);
         }

@@ -13,8 +13,13 @@ public class ObjectPickup : MonoBehaviour
         {
             GetComponent<DialogueTrigger>().TriggerDialogue();
         }
+        
         SoundManager.PlaySound(SoundManager.Sound.ItemPickup);
-        inventory.GetComponent<InventorySystem>().AddObject(objectName);
+
+        if(inventory != null) {
+            inventory.GetComponent<InventorySystem>().AddObject(objectName);
+        }
+
         Destroy(this.gameObject);
     }
 

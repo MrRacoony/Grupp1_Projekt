@@ -9,6 +9,7 @@ public class Lockpick : MonoBehaviour
 
     [SerializeField] private Transform verticalCast;
     [SerializeField] private LayerMask whatAreLocks;
+    [SerializeField] private GameObject lockpickDoor;
 
     private Rigidbody2D rgbd;
     private float mouseXPos;
@@ -49,6 +50,7 @@ public class Lockpick : MonoBehaviour
         if(upHit.collider != null && upHit.collider.CompareTag("Lock")) {
             
             lockAmount = upHit.collider.transform.parent.GetComponent<LockOrder>().GetLockAmount();
+            lockpickDoor = GameObject.Find("DoorRight");
 
             if(upHit.collider.GetComponent<Lock>().isUnlocked == false) {
                 if(GameObject.ReferenceEquals(upHit.collider.transform.parent.GetComponent<LockOrder>().lockOrder[currentLock], upHit.collider.gameObject)) {
@@ -70,6 +72,10 @@ public class Lockpick : MonoBehaviour
 
             if(upHit.collider.transform.parent.GetComponent<LockOrder>().lockOrder[lockAmount-1].GetComponent<Lock>().GetUnlocked()) {
                 SoundManager.PlaySound(SoundManager.Sound.LockpickSuccess);
+                SoundManager.PlaySound(SoundManager.Sound.DoorOpening);
+                lockpickDoor.GetComponent<LockpickDoor>().SetUnlocked();
+
+                SceneController.OpenSceneAddition("IntersectionRoom");                
             }
             
 
