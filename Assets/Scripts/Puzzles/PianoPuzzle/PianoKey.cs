@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PianoKey : MonoBehaviour
 {
-    [SerializeField] private SoundManager.Sound thisSound;
+    [SerializeField] private SoundManager.Sound pianoKey;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +18,6 @@ public class PianoKey : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SoundManager.PlaySound(thisSound);
+        SoundManager.PlaySound(pianoKey);
     }
 }
