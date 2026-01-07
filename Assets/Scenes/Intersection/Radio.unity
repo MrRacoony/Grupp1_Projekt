@@ -1292,8 +1292,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3346102bd7f3a6441b842ccb6e4678c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimer: 0
   volume: 0
   light: {fileID: 0}
+  lightAnim: {fileID: 0}
+  audioSources: []
+  audioClips:
+  - {fileID: 8300000, guid: 5d117b7090492c24bbc957d367b1d05f, type: 3}
+  - {fileID: 8300000, guid: 81549b34ef08d04418cc630796627d3f, type: 3}
+  - {fileID: 8300000, guid: 0b613bc724193d84eac45da6aa18106a, type: 3}
 --- !u!58 &1101359781
 CircleCollider2D:
   m_ObjectHideFlags: 0
