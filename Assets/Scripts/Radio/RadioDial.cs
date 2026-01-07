@@ -34,9 +34,9 @@ public class RadioDial : MonoBehaviour
     }
 
     void Update() {
-        Debug.Log(Mathf.Round(source.clip.length - source.time));
-        if (source.time >= source.clip.length)
+        if (source.time <= 0.1)
         {
+            lightAnim.StopPlayback();
             if (lightAnim != null && animName != null)
             {
                 Debug.Log(source.volume);
