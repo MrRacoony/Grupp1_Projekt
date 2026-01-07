@@ -594,6 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238816312}
+  - component: {fileID: 1238816313}
   m_Layer: 0
   m_Name: MainPiano
   m_TagString: Untagged
@@ -623,6 +624,27 @@ Transform:
   - {fileID: 1874026205}
   m_Father: {fileID: 1015751077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238816313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238816311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9718a2b5d6e5154d88babc3a01a15f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pianoKeys: []
+  correctSequence:
+  - {fileID: 1298234554}
+  - {fileID: 1701272129}
+  - {fileID: 187321855}
+  - {fileID: 1512545104}
+  - {fileID: 1701272129}
+  - {fileID: 1701272129}
+  playerSequence: []
 --- !u!1 &1298234554
 GameObject:
   m_ObjectHideFlags: 0
