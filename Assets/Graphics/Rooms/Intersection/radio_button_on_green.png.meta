@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7690edb808e43254db9c9ad522cd33da
+guid: 72a149467dea43046800ec5cef63ab31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4530085960412488803
-    second: radio_light_v.2_0
+      213: -8379684793136175287
+    second: radio_button_on_green_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,11 +100,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: radio_light_v.2_0
+      name: radio_button_on_green_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 33
+        x: 11
+        y: 11
         width: 28
         height: 29
       alignment: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9b11a702d6e121c0800000000000000
-      internalID: -4530085960412488803
+      spriteID: 947206ff31165bb80800000000000000
+      internalID: -8379684793136175287
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      radio_light_v.2_0: -4530085960412488803
+      radio_button_on_green_0: -8379684793136175287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

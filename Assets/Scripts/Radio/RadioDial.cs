@@ -11,7 +11,15 @@ public class RadioDial : MonoBehaviour
     private float staticVolume;
     private float currentFreq;
 
+    [SerializeField] private float animTimer = 0f;
+
     [SerializeField] private float volume;
+    [SerializeField] private SpriteRenderer light;
+    [SerializeField] private Animator lightAnim;
+
+    private AudioSource audioSource;
+
+    private string animName;
 
     private bool isDragging;
 
@@ -19,7 +27,18 @@ public class RadioDial : MonoBehaviour
     void Start()
     {
         isDragging = false;
-        
+        animTimer = 0f;
+    }
+
+    void Update() {
+        animTimer += Time.deltaTime;
+
+        if(animTimer >= 3.0f) {
+            animTimer = 0f;
+            if(lightAnim != null && animName != null) {
+                lightAnim.Play(animName);
+            }
+        }
     }
 
     private void OnMouseDown() {
@@ -44,6 +63,10 @@ public class RadioDial : MonoBehaviour
     }
 
     public void SetChannelVolumes(float frequency) {
+        if(light != null) {
+            light.color = new Color(1f,1f,1f,0f);
+        }
+        
         currentAngle = transform.localRotation.eulerAngles.z;
         currentFreq = frequency;
 
@@ -87,6 +110,9 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 2) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, volume);
+            light = GameObject.Find("RadioLightB7").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightB7").GetComponent<Animator>();
+            animName = "RadioLightB7";
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
@@ -105,6 +131,9 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 4) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, volume);
+            light = GameObject.Find("RadioLightF4").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightF4").GetComponent<Animator>();
+            animName = "RadioLightF4";
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
@@ -114,11 +143,21 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 5) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation5, volume);
+            light = GameObject.Find("RadioLightD1").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightD1").GetComponent<Animator>();
+            animName = "RadioLightD1";
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+        }
+
+        if(volume >= 0) {
+            light.color = new Color(1f,1f,1f,1f);
+        }
+        else {
+            light.color = new Color(1f,1f,1f,0f);
         }
     
     }
