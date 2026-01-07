@@ -36,6 +36,11 @@ public class RadioManager : MonoBehaviour
     }
 
     public void SetChannel(int input) {
+
+        if(input != channel) {
+            transform.GetChild(0).gameObject.GetComponent<RadioDial>().ResetLightAnim();
+        }
+
         channel = input;
         for(int i=0; i<radioButtons.Count; i++) {
             radioButtons[i].transform.GetChild(0).gameObject.SetActive(false);

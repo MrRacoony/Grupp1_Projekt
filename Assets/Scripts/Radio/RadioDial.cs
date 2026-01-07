@@ -18,7 +18,7 @@ public class RadioDial : MonoBehaviour
 
     [SerializeField] private float volume;
     [SerializeField] private SpriteRenderer light;
-    [SerializeField] private Animator lightAnim;
+    [SerializeField] private Animator lightAnim, lightAnimB7, lightAnimF4, lightAnimD1;
 
     [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
     [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
@@ -34,21 +34,24 @@ public class RadioDial : MonoBehaviour
     }
 
     void Update() {
-        if (source.time <= 0.1)
-        {
-            lightAnim.StopPlayback();
-            if (lightAnim != null && animName != null)
+        if(source != null) {
+            if (source.time <= 0.1)
             {
-                Debug.Log(source.volume);
-                if (source.volume > 0)
+                lightAnim.StopPlayback();
+                if (lightAnim != null && animName != null)
                 {
                     lightAnim.SetBool("Active", true);
+                    /*Debug.Log(source.volume);
+                    if (source.volume > 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        lightAnim.SetBool("Active", false);
+                    }*/
+                    //lightAnim.Play(animName);
                 }
-                else
-                {
-                    lightAnim.SetBool("Active", false);
-                }
-                //lightAnim.Play(animName);
             }
         }
         
@@ -64,8 +67,11 @@ public class RadioDial : MonoBehaviour
 
     private void OnBecameVisible()
     {
-        lightAnim.SetBool("Active", false);
-        SetChannelVolumes(currentFreq);
+        if(lightAnim != null) {
+            lightAnim.SetBool("Active", false);
+            SetChannelVolumes(currentFreq);
+        }
+        
     }
 
     private void OnMouseDrag() {
@@ -173,12 +179,14 @@ public class RadioDial : MonoBehaviour
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
         }
 
-        if(volume >= 0) {
+        Debug.Log(volume);
+        if(volume > 0) {
             light.color = new Color(1f,1f,1f,1f);
         }
         else {
             light.color = new Color(1f,1f,1f,0f);
         }
+
         AudioClip clip;
         audioSources.Clear();
         audioSources.AddRange(GameObject.FindObjectsByType<AudioSource>(FindObjectsSortMode.None));
@@ -206,6 +214,12 @@ public class RadioDial : MonoBehaviour
             }
         }
 
+    }
+
+    public void ResetLightAnim() {
+        if(lightAnim != null) {
+            lightAnim.SetBool("Active", false);
+        }
     }
 
 }
