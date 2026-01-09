@@ -3,7 +3,7 @@ using UnityEngine;
 public class Vaultlock : MonoBehaviour
 {
 
-    [SerializeField] private GameObject lock1, lock2, lock3;
+    [SerializeField] private GameObject lock1, lock2, lock3, lockUnlocked1, lockUnlocked2, lockUnlocked3;
 
     private int lockNum;
 
@@ -14,6 +14,9 @@ public class Vaultlock : MonoBehaviour
         lock1.SetActive(true);
         lock2.SetActive(false);
         lock3.SetActive(false);
+        lockUnlocked1.SetActive(false);
+        lockUnlocked2.SetActive(false);
+        lockUnlocked3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,11 +35,13 @@ public class Vaultlock : MonoBehaviour
             lock1.SetActive(false);
             lock2.SetActive(true);
             lock3.SetActive(false);
+            lockUnlocked1.SetActive(true);
         }
         else if(lockNum == 2) {
             lock1.SetActive(false);
             lock2.SetActive(false);
             lock3.SetActive(true);
+            lockUnlocked2.SetActive(true);
         }
         else if(lockNum == 3) {
             
