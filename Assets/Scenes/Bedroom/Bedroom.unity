@@ -481,8 +481,8 @@ GameObject:
   m_Component:
   - component: {fileID: 280523262}
   - component: {fileID: 280523265}
-  - component: {fileID: 280523264}
   - component: {fileID: 280523263}
+  - component: {fileID: 280523264}
   m_Layer: 0
   m_Name: EAP painting
   m_TagString: Untagged
@@ -8413,8 +8413,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634259958}
+  - component: {fileID: 1634259961}
+  - component: {fileID: 1634259960}
+  - component: {fileID: 1634259959}
   m_Layer: 0
-  m_Name: GirlPainting
+  m_Name: GirlPearl Painting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8435,6 +8438,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204593443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1634259959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634259957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d33047bf2ace7c42893d76c3a6b9932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 44608ea2e64d97d49a5ca30ed237457c, type: 2}
+  dialogueUI: {fileID: 1039243733}
+--- !u!114 &1634259960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634259957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96accd424dab3243897edd858124acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSound: 0
+  sound: 0
+--- !u!60 &1634259961
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634259957}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -3.5780196, y: 8.405668}
+      - {x: -8.10786, y: 7.29456}
+      - {x: -8.110117, y: 7.199922}
+      - {x: -7.6346965, y: 1.7262473}
+      - {x: -3.342906, y: 3.2325664}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1676017041
 GameObject:
   m_ObjectHideFlags: 0

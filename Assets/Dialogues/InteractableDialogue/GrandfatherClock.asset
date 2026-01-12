@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GrandfatherClock
   m_EditorClassIdentifier: 
   dialogues:
-  - Van Gogh painting. Another replica.
-  - Good taste at least.
+  - A grandfather clock.
+  - Seems broken, though.
