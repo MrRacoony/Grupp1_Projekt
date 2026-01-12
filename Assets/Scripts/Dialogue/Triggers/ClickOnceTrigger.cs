@@ -19,15 +19,14 @@ public class ClickOnceTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hasBeenClicked)
-        {
-            return;
-        }
-        hasBeenClicked = true;
         if (hasSound)
         {
             SoundManager.PlaySound(sound);
         }
-        GetComponent<DialogueTrigger>().TriggerDialogue();
+        if (!hasBeenClicked)
+        {
+            GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
+        hasBeenClicked = true;
     }
 }
