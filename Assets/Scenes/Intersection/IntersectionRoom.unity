@@ -7945,8 +7945,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1713182417}
   - component: {fileID: 1713182419}
-  - component: {fileID: 1713182418}
   - component: {fileID: 1713182420}
+  - component: {fileID: 1713182421}
   m_Layer: 0
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -7969,18 +7969,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 660993007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1713182418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713182416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 328cbbac8725d044486ceb0e0e5a4098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &1713182419
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8047,6 +8035,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: a9b9fe776b256bd4ea61b336b673709a, type: 2}
   dialogueUI: {fileID: 13328973}
+--- !u!114 &1713182421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713182416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f9bf8d688c1364a8890bf53a57444e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSound: 1
+  sound: 10
 --- !u!1001 &1748043953
 PrefabInstance:
   m_ObjectHideFlags: 0
