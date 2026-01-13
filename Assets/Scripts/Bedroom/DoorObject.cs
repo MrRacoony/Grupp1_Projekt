@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -14,8 +13,6 @@ public class DoorObject : MonoBehaviour
     [SerializeField] private string currentScene;
 
     private bool isOpen;
-
-    private bool triggerDialogue = false;
 
     private Animator anim;
 
@@ -52,20 +49,12 @@ public class DoorObject : MonoBehaviour
             }
             else {
                 SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
-                if (!triggerDialogue)
-                {
-                    triggerDialogue = true;
-                    GetComponent<DialogueTrigger>().TriggerDialogue();
-                }
+                GetComponent<DialogueTrigger>().TriggerDialogue();
             }
         }
         else {
             SoundManager.PlaySound(SoundManager.Sound.DoorLocked);
-            if (!triggerDialogue)
-            {
-                triggerDialogue = true;
-                GetComponent<DialogueTrigger>().TriggerDialogue();
-            }
+            GetComponent<DialogueTrigger>().TriggerDialogue();
         }
     }
 

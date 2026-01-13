@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class RadioDial : MonoBehaviour
 {
@@ -11,7 +14,16 @@ public class RadioDial : MonoBehaviour
     private float staticVolume;
     private float currentFreq;
 
+    [SerializeField] private AudioSource source = new AudioSource();
+
     [SerializeField] private float volume;
+    [SerializeField] private SpriteRenderer lightRenderer;
+    [SerializeField] private Animator lightAnim, lightAnimB7, lightAnimF4, lightAnimD1;
+
+    [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
+    [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
+
+    private string animName;
 
     private bool isDragging;
 
@@ -19,6 +31,28 @@ public class RadioDial : MonoBehaviour
     void Start()
     {
         isDragging = false;
+    }
+
+    void Update() {
+        if(source != null) {
+            if (source.time <= 0.1)
+            {
+                if (lightAnim != null) {
+                    lightAnim.StopPlayback();
+                    lightAnim.SetBool("Active", true);
+                    /*Debug.Log(source.volume);
+                    if (source.volume > 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        lightAnim.SetBool("Active", false);
+                    }*/
+                    //lightAnim.Play(animName);
+                }
+            }
+        }
         
     }
 
@@ -28,6 +62,15 @@ public class RadioDial : MonoBehaviour
 
     private void OnMouseUp() {
 
+    }
+
+    private void OnBecameVisible()
+    {
+        if(lightAnim != null) {
+            lightAnim.SetBool("Active", false);
+            SetChannelVolumes(currentFreq);
+        }
+        
     }
 
     private void OnMouseDrag() {
@@ -44,6 +87,11 @@ public class RadioDial : MonoBehaviour
     }
 
     public void SetChannelVolumes(float frequency) {
+        
+        if (lightRenderer != null) {
+            lightRenderer.color = new Color(1f,1f,1f,0f);
+        }
+        
         currentAngle = transform.localRotation.eulerAngles.z;
         currentFreq = frequency;
 
@@ -78,6 +126,8 @@ public class RadioDial : MonoBehaviour
         if(transform.parent.GetComponent<RadioManager>().GetChannel() == 1) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, volume);
+            lightRenderer = null;
+            lightAnim = null;
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
@@ -87,6 +137,8 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 2) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, volume);
+            lightRenderer = GameObject.Find("RadioLightB7").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightB7").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
@@ -96,6 +148,8 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 3) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, volume);
+            lightRenderer = null;
+            lightAnim = null;
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
@@ -105,6 +159,8 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 4) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, volume);
+            lightRenderer = GameObject.Find("RadioLightF4").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightF4").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
@@ -114,13 +170,57 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 5) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation5, volume);
+            lightRenderer = GameObject.Find("RadioLightD1").GetComponent<SpriteRenderer>();
+            lightAnim = GameObject.Find("RadioLightD1").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
         }
-    
+
+        if(lightRenderer != null) {
+            if(volume > 0) {
+                lightRenderer.color = new Color(1f,1f,1f,1f);
+            }
+            else {
+                lightRenderer.color = new Color(1f,1f,1f,0f);
+            }
+        }
+        
+        AudioClip clip;
+        audioSources.Clear();
+        audioSources.AddRange(GameObject.FindObjectsByType<AudioSource>(FindObjectsSortMode.None));
+        if (source == null)
+        {
+            for (int i = 0; i < audioSources.Count; i++)
+            {
+                if (audioClips.Contains(audioSources[i].clip))
+                {
+                    source = audioSources[i];
+                    clip = source.clip;
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            if (audioClips.Contains(audioSources[i].clip))
+            {
+                if (audioSources[i].volume > source.volume)
+                {
+                    source = audioSources[i];
+                    clip = source.clip;
+                }
+            }
+        }
+
+    }
+
+    public void ResetLightAnim() {
+        if(lightAnim != null) {
+            lightAnim.SetBool("Active", false);
+        }
     }
 
 }

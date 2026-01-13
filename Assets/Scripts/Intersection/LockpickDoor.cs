@@ -72,8 +72,16 @@ public class LockpickDoor : MonoBehaviour
         
         if(isUnlocked) {
             Cursor.SetCursor(null, circleCursor, CursorMode.Auto);
-            SoundManager.StopAllSound();
-            SceneManager.LoadScene(nextScene);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation3, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioStation5, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, 0f);
+            
+            SoundManager.SetVolume(SoundManager.Sound.Ambience3, 1.0f);
+            SoundManager.SetVolume(SoundManager.Sound.Ambience2, 0f);
+            SceneController.OpenSceneAddition(nextScene);
         }
         
     }

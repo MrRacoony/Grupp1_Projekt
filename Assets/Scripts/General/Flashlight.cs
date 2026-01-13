@@ -6,7 +6,7 @@ public class Flashlight : MonoBehaviour
 {
 
     private bool isOn;
-    private bool started;
+    [SerializeField] private bool started;
     
     private float mouseXPos, mouseYPos;
     private float minX, maxX;
@@ -16,7 +16,6 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         isOn = false;
-        started = false;
         minX = 0;
         maxX = Screen.width;
         minY = 0;
@@ -34,6 +33,7 @@ public class Flashlight : MonoBehaviour
             started = true;
             StartCoroutine(StartLight());
         }
+        
         if (isOn)
         {
         GetComponent<Light2D>().enabled = true;

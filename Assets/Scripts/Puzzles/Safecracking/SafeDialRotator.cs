@@ -31,6 +31,13 @@ public class SafeDialRotator : MonoBehaviour
 
     public void Rotate(float degrees) {
         if(keyRgbd.linearVelocity == Vector2.zero) {
+            if(degrees == 90) {
+                SoundManager.PlaySound(SoundManager.Sound.SafeDialLeft);
+            }
+            else if(degrees == -90) {
+                SoundManager.PlaySound(SoundManager.Sound.SafeDialRight);
+            }
+            
             float rotateTo = Mathf.RoundToInt(transform.localRotation.eulerAngles.z/90) * 90;
             rotAmount = rotateTo + degrees;
         }
