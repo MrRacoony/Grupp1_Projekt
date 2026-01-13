@@ -25,6 +25,11 @@ public class Navigation : MonoBehaviour
         else if(nextScene == "IntersectionRoom") {
             SoundManager.SetVolume(SoundManager.Sound.Ambience2, 1.0f);
             SoundManager.SetVolume(SoundManager.Sound.Ambience1, 0f);
+            SoundManager.SetVolume(SoundManager.Sound.Ambience3, 0f);
+        }
+        else if(nextScene == "Lounge") {
+            SoundManager.SetVolume(SoundManager.Sound.Ambience3, 1.0f);
+            SoundManager.SetVolume(SoundManager.Sound.Ambience2, 0f);
         }
         SoundManager.PlaySound(SoundManager.Sound.UIClick);
         SceneController.OpenSceneAddition(nextScene);

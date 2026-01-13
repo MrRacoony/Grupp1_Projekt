@@ -46,6 +46,7 @@ public static class SoundManager
         LockpickFail,
         LockpickSuccess,
         ChessboardOpening,
+        Ambience3,
     }
 
     // Keep references to active AudioSources

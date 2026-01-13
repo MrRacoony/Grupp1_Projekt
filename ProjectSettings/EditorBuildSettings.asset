@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intersection/Radio.unity
     guid: 51dac910b168d3c4c9420aa936157de9
+  - enabled: 1
+    path: Assets/Scenes/Lounge/Lounge.unity
+    guid: eb9798af118d8c541bb3fdf9f8b8d679
+  - enabled: 1
+    path: Assets/Scenes/Lounge/SafePuzzle.unity
+    guid: bb5e6d50cc853f34cbb815e308a94cd6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
