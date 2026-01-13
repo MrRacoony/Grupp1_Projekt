@@ -371,6 +371,8 @@ MonoBehaviour:
   - {fileID: 1713182416}
   - {fileID: 1349669475}
   - {fileID: 1870496324}
+  - {fileID: 405324256}
+  - {fileID: 1923327962}
 --- !u!60 &72094811
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8847,6 +8849,8 @@ MonoBehaviour:
   - {fileID: 1349669475}
   - {fileID: 1870496324}
   - {fileID: 1654456749}
+  - {fileID: 405324256}
+  - {fileID: 1923327962}
 --- !u!60 &1870496329
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10506,6 +10510,8 @@ MonoBehaviour:
   - {fileID: 1349669475}
   - {fileID: 2063950061}
   - {fileID: 1713182416}
+  - {fileID: 405324256}
+  - {fileID: 1923327962}
   chess: {fileID: 0}
 --- !u!1 &2095896372
 GameObject:

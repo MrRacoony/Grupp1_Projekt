@@ -17,7 +17,7 @@ public class RadioDial : MonoBehaviour
     [SerializeField] private AudioSource source = new AudioSource();
 
     [SerializeField] private float volume;
-    [SerializeField] private SpriteRenderer light;
+    [SerializeField] private SpriteRenderer lightRenderer;
     [SerializeField] private Animator lightAnim, lightAnimB7, lightAnimF4, lightAnimD1;
 
     [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
@@ -88,8 +88,8 @@ public class RadioDial : MonoBehaviour
 
     public void SetChannelVolumes(float frequency) {
         
-        if (light != null) {
-            light.color = new Color(1f,1f,1f,0f);
+        if (lightRenderer != null) {
+            lightRenderer.color = new Color(1f,1f,1f,0f);
         }
         
         currentAngle = transform.localRotation.eulerAngles.z;
@@ -126,7 +126,7 @@ public class RadioDial : MonoBehaviour
         if(transform.parent.GetComponent<RadioManager>().GetChannel() == 1) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, volume);
-            light = null;
+            lightRenderer = null;
             lightAnim = null;
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, 0f);
@@ -137,7 +137,7 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 2) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation2, volume);
-            light = GameObject.Find("RadioLightB7").GetComponent<SpriteRenderer>();
+            lightRenderer = GameObject.Find("RadioLightB7").GetComponent<SpriteRenderer>();
             lightAnim = GameObject.Find("RadioLightB7").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
@@ -148,7 +148,7 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 3) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation3, volume);
-            light = null;
+            lightRenderer = null;
             lightAnim = null;
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
@@ -159,7 +159,7 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 4) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, volume);
-            light = GameObject.Find("RadioLightF4").GetComponent<SpriteRenderer>();
+            lightRenderer = GameObject.Find("RadioLightF4").GetComponent<SpriteRenderer>();
             lightAnim = GameObject.Find("RadioLightF4").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
@@ -170,7 +170,7 @@ public class RadioDial : MonoBehaviour
         else if(transform.parent.GetComponent<RadioManager>().GetChannel() == 5) {
             SoundManager.SetVolume(SoundManager.Sound.RadioDialStatic, staticVolume);
             SoundManager.SetVolume(SoundManager.Sound.RadioStation5, volume);
-            light = GameObject.Find("RadioLightD1").GetComponent<SpriteRenderer>();
+            lightRenderer = GameObject.Find("RadioLightD1").GetComponent<SpriteRenderer>();
             lightAnim = GameObject.Find("RadioLightD1").GetComponent<Animator>();
 
             SoundManager.SetVolume(SoundManager.Sound.RadioStation1, 0f);
@@ -179,12 +179,12 @@ public class RadioDial : MonoBehaviour
             SoundManager.SetVolume(SoundManager.Sound.RadioStation4, 0f);
         }
 
-        if(light != null) {
+        if(lightRenderer != null) {
             if(volume > 0) {
-                light.color = new Color(1f,1f,1f,1f);
+                lightRenderer.color = new Color(1f,1f,1f,1f);
             }
             else {
-                light.color = new Color(1f,1f,1f,0f);
+                lightRenderer.color = new Color(1f,1f,1f,0f);
             }
         }
         
