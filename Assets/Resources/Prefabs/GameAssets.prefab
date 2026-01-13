@@ -250,3 +250,18 @@ MonoBehaviour:
     looping: 0
     pitch: 1
     volume: 1
+  - sound: 41
+    audioClip: {fileID: 8300000, guid: db9d6a34ec898404abcc836321c69ad0, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
+  - sound: 42
+    audioClip: {fileID: 8300000, guid: 56a0fbb5825e393409856514ecb88833, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1
+  - sound: 43
+    audioClip: {fileID: 8300000, guid: 2f7e738998f13194488aea0bd1364cd1, type: 3}
+    looping: 0
+    pitch: 1
+    volume: 1

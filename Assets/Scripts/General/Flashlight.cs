@@ -33,9 +33,7 @@ public class Flashlight : MonoBehaviour
             started = true;
             StartCoroutine(StartLight());
         }
-        else {
-            isOn = true;
-        }
+        
         if (isOn)
         {
         GetComponent<Light2D>().enabled = true;

@@ -62,7 +62,6 @@ public class Puzzle1Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         lockMechanism.GetComponent<Vaultlock>().NextLock();
-        
     }
 
     public void CheckBox() {

@@ -49,6 +49,9 @@ public static class SoundManager
         Ambience3,
         SafeDialLeft,
         SafeDialRight,
+        SafeClick,
+        SafeOpen,
+        ScaryShock2,
     }
 
     // Keep references to active AudioSources

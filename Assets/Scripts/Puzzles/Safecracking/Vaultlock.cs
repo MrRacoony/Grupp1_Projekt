@@ -4,6 +4,7 @@ public class Vaultlock : MonoBehaviour
 {
 
     [SerializeField] private GameObject lock1, lock2, lock3, lockUnlocked1, lockUnlocked2, lockUnlocked3;
+    [SerializeField] private GameObject puzzleOverlay, safeOpen, safeClosed;
 
     private int lockNum;
 
@@ -32,19 +33,25 @@ public class Vaultlock : MonoBehaviour
     public void NextLock() {
         lockNum++;
         if(lockNum == 1) {
+            SoundManager.PlaySound(SoundManager.Sound.SafeClick);
             lock1.SetActive(false);
             lock2.SetActive(true);
             lock3.SetActive(false);
             lockUnlocked1.SetActive(true);
         }
         else if(lockNum == 2) {
+            SoundManager.PlaySound(SoundManager.Sound.SafeClick);
             lock1.SetActive(false);
             lock2.SetActive(false);
             lock3.SetActive(true);
             lockUnlocked2.SetActive(true);
         }
         else if(lockNum == 3) {
-            
+            SoundManager.PlaySound(SoundManager.Sound.SafeClick);
+            SoundManager.PlaySound(SoundManager.Sound.SafeOpen);
+            puzzleOverlay.SetActive(false);
+            safeOpen.SetActive(true);
+            safeClosed.SetActive(false);
         }
     }
 
